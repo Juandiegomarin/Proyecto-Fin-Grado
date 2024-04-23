@@ -12,6 +12,7 @@ public class ProyectService {
 
         ArrayList <String> lista = new ArrayList<String>();
         lista.add("Hola");
+        lista.add("Esto es un añadido a la lista");
         lista.add("Adios");
         return lista;
     }

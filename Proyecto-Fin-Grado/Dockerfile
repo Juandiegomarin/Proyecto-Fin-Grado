@@ -1,19 +1,18 @@
-FROM amazoncorretto:17-alpine as builder
-WORKDIR application 
-ARG JAR_FILE=target/Proyecto-Fin-Grado-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} Proyecto-Fin-Grado-0.0.1-SNAPSHOT.jar
-VOLUME /tmp
-RUN java -Djarmode=layertools -jar Proyecto-Fin-Grado-0.0.1-SNAPSHOT.jar extract
+FROM maven:3-amazoncorretto-17 as builder
+WORKDIR /application 
+COPY . .
+RUN mvn clean install
+RUN java -Djarmode=layertools -jar target/Proyecto-Fin-Grado-0.0.1-SNAPSHOT.jar extract
 
 FROM amazoncorretto:17-alpine
 ENV TZ=Europe/Madrid
 RUN ln -snf "/usr/share/zoneinfo/$TZ/" "etc/localtime" && echo "$TZ" > "/etc/timezone"
-WORKDIR application
+WORKDIR /application
 
-COPY --from=builder application/dependencies/ ./
-COPY --from=builder application/spring-boot-loader/ ./
-COPY --from=builder application/snapshot-dependencies/ ./
-COPY --from=builder application/application/ ./
+COPY --from=builder /application/dependencies/ ./
+COPY --from=builder /application/spring-boot-loader/ ./
+COPY --from=builder /application/snapshot-dependencies/ ./
+COPY --from=builder /application/application/ ./
 
 EXPOSE 8080
 

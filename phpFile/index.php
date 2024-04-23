@@ -14,6 +14,7 @@ include("Global.php");
     <?php
     $response= consumir_servicios_REST(DIR_SERV."/productos","GET");
     echo "<p>Hola esta es la respuesta".$response."</p>";
+    echo "<p>Nueva Linea</p>";
     ?>
     
 </body>

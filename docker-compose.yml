@@ -54,6 +54,8 @@ services:
   spring:
     build: Proyecto-Fin-Grado
     hostname: springProyect #sustituir por localhost
+    depends_on:
+      - mysql
     ports: 
       - '8080:8080'
     restart: unless-stopped       
