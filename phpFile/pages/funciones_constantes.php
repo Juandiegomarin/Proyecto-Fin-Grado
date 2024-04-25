@@ -1,0 +1,45 @@
+<?php
+//Sesiones ------------------
+session_name("Proyecto_Fin_Grado");
+session_start();
+
+//Constantes-----------------
+
+//Metodos
+define("METODO_POST","POST");
+define("METODO_GET","GET");
+//urls
+define("DIR_SERV", "http://springProyect:8080");
+define("EXISTE_NOMBRE_USUARIO",DIR_SERV."/existeNombreUsuario");
+define("EXISTE_EMAIL",DIR_SERV."/existeEmail");
+define("INSERTAR",DIR_SERV."/insertar");
+
+
+//funciones------------------
+function consumir_servicios_REST($url, $metodo, $datos=null)
+{
+    $llamada = curl_init();
+    curl_setopt($llamada, CURLOPT_URL, $url);
+    curl_setopt($llamada, CURLOPT_CONNECTTIMEOUT, 60);
+    curl_setopt($llamada, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($llamada, CURLOPT_CUSTOMREQUEST, $metodo);
+    if (isset($datos))
+        curl_setopt($llamada, CURLOPT_POSTFIELDS, http_build_query($datos));
+    $respuesta = curl_exec($llamada);
+
+    if ($respuesta === false) {
+        $error = curl_error($llamada);
+        // Manejar el error aquí, por ejemplo:
+        echo "Error en la llamada cURL: " . $error;
+    } else {
+        // Procesar el resultado aquí
+    }
+    curl_close($llamada);
+    return $respuesta;
+}
+
+function validarEmail($email) {
+    $regex = '/^\\S+@\\S+\\.\\S+$/';
+    return preg_match($regex, $email);
+}
+?>

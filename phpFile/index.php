@@ -1,21 +1,103 @@
 <?php
-include("Global.php");
+include("pages/funciones_constantes.php");
+
+if (isset($_POST["btnLogin"])) {
+
+    $error_usuario = $_POST["usuario"] == "" || $_POST["usuario"] != "Juan Diego";
+    $error_clave = $_POST["clave"] == "";
+    if (!$error_clave && $_POST["clave"] != "1234") {
+        $error_usuario = true;
+    }
+    $error_login = $error_usuario || $error_clave;
+
+    if (!$error_login) {
+        $_SESSION["login"] = true;
+        header("Location:index.php");
+        exit;
+    }
+}
+if (isset($_POST["btnContRegistrarse"])) {
+
+
+
+    $datos = array();
+    $datos["name"] = $_POST["usuario"];
+
+    $response = consumir_servicios_REST(EXISTE_NOMBRE_USUARIO, METODO_POST, $datos);
+
+    $error_usuario = false;
+    if ($response == "EXIST") {
+        $error_usuario = true;
+    }
+
+    $response = $_POST["clave"] != $_POST["clave2"];
+
+    $error_clave = false;
+    if ($response == 1) {
+        $error_clave = true;
+    }
+
+    $response_email = validarEmail($_POST["email"]);
+    $error_email = false;
+
+    if ($response_email == 1) {
+        $datos["email"] = $_POST["email"];
+        $response_email = consumir_servicios_REST(EXISTE_EMAIL, METODO_POST, $datos);
+
+        if ($response_email == "EXIST") {
+            $error_email = true;
+        }
+    } else {
+        $error_email = true;
+    }
+
+
+    $error_form = $error_usuario || $error_clave || $error_email;
+
+
+
+
+    // if (!$error_form) {
+
+
+
+    //     $datos["clave"] = $_POST["clave"];
+
+    //     $response = consumir_servicios_REST(INSERTAR, METODO_POST, $datos);
+
+    //     if ($response == "OK") {
+    //         header("Location:index.php");
+    //         exit;
+    //     }
+    // }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esto es una prueba</title>
+    <title>Orderly</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
-<body>
 
-    <h1>Esta es mi página</h1>
+<body>
     <?php
-    $response= consumir_servicios_REST(DIR_SERV."/productos","GET");
-    echo "<p>Hola esta es la respuesta".$response."</p>";
-    echo "<p>Nueva Linea</p>";
+    if (isset($_POST["btnRegistrarse"]) || isset($_POST["btnContRegistrarse"])) {
+
+        include("pages/register.php");
+    } else {
+        include("pages/login.php");
+    }
+
     ?>
-    
+
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </html>
