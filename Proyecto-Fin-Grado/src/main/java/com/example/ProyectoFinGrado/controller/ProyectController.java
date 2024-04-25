@@ -26,11 +26,6 @@ public class ProyectController {
     
     private final ProyectService service;
 
-    @GetMapping("/productos")
-    public ArrayList<String> productos() {
-        
-        return service.obtenerProductos();
-    }
     @PostMapping("/existeNombreUsuario")
     public String existeNombreUsuario(
         @RequestParam(name = "name") String name

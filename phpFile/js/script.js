@@ -14,5 +14,7 @@ $("#registro>input").on("blur",function(){
         $(this).css("border-color", "black")
     }
 })
+
+$
     
 })

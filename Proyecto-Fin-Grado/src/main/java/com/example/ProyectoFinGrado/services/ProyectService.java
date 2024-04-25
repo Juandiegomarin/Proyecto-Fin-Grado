@@ -1,9 +1,7 @@
 package com.example.ProyectoFinGrado.services;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
-import org.hibernate.mapping.List;
 import org.springframework.stereotype.Service;
 
 import com.example.ProyectoFinGrado.constants.Constants;
@@ -18,14 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 public class ProyectService {
     
     private final UsuarioRepository usuarioRepository;
-    public ArrayList <String> obtenerProductos(){
-
-        ArrayList <String> lista = new ArrayList<String>();
-        lista.add("Hola");
-        lista.add("Esto es un añadido a la lista");
-        lista.add("Adios");
-        return lista;
-    }
 
     public String existeNombreUsuario(String name){
 

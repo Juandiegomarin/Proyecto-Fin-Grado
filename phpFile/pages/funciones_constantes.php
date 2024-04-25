@@ -10,6 +10,7 @@ define("METODO_POST","POST");
 define("METODO_GET","GET");
 //urls
 define("DIR_SERV", "http://springProyect:8080");
+//define("DIR_SERV", "http://localhost:8081"); //url local
 define("EXISTE_NOMBRE_USUARIO",DIR_SERV."/existeNombreUsuario");
 define("EXISTE_EMAIL",DIR_SERV."/existeEmail");
 define("INSERTAR",DIR_SERV."/insertar");

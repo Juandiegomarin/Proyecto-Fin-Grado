@@ -8,10 +8,19 @@
             echo "<span>Este usuario ya esta en uso</span>";
         }
         ?>
+        <div class="containerPassword">
         <input type="password" name="clave" id="clave" aria-label="clave" placeholder="Contraseña" minlength="8">
+        <img src="../assets/icons/show.svg" alt="Show">
+        <img src="../assets/icons/no-show.svg" alt="No show">
+        </div>
         <small>Para continuar con el registro debes rellenar este campo</small>
 
-        <input type="password" name="clave2" id="clave2" aria-label="clave2" placeholder="Confirmar Contraseña">
+        <div class="containerPassword">
+            <input type="password" name="clave2" id="clave2" aria-label="clave2" placeholder="Confirmar Contraseña">
+            <img src="../assets/icons/show.svg" alt="Show">
+            <img src="../assets/icons/no-show.svg" alt="No show">
+        </div>
+        
         <small>Para continuar con el registro debes rellenar este campo</small>
         <?php
         if(isset($_POST["btnContRegistrarse"]) && $error_clave){
@@ -19,7 +28,6 @@
                 echo "<span>La contraseña debe coincidir</span>";
         }
         ?>
-
         <input type="email" name="email" id="email" aria-label="Email" placeholder="Correo Electrónico" value="<?php if(isset($_POST["btnContRegistrarse"])) echo $_POST["email"]?>">
         <small>Para continuar con el registro debes rellenar este campo</small>
         <?php
