@@ -1,7 +1,7 @@
-<div id="formulario">
+<div class="formulario">
     <h1>Register</h1>
     <form action="../index.php" method="post" id="registro">
-        <input type="text" name="usuario" id="usuario" aria-label="usuario" placeholder="Nombre de Usuario" minlength="5" value="<?php if(isset($_POST["btnContRegistrarse"])) echo $_POST["usuario"]?>">
+        <input type="text" name="usuario" id="usuario" aria-label="usuario" placeholder="Nombre de Usuario" minlength="5" required value="<?php if(isset($_POST["btnContRegistrarse"])) echo $_POST["usuario"]?>">
         <small>Para continuar con el registro debes rellenar este campo</small>
         <?php
         if(isset($_POST["btnContRegistrarse"]) && $error_usuario){
@@ -9,7 +9,7 @@
         }
         ?>
         <div class="containerPassword">
-        <input type="password" name="clave" id="clave" aria-label="clave" placeholder="Contraseña" minlength="8">
+        <input type="password" name="clave" id="clave" aria-label="clave" placeholder="Contraseña" minlength="8" required>
         <img src="../assets/icons/show.svg" alt="Show">
         <img src="../assets/icons/no-show.svg" alt="No show">
         </div>
@@ -28,7 +28,7 @@
                 echo "<span>La contraseña debe coincidir</span>";
         }
         ?>
-        <input type="email" name="email" id="email" aria-label="Email" placeholder="Correo Electrónico" value="<?php if(isset($_POST["btnContRegistrarse"])) echo $_POST["email"]?>">
+        <input type="email" name="email" id="email" aria-label="Email" placeholder="Correo Electrónico" required value="<?php if(isset($_POST["btnContRegistrarse"])) echo $_POST["email"]?>">
         <small>Para continuar con el registro debes rellenar este campo</small>
         <?php
         if(isset($_POST["btnContRegistrarse"]) && $error_email){
@@ -44,7 +44,7 @@
             <button type="submit" class="btn btn-primary" name="btnContRegistrarse">Register</button>
         </div>
         <div>
-            <button class="btn btn-primary" onclick="goBack()">Back</button>
+            <button class="btn btn-primary" type="submit" onclick="removeRequiredRegister()">Back</button>
         </div>
     </form>
 </div>

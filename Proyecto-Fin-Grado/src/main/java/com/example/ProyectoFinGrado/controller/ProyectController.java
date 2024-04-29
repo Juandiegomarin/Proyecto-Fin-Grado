@@ -50,5 +50,13 @@ public class ProyectController {
     ) {
         log.info("Insertar parametros:{}"+name+" "+clave+" "+email);
         return service.insertar(name, clave, email);
-    }  
+    } 
+    
+    @PostMapping("/comprobarUsuarioLogueado")
+    public String comprobarUsuarioLogueado(
+        @RequestParam(name = "name") String name,
+        @RequestParam(name = "clave") String clave
+    ) {
+        return service.comprobarUsuarioLogueado(name,clave);
+    }
 }

@@ -53,4 +53,13 @@ public class ProyectService {
         
         return Constants.OK.toString();
     }
+
+        public String comprobarUsuarioLogueado(String name,String clave){
+        Optional <Usuario> ul= usuarioRepository.findByNombreUsuarioAndClave(name, clave);
+
+        if (ul.isPresent()) {
+            return Constants.EXIST.toString();
+        }
+        return Constants.NOEXIST.toString();
+    }
 }

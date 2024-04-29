@@ -1,19 +1,27 @@
 <?php
 include("pages/funciones_constantes.php");
 
+if(isset($_POST["btnSalir"])){
+    
+    session_destroy();
+    header("Location:index.php");
+    exit;
+}
 if (isset($_POST["btnLogin"])) {
 
-    $error_usuario = $_POST["usuario"] == "" || $_POST["usuario"] != "Juan Diego";
-    $error_clave = $_POST["clave"] == "";
-    if (!$error_clave && $_POST["clave"] != "1234") {
-        $error_usuario = true;
-    }
-    $error_login = $error_usuario || $error_clave;
+    $datos["name"] = $_POST["usuarioL"];
+    $datos["clave"] = $_POST["clave"];
 
-    if (!$error_login) {
+    $response = consumir_servicios_REST(COMPROBAR_USUARIO_LOGUEADO,METODO_POST,$datos);
+    
+    if($response==RESPONSE_EXIST){
+
         $_SESSION["login"] = true;
         header("Location:index.php");
         exit;
+
+    }else{
+        $error_logueo=true;
     }
 }
 if (isset($_POST["btnContRegistrarse"])) {
@@ -26,10 +34,11 @@ if (isset($_POST["btnContRegistrarse"])) {
     $response = consumir_servicios_REST(EXISTE_NOMBRE_USUARIO, METODO_POST, $datos);
 
     $error_usuario = false;
-    if ($response == "EXIST") {
+    if ($response == RESPONSE_EXIST) {
         $error_usuario = true;
     }
 
+    $datos["clave"] = $_POST["clave"];
     $response = $_POST["clave"] != $_POST["clave2"];
 
     $error_clave = false;
@@ -57,19 +66,13 @@ if (isset($_POST["btnContRegistrarse"])) {
 
 
 
-    // if (!$error_form) {
-
-
-
-    //     $datos["clave"] = $_POST["clave"];
-
-    //     $response = consumir_servicios_REST(INSERTAR, METODO_POST, $datos);
-
-    //     if ($response == "OK") {
-    //         header("Location:index.php");
-    //         exit;
-    //     }
-    // }
+    if (!$error_form) {
+        $response = consumir_servicios_REST(INSERTAR, METODO_POST, $datos);
+        if ($response == RESPONSE_OK) {
+            header("Location:index.php");
+            exit;
+        }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -87,12 +90,23 @@ if (isset($_POST["btnContRegistrarse"])) {
 
 <body>
     <?php
-    if (isset($_POST["btnRegistrarse"]) || isset($_POST["btnContRegistrarse"])) {
+    if(isset($_SESSION["login"])){
 
-        include("pages/register.php");
-    } else {
-        include("pages/login.php");
+        include("pages/home.php");
+
+    }else{
+
+        if (isset($_POST["btnRegistrarse"]) || isset($_POST["btnContRegistrarse"])) {
+
+            include("pages/register.php");
+        } else {
+            include("pages/login.php");
+        }
+
+
     }
+
+    
 
     ?>
 
