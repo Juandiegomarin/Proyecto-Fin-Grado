@@ -40,14 +40,14 @@ $(document).ready(function () {
         }
     })
 
-    $("#formulario>form>.containerPassword>:nth-child(2)").on("click", function () {
+    $(".formulario>form>.containerPassword>:nth-child(2)").on("click", function () {
 
         $(this).css("display", "none")
         $(this).siblings("img").css("display", "flex");
         $(this).siblings("input").attr("type", "text")
     })
 
-    $("#formulario>form>.containerPassword>:nth-child(3)").on("click", function () {
+    $(".formulario>form>.containerPassword>:nth-child(3)").on("click", function () {
 
         $(this).css("display", "none")
         $(this).siblings("img").css("display", "flex");

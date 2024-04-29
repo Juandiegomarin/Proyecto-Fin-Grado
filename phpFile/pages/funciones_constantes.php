@@ -1,9 +1,9 @@
 <?php
-//Sesiones ------------------------------------------
+//Sesiones -------------------------------------------------------------------------
 session_name("Proyecto_Fin_Grado");
 session_start();
 
-//Constantes-----------------------------------------
+//Constantes------------------------------------------------------------------------
 
 //Metodos
 define("METODO_POST","POST");
@@ -16,6 +16,7 @@ define("EXISTE_NOMBRE_USUARIO",DIR_SERV."/existeNombreUsuario");
 define("EXISTE_EMAIL",DIR_SERV."/existeEmail");
 define("INSERTAR",DIR_SERV."/insertar");
 define("COMPROBAR_USUARIO_LOGUEADO",DIR_SERV."/comprobarUsuarioLogueado");
+define("OBTENER_TIPOS_PRODUCTOS",DIR_SERV."/obtenerTiposProductos");
 
 //Respuestas
 define("RESPONSE_OK","OK");
@@ -23,7 +24,7 @@ define("RESPONSE_ERROR","ERROR");
 define("RESPONSE_EXIST","EXIST");
 define("RESPONSE_NOEXIST","NOEXIST");
 
-//funciones------------------------------------------
+//funciones-------------------------------------------------------------------------
 function consumir_servicios_REST($url, $metodo, $datos=null)
 {
     $llamada = curl_init();

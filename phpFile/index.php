@@ -13,7 +13,6 @@ if (isset($_POST["btnLogin"])) {
     $datos["clave"] = $_POST["clave"];
 
     $response = consumir_servicios_REST(COMPROBAR_USUARIO_LOGUEADO,METODO_POST,$datos);
-    
     if($response==RESPONSE_EXIST){
 
         $_SESSION["login"] = true;
@@ -74,6 +73,11 @@ if (isset($_POST["btnContRegistrarse"])) {
         }
     }
 }
+if(isset($_SESSION["login"])){
+
+    //llamada para obtener los datos del sidebar
+    $response = json_decode(consumir_servicios_REST(OBTENER_TIPOS_PRODUCTOS,METODO_GET));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,9 +95,8 @@ if (isset($_POST["btnContRegistrarse"])) {
 <body>
     <?php
     if(isset($_SESSION["login"])){
-
+        include("pages/header.php");
         include("pages/home.php");
-
     }else{
 
         if (isset($_POST["btnRegistrarse"]) || isset($_POST["btnContRegistrarse"])) {

@@ -1,11 +1,14 @@
 package com.example.ProyectoFinGrado.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.example.ProyectoFinGrado.constants.Constants;
+import com.example.ProyectoFinGrado.entities.TipoProducto;
 import com.example.ProyectoFinGrado.entities.Usuario;
+import com.example.ProyectoFinGrado.repository.TipoProductoRepository;
 import com.example.ProyectoFinGrado.repository.UsuarioRepository;
 
 import lombok.AllArgsConstructor;
@@ -16,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ProyectService {
     
     private final UsuarioRepository usuarioRepository;
+    private final TipoProductoRepository tipoProductoRepository;
 
     public String existeNombreUsuario(String name){
 
@@ -61,5 +65,10 @@ public class ProyectService {
             return Constants.EXIST.toString();
         }
         return Constants.NOEXIST.toString();
+    }
+
+    public List<TipoProducto> obtenerTiposProductos(){
+
+        return tipoProductoRepository.findAll();
     }
 }

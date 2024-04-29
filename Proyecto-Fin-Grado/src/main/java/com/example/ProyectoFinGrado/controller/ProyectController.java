@@ -1,6 +1,7 @@
 package com.example.ProyectoFinGrado.controller;
 
 
+import com.example.ProyectoFinGrado.entities.TipoProducto;
 import com.example.ProyectoFinGrado.entities.Usuario;
 import com.example.ProyectoFinGrado.services.ProyectService;
 
@@ -12,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,4 +60,11 @@ public class ProyectController {
     ) {
         return service.comprobarUsuarioLogueado(name,clave);
     }
+
+    @GetMapping("/obtenerTiposProductos")
+    public List<TipoProducto> obtenerTiposProductos() {
+        
+        return service.obtenerTiposProductos();
+    }
+    
 }

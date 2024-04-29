@@ -92,3 +92,33 @@ body {
 .formulario>form>span {
     color: red;
 }
+
+#home{
+    display: flex;
+    flex-flow: row wrap;
+    background-color: white;
+    background-size: cover;
+}
+#home>#sidebar{
+    width: 25%;
+    border: 1px solid red;
+}
+#home>#content{
+    width: 75%;
+}
+#home>#content>#content-body{
+    display: flex;
+    flex-flow: row wrap;
+}
+#home>#content>#content-body>div{
+    flex: 0 20%;
+    text-align: center;
+    border: 1px solid green;
+}
+header{
+    width: 100%;
+    background-color: white;
+}
+#menu{
+    
+}
