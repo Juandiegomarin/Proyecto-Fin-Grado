@@ -1,8 +1,6 @@
 <?php
 include("pages/funciones_constantes.php");
-
-if(isset($_POST["btnSalir"])){
-    
+if (isset($_POST["btnSalir"])) {
     session_destroy();
     header("Location:index.php");
     exit;
@@ -12,21 +10,17 @@ if (isset($_POST["btnLogin"])) {
     $datos["name"] = $_POST["usuarioL"];
     $datos["clave"] = $_POST["clave"];
 
-    $response = consumir_servicios_REST(COMPROBAR_USUARIO_LOGUEADO,METODO_POST,$datos);
-    if($response==RESPONSE_EXIST){
+    $response = consumir_servicios_REST(COMPROBAR_USUARIO_LOGUEADO, METODO_POST, $datos);
+    if ($response == RESPONSE_EXIST) {
 
         $_SESSION["login"] = true;
         header("Location:index.php");
         exit;
-
-    }else{
-        $error_logueo=true;
+    } else {
+        $error_logueo = true;
     }
 }
 if (isset($_POST["btnContRegistrarse"])) {
-
-
-
     $datos = array();
     $datos["name"] = $_POST["usuario"];
 
@@ -59,12 +53,7 @@ if (isset($_POST["btnContRegistrarse"])) {
         $error_email = true;
     }
 
-
     $error_form = $error_usuario || $error_clave || $error_email;
-
-
-
-
     if (!$error_form) {
         $response = consumir_servicios_REST(INSERTAR, METODO_POST, $datos);
         if ($response == RESPONSE_OK) {
@@ -72,11 +61,6 @@ if (isset($_POST["btnContRegistrarse"])) {
             exit;
         }
     }
-}
-if(isset($_SESSION["login"])){
-
-    //llamada para obtener los datos del sidebar
-    $response = json_decode(consumir_servicios_REST(OBTENER_TIPOS_PRODUCTOS,METODO_GET));
 }
 ?>
 <!DOCTYPE html>
@@ -88,16 +72,17 @@ if(isset($_SESSION["login"])){
     <title>Orderly</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.cdnfonts.com/css/oswald-4" rel="stylesheet">
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/script.js"></script>
 </head>
 
 <body>
     <?php
-    if(isset($_SESSION["login"])){
+    if (isset($_SESSION["login"])) {
         include("pages/header.php");
         include("pages/home.php");
-    }else{
+    } else {
 
         if (isset($_POST["btnRegistrarse"]) || isset($_POST["btnContRegistrarse"])) {
 
@@ -105,11 +90,9 @@ if(isset($_SESSION["login"])){
         } else {
             include("pages/login.php");
         }
-
-
     }
 
-    
+
 
     ?>
 

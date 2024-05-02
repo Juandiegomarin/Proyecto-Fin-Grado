@@ -1,14 +1,43 @@
+<?php
+if(isset($_SESSION["login"])){
+
+    //llamada para obtener los datos del sidebar
+    $response = json_decode(consumir_servicios_REST(OBTENER_TIPOS_PRODUCTOS,METODO_GET));
+}
+?>
 <div id="home">
 
     <div id="sidebar">
 
         <div id="sidebar-header">
-            <p>Nuestros productos</p>
+
+            <a href="index.php?id=principal">
+                <div class="sidebar-div-border  <?php echo (!isset($_GET["id"]) || $_GET["id"]=="principal") ? "clicked" : "noClicked" ?>">
+                    <div>
+                        <img src="../assets/img/logo.jpg" alt="Logo">
+                    </div>
+                    <div>
+                        <span>Nuestros productos</span>
+                    </div>
+                </div>
+            </a>
+
         </div>
         <div id="sidebar-list">
             <?php
+            $id = 0;
             foreach ($response as $tipo_producto) {
-                echo "<div>Descripcion " . $tipo_producto->descripcion . "</div>";
+                
+                $is_clicked = "clicked";
+            ?>
+                <a href="index.php?id=<?php echo $id ?>">
+                    <div class="sidebar-div-border <?php echo (isset($_GET["id"]) && $_GET["id"]==$id) ? "clicked" : "noClicked" ?>">
+                        <div><img src='assets/img/logo.jpg' alt='Logo'></div>
+                        <div> <span><?php echo $tipo_producto->descripcion?></span></div>
+                    </div>
+                </a>
+            <?php
+            $id++;
             }
             ?>
         </div>
@@ -25,7 +54,12 @@
 
             <?php
             foreach ($response as $tipo_producto) {
-                echo "<div>". $tipo_producto->descripcion ."</div>";
+            ?>    
+            <div>
+                <img src="assets/img/logo.jpg" alt="Logo">
+                <span><?php echo $tipo_producto->descripcion?></span>
+            </div>    
+            <?php
             }
             ?>
 

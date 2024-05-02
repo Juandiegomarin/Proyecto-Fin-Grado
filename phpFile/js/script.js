@@ -1,6 +1,6 @@
 
 //JavaScript
-window.addEventListener('pageshow', function(event) {
+window.addEventListener('pageshow', function (event) {
     // borra el formulario (asumiendo que sólo hay uno; si hay más, especifica su Id)
     document.querySelector("form").reset();
 });
@@ -53,4 +53,19 @@ $(document).ready(function () {
         $(this).siblings("img").css("display", "flex");
         $(this).siblings("input").attr("type", "password")
     })
+
+
+    $('.sidebar-div-border').on({
+        "mouseenter": function () {
+            $(this).children('div').children('span').css("color", "#0CB3D1")
+        }, "mouseleave": function () {
+
+            if (!$(this).hasClass("clicked")) {
+
+                $(this).children('div').children('span').css("color", "black")
+            }
+
+        }
+    })
+
 })

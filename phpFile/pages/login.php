@@ -1,12 +1,12 @@
 <div class="formulario">
     <h1>Iniciar Sesión</h1>
-    <form action="../index.php" method="post" id="login">
+    <form action="index.php" method="post" id="login">
 
-        <input type="text" name="usuarioL" id="usuario" aria-label="Usuario" placeholder="Usuario" required value="<?php if(isset($_POST["usuarioL"]))  echo $_POST["usuarioL"];?>">
+        <input type="text" name="usuarioL" id="usuario" aria-label="Usuario" placeholder="Usuario" required value="<?php if (isset($_POST["usuarioL"]))  echo $_POST["usuarioL"]; ?>">
         <small>Para continuar con el registro debes rellenar este campo</small>
         <?php
-        if(isset($_POST["btnLogin"]) && $error_logueo){
-            echo "<span>Usuario/Contraseña incorrectos</span>";
+        if (isset($_POST["btnLogin"]) && $error_logueo) {
+            echo "<span class='error'>Usuario/Contraseña incorrectos</span>";
         }
         ?>
 
