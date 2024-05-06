@@ -12,7 +12,9 @@
 }
 
 /*Parte de los formularios del login como de el regsitro-------------------*/
-
+body{
+    min-width: 400px;
+}
 .formulario {
     display: flex;
     flex-direction: column;
@@ -137,7 +139,18 @@
     cursor: default;
     color: #0CB3D1;
     border-left: 5px solid #0cb3d1;
-    border-radius: "6px";
+}
+.clicked-both{
+    cursor: default;
+    color: #0CB3D1;
+    border-left: 5px solid #0cb3d1;
+    border-radius: 6px;
+}
+.clicked-first{
+border-top-left-radius: 6px;
+}
+.clicked-end{
+    border-bottom-left-radius: 6px;
 }
 
 .noClicked {
@@ -277,21 +290,64 @@ header>#menu>#secondary-menu {
     text-decoration: wavy underline #0CB3D1;
     text-decoration-thickness: 2px;
 }
-#home{
+
+#home {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color:#E4F4F7;
 }
+
 #home>#contenedor-carrusel {
     display: flex;
     flex-direction: column;
+    margin-top: 3rem;
     width: 60%;
     height: 68.5vh;
 }
-.carousel-control-prev, .carousel-control-next{
+
+.carousel-control-prev,
+.carousel-control-next {
     opacity: 0.5;
 }
-.carousel-control-prev-icon,.carousel-control-next-icon{
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    border: 1px solid white;
     background-color: black;
     border-radius: 20px;
+    padding: 1.3rem;
+}
+
+#home>#cartas {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+#home>#cartas>.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex:40% 0;
+    margin: 2rem 5%;
+}
+
+#home>#cartas>.card>h5 {
+    margin: 1rem 0;
+    font-family: 'Luckiest Guy', sans-serif;
+}
+
+#home>#cartas>.card>a {
+    align-self: center;
+    background-color: #F5AD3F;
+    width: 45%;
+    border: none;
+    margin: 2rem 0;
+}
+#home>#cartas>.card>img{
+    margin: 3rem;
+    width: 50%;
 }

@@ -1,7 +1,7 @@
 
-<video autoplay loop muted id="video_background" preload="auto">
+<!-- <video autoplay loop muted id="video_background" preload="auto">
 <source src="../assets/img/Sonidos.mp4" type="video/mp4"/>
-</video>
+</video> -->
 <div class="formulario">
     <h1>Iniciar Sesión</h1>
     <form action="index.php" method="post" id="login">

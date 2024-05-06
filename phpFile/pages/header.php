@@ -1,6 +1,8 @@
 <header>
     <div>
-        <img src="../assets/img/logo.jpg" alt="Logo del Chiringuito Dieguichi">
+        <a href="index.php?page=home">
+        <img src="../assets/img/logo.png" alt="Logo del Chiringuito Dieguichi">
+    </a>
     </div>
     <nav id="menu">
 
