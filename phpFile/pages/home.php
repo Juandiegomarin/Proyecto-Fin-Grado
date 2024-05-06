@@ -1,73 +1,34 @@
-<?php
-if(isset($_SESSION["login"])){
-
-    //llamada para obtener los datos del sidebar
-    $response = json_decode(consumir_servicios_REST(OBTENER_TIPOS_PRODUCTOS,METODO_GET));
-}
-?>
 <div id="home">
-
-    <div id="sidebar">
-
-        <div id="sidebar-header">
-
-            <a href="index.php?id=principal">
-                <div class="sidebar-div-border  <?php echo (!isset($_GET["id"]) || $_GET["id"]=="principal") ? "clicked" : "noClicked" ?>">
-                    <div>
-                        <img src="../assets/img/logo.jpg" alt="Logo">
-                    </div>
-                    <div>
-                        <span>Nuestros productos</span>
-                    </div>
+    <div id="contenedor-carrusel">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item  active">
+                    <img src="../assets/img/cocktail.jpg" class="d-block w-100 h-auto" alt="Foto">
                 </div>
-            </a>
-
+                <div class="carousel-item">
+                    <img src="../assets/img/playa.png" class="d-block w-100" alt="Foto">
+                </div>
+                <div class="carousel-item">
+                    <img src="../assets/img/calita.png" class="d-block w-100" alt="Foto">
+                </div>
+                <div class="carousel-item">
+                    <img src="../assets/img/Fachada.jpg" class="d-block w-100" alt="Foto">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div id="sidebar-list">
-            <?php
-            $id = 0;
-            foreach ($response as $tipo_producto) {
-                
-                $is_clicked = "clicked";
-            ?>
-                <a href="index.php?id=<?php echo $id ?>">
-                    <div class="sidebar-div-border <?php echo (isset($_GET["id"]) && $_GET["id"]==$id) ? "clicked" : "noClicked" ?>">
-                        <div><img src='assets/img/logo.jpg' alt='Logo'></div>
-                        <div> <span><?php echo $tipo_producto->descripcion?></span></div>
-                    </div>
-                </a>
-            <?php
-            $id++;
-            }
-            ?>
-        </div>
-
     </div>
-
-    <div id="content">
-
-        <div id="content-header">
-            <h1>Nuestros productos</h1>
-            <h2>Tus productos favoritos del Chiringuito Dieguichi</h2>
-        </div>
-        <div id="content-body">
-
-            <?php
-            foreach ($response as $tipo_producto) {
-            ?>    
-            <div>
-                <img src="assets/img/logo.jpg" alt="Logo">
-                <span><?php echo $tipo_producto->descripcion?></span>
-            </div>    
-            <?php
-            }
-            ?>
-
-
-        </div>
-        <form action="../index.php" method="post">
-            <button type="submit" name="btnSalir">Boton</button>
-        </form>
-    </div>
-
 </div>
