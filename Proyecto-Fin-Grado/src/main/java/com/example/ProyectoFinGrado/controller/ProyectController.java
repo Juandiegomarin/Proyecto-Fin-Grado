@@ -1,7 +1,7 @@
 package com.example.ProyectoFinGrado.controller;
 
 
-import com.example.ProyectoFinGrado.entities.TipoProducto;
+import com.example.ProyectoFinGrado.entities.Categoria;
 import com.example.ProyectoFinGrado.entities.Usuario;
 import com.example.ProyectoFinGrado.services.ProyectService;
 
@@ -62,7 +62,7 @@ public class ProyectController {
     }
 
     @GetMapping("/obtenerTiposProductos")
-    public List<TipoProducto> obtenerTiposProductos() {
+    public List<Categoria> obtenerTiposProductos() {
         
         return service.obtenerTiposProductos();
     }

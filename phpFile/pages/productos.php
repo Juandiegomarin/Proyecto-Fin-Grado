@@ -27,17 +27,17 @@ if (isset($_SESSION["login"])) {
             <?php
             $cont = 0;
             $length = count($response);
-            foreach ($response as $tipo_producto) {
+            foreach ($response as $categoria) {
                 if (isset($_GET["section"])&&$_GET["section"] == "Ensaladas y entrantes frios")
                     $clicked = "clicked-first";
                 else if (isset($_GET["section"])&&$_GET["section"] == "Cocktails")
                     $clicked = "clicked-end"
 
             ?>
-                <a href="index.php?page=productos&section=<?php echo $tipo_producto->descripcion ?>">
-                    <div class="sidebar-div-border <?php echo (isset($_GET["section"]) && $_GET["section"] == $tipo_producto->descripcion) ? "clicked $clicked" : "noClicked" ?>">
+                <a href="index.php?page=productos&section=<?php echo $categoria->categoria ?>">
+                    <div class="sidebar-div-border <?php echo (isset($_GET["section"]) && $_GET["section"] == $categoria->categoria) ? "clicked $clicked" : "noClicked" ?>">
                         <div><img src='assets/img/logo.png' alt='Logo'></div>
-                        <div><span><?php echo $tipo_producto->descripcion ?></span></div>
+                        <div><span><?php echo $categoria->categoria ?></span></div>
                     </div>
                 </a>
             <?php
@@ -57,11 +57,11 @@ if (isset($_SESSION["login"])) {
         <div id="content-body">
 
             <?php
-            foreach ($response as $tipo_producto) {
+            foreach ($response as $categoria) {
             ?>
                 <div>
                     <img src="assets/img/logo.png" alt="Logo">
-                    <span><?php echo $tipo_producto->descripcion ?></span>
+                    <span><?php echo $categoria->categoria ?></span>
                 </div>
             <?php
             }

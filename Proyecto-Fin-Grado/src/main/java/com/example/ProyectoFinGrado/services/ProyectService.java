@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.example.ProyectoFinGrado.constants.Constants;
-import com.example.ProyectoFinGrado.entities.TipoProducto;
+import com.example.ProyectoFinGrado.entities.Categoria;
 import com.example.ProyectoFinGrado.entities.Usuario;
 import com.example.ProyectoFinGrado.repository.TipoProductoRepository;
 import com.example.ProyectoFinGrado.repository.UsuarioRepository;
@@ -67,7 +67,7 @@ public class ProyectService {
         return Constants.NOEXIST.toString();
     }
 
-    public List<TipoProducto> obtenerTiposProductos(){
+    public List<Categoria> obtenerTiposProductos(){
 
         return tipoProductoRepository.findAll();
     }

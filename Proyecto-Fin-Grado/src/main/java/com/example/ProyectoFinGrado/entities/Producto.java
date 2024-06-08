@@ -9,7 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Table(name = "producto")
+@Table(name = "productos")
 @Entity
 @Builder
 public class Producto {
