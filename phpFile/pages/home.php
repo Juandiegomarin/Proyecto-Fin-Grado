@@ -1,4 +1,5 @@
 <div id="home">
+   
     <div id="contenedor-carrusel">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-indicators">
@@ -43,9 +44,10 @@
             <h5 class="card-title">Prueba nuestras deliciosas ensaladas</h5>
             <p class="card-text">Descubre nuestro repertorio de ensaladas mediterráneas</p>
             <a href="index.php?page=productos&section=Cocktails" class="btn">Descúbrelas</a>
-        </div><div class="card">
+        </div>
+        <div class="card">
             <img src="../assets/img/pinia_colada.jpg" class="card-img-top" alt="...">
-            <h5 class="card-title">Disfruta los cocktails más refrescantes y deliciosos  del verano.</h5>
+            <h5 class="card-title">Disfruta los cocktails más refrescantes y deliciosos del verano.</h5>
             <p class="card-text">Elige el cocktail que mas prefieras y nosotros nos encargamos de preparartelo</p>
             <a href="index.php?page=productos&section=Cocktails" class="btn">Descúbrelos</a>
         </div>

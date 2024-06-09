@@ -12,14 +12,13 @@
 }
 
 /*Parte de los formularios del login como de el regsitro-------------------*/
-body{
-    min-width: 400px;
-}
+
 .formulario {
     display: flex;
     flex-direction: column;
     background-color: rgb(0, 0, 0);
-    width: 30%;
+    width: 70%;
+    max-width: 500px;
     margin: 0 auto;
     margin-top: 10rem;
     border-radius: 30px;
@@ -33,14 +32,14 @@ body{
     align-items: center;
     align-self: center;
     margin: 3rem 0;
-    width: 80%;
+    width: 100%;
 }
 
 .formulario>form input {
-    width: 60%;
+    width: 80%;
     margin: 1rem 0;
     border-radius: 10px;
-    height: 2rem;
+    height: 2.5rem;
 }
 
 .formulario>h1 {
@@ -65,7 +64,7 @@ body{
 .formulario>form>.containerPassword {
     position: relative;
     display: inline-block;
-    width: 60%;
+    width: 80%;
     margin: 0;
     padding: 0;
 }
@@ -106,6 +105,240 @@ body{
 }
 
 /*Parte de la pagina principal-----------------------------*/
+#productos{
+    display: none;
+}
+#productos-mobil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    background-size: cover;
+    margin-top: 4rem;
+}
+/*Cabecera Titulo*/
+#productos-mobil>#content-header-mobil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    color: #000;
+}
+
+#productos-mobil>#content-header-mobil>h1,h2 {
+    text-align: center;
+    font-family: 'Luckiest Guy', sans-serif;
+}
+#productos-mobil>#lista{
+    display:flex;
+    flex-flow: row wrap;
+    border: 1px solid red;
+}
+#productos-mobil>#seleccion{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 90%;
+    border: 1px solid red;
+}
+
+#productos-mobil>#seleccion>a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Luckiest Guy', sans-serif;
+    font-size: small;
+    padding: 10px;
+}
+#productos-mobil>#seleccion>a>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+#productos-mobil>#seleccion>a img{
+    width: 100px;
+}
+.seleccionado{
+    color: #0CB3D1;
+    border: 2px solid #0CB3D1;
+    border-radius: 6px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    border-bottom: 2px solid lightgrey;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header>div {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+}
+header>div>a{
+    width: 100%;
+}
+header>div>a>img {
+    width: 100px;
+}
+header>#menu-escritorio{
+    display: none;
+}
+header>#menu{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    align-items: end;
+}
+header>#menu>svg{
+    margin-right: 5%;
+    cursor: pointer;
+}
+header>#menu>img{
+    display: none;
+    margin-right: 8%;
+    cursor: pointer;
+}
+header>#menu>#desplegable{
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    list-style: none;
+    padding: 0.5rem 0;
+    top: 102px;
+}
+header>#menu>#desplegable>a{
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+}
+header>#menu>#desplegable>a>li{
+    color: #0CB3D1;
+    padding: 1rem;
+    width: 100%;
+    margin-left: 5%;
+}
+header>#menu>#desplegable>a:hover{
+    background-color: rgb(250, 244, 244);
+}
+.underline {
+    text-decoration: wavy underline #0CB3D1;
+    text-decoration-thickness: 2px;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#E4F4F7;
+}
+
+#home>#contenedor-carrusel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 0.5;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    border: 1px solid white;
+    background-color: black;
+    border-radius: 20px;
+    padding: 1.3rem;
+}
+
+#home>#cartas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#home>#cartas>.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    margin: 2rem 5%;
+}
+
+#home>#cartas>.card>h5 {
+    margin: 1rem 0;
+    font-family: 'Luckiest Guy', sans-serif;
+}
+
+#home>#cartas>.card>a {
+    align-self: center;
+    background-color: #F5AD3F;
+    width: 45%;
+    border: none;
+    margin: 2rem 0;
+}
+#home>#cartas>.card>img{
+    margin: 3rem;
+    width: 50%;
+}
+
+/*----------------Media queries----------------------------*/
+
+@media (min-width:1440px) {
+    header>#menu{
+        display: none;
+    }
+    header>#menu-escritorio {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 70%;
+    }
+    
+    header>#menu-escritorio>#lower-menu {
+        width: 35%;
+    }
+    
+    header>#menu-escritorio>#lower-menu>ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        width: 100%;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+    
+    header>#menu-escritorio>#lower-menu>ul>a {
+        width: 20%;
+        text-decoration: none;
+        color: black;
+    }
+    
+    header>#menu-escritorio>#lower-menu>ul li {
+        text-align: center;
+        font-family: 'Oswald Stencil';
+    }
+    
+    header>#menu-escritorio>#secondary-menu {
+        width: 65%;
+    }
+
+    /*Productos escritorio*/
+    #productos-mobil{
+        display: none;
+    }
 #productos {
     display: flex;
     flex-flow: row;
@@ -237,117 +470,7 @@ h2 {
 #productos>#content>#content-body>div img {
     width: 60%;
 }
-
-header {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    border-bottom: 2px solid lightgrey;
 }
 
-header>div {
-    display: flex;
-    justify-content: center;
-    width: 15%;
-}
 
-header>#menu {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 85%;
-}
 
-header>#menu>#lower-menu {
-    width: 35%;
-}
-
-header>#menu>#lower-menu>ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    width: 100%;
-    align-items: stretch;
-    justify-content: space-between;
-}
-
-header>#menu>#lower-menu>ul>a {
-    width: 20%;
-    text-decoration: none;
-    color: black;
-}
-
-header>#menu>#lower-menu>ul li {
-    text-align: center;
-    font-family: 'Oswald Stencil';
-}
-
-header>#menu>#secondary-menu {
-    width: 65%;
-}
-
-.underline {
-    text-decoration: wavy underline #0CB3D1;
-    text-decoration-thickness: 2px;
-}
-
-#home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color:#E4F4F7;
-}
-
-#home>#contenedor-carrusel {
-    display: flex;
-    flex-direction: column;
-    margin-top: 3rem;
-    width: 60%;
-    height: 68.5vh;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    opacity: 0.5;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    border: 1px solid white;
-    background-color: black;
-    border-radius: 20px;
-    padding: 1.3rem;
-}
-
-#home>#cartas {
-    display: flex;
-    flex-flow: row wrap;
-    margin-top: 1rem;
-    width: 100%;
-}
-
-#home>#cartas>.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex:40% 0;
-    margin: 2rem 5%;
-}
-
-#home>#cartas>.card>h5 {
-    margin: 1rem 0;
-    font-family: 'Luckiest Guy', sans-serif;
-}
-
-#home>#cartas>.card>a {
-    align-self: center;
-    background-color: #F5AD3F;
-    width: 45%;
-    border: none;
-    margin: 2rem 0;
-}
-#home>#cartas>.card>img{
-    margin: 3rem;
-    width: 50%;
-}

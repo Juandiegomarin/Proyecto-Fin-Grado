@@ -29,7 +29,7 @@ services:
   #     - WORDPRESS_DATABASE_USER=bn_wordpress
   #     - WORDPRESS_DATABASE_NAME=bitnami_wordpress
   apache:
-    build: php
+    build: php  
     ports:
       - '80:80'
     volumes:

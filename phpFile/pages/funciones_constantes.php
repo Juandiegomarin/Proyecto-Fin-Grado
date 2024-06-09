@@ -16,8 +16,8 @@ define("EXISTE_NOMBRE_USUARIO",DIR_SERV."/existeNombreUsuario");
 define("EXISTE_EMAIL",DIR_SERV."/existeEmail");
 define("INSERTAR",DIR_SERV."/insertar");
 define("COMPROBAR_USUARIO_LOGUEADO",DIR_SERV."/comprobarUsuarioLogueado");
-define("OBTENER_TIPOS_PRODUCTOS",DIR_SERV."/obtenerTiposProductos");
-
+define("OBTENER_CATEGORIAS",DIR_SERV."/obtenerCategorias");
+define("OBTENER_PRODUCTOS_CATEGORIA",DIR_SERV."/obtenerProductos");
 //Respuestas
 define("RESPONSE_OK","OK");
 define("RESPONSE_ERROR","ERROR");

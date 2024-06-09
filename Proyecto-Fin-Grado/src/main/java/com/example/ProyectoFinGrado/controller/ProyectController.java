@@ -2,6 +2,7 @@ package com.example.ProyectoFinGrado.controller;
 
 
 import com.example.ProyectoFinGrado.entities.Categoria;
+import com.example.ProyectoFinGrado.entities.Producto;
 import com.example.ProyectoFinGrado.entities.Usuario;
 import com.example.ProyectoFinGrado.services.ProyectService;
 
@@ -17,6 +18,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
@@ -61,10 +63,16 @@ public class ProyectController {
         return service.comprobarUsuarioLogueado(name,clave);
     }
 
-    @GetMapping("/obtenerTiposProductos")
-    public List<Categoria> obtenerTiposProductos() {
-        
-        return service.obtenerTiposProductos();
+    @GetMapping("/obtenerCategorias")
+    public List<Categoria> obtenerCategorias() {
+        return service.obtenerCategorias();
+    }
+
+    @GetMapping("/obtenerProductos/{idCategoria}")
+    public List<Producto> obtenerProdCategorias(
+        @PathVariable (value = "idCategoria") Long idCategoria
+    ) {
+        return service.obtenerProdCategorias(idCategoria);
     }
     
 }

@@ -1,5 +1,6 @@
 package com.example.ProyectoFinGrado.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.ProyectoFinGrado.constants.Constants;
 import com.example.ProyectoFinGrado.entities.Categoria;
+import com.example.ProyectoFinGrado.entities.Producto;
 import com.example.ProyectoFinGrado.entities.Usuario;
-import com.example.ProyectoFinGrado.repository.TipoProductoRepository;
+import com.example.ProyectoFinGrado.repository.CategoriaRepository;
+import com.example.ProyectoFinGrado.repository.ProductoRepository;
 import com.example.ProyectoFinGrado.repository.UsuarioRepository;
 
 import lombok.AllArgsConstructor;
@@ -19,7 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 public class ProyectService {
     
     private final UsuarioRepository usuarioRepository;
-    private final TipoProductoRepository tipoProductoRepository;
+    private final CategoriaRepository categoriaRepository;
+    private final ProductoRepository productoRepository;
 
     public String existeNombreUsuario(String name){
 
@@ -67,8 +71,14 @@ public class ProyectService {
         return Constants.NOEXIST.toString();
     }
 
-    public List<Categoria> obtenerTiposProductos(){
+    public List<Categoria> obtenerCategorias(){
 
-        return tipoProductoRepository.findAll();
+        return categoriaRepository.findAll();
     }
+
+    public List<Producto> obtenerProdCategorias(Long idCategoria){
+
+        return productoRepository.findByCategoria(idCategoria);
+    }
+
 }

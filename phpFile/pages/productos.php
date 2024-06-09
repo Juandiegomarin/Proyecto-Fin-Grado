@@ -1,10 +1,75 @@
 <?php
-if (isset($_SESSION["login"])) {
 
-    //llamada para obtener los datos del sidebar
-    $response = json_decode(consumir_servicios_REST(OBTENER_TIPOS_PRODUCTOS, METODO_GET));
+//llamada para obtener los datos del sidebar
+
+$categorias = json_decode(consumir_servicios_REST(OBTENER_CATEGORIAS, METODO_GET));
+if (isset($_GET["section"]) && $_GET["section"] != "principal") {
+    $id_categoria = $_GET["section"];
+    $productos = json_decode(consumir_servicios_REST(OBTENER_PRODUCTOS_CATEGORIA . "/" . $id_categoria, METODO_GET));
+} else {
+    $productos = $categorias;
 }
 ?>
+<div id="productos-mobil">
+    <div id="content-header-mobil">
+        <h1>Nuestros productos</h1>
+        <h2>Tus productos favoritos del Chiringuito Dieguichi</h2>
+    </div>
+    <div id="lista">
+        <?php
+
+        if (!isset($_GET["section"]) || $_GET["section"] == "principal") {
+            foreach ($categorias as $categoria) {
+        ?>
+                <a href="index.php">
+                    <div>
+                        <div><img src='assets/img/logo.png' alt='Logo'></div>
+                        <div><span><?php echo $categoria->categoria ?></span></div>
+                    </div>
+                </a>
+            <?php
+            }
+        } else {
+            foreach ($productos as $producto) {
+            ?>
+                <a href="index.php">
+                    <div>
+                        <div><img src='assets/img/logo.png' alt='Logo'></div>
+                        <div><span><?php echo $producto->nombre ?></span></div>
+                    </div>
+                </a>
+        <?php
+            }
+        }
+        ?>
+
+    </div>
+    <div id="seleccion">
+        <a href="index.php?page=productos&section=principal">
+            <div class="<?php echo (!isset($_GET["section"]) || $_GET["section"] == "principal") ? "seleccionado" : "" ?>">
+                <div>
+                    <img src="../assets/img/logo.png" alt="Logo">
+                </div>
+                <div>
+                    <span>Nuestros productos</span>
+                </div>
+            </div>
+            <?php
+            foreach ($categorias as $categoria) {
+            ?>
+                <a href="index.php?page=productos&section=<?php echo $categoria->id ?>">
+                    <div class="<?php echo (isset($_GET["section"]) && $_GET["section"] == $categoria->id) ? "seleccionado" : "" ?>">
+                        <div><img src='assets/img/logo.png' alt='Logo'></div>
+                        <div><span><?php echo $categoria->categoria ?></span></div>
+                    </div>
+                </a>
+            <?php
+            }
+            ?>
+    </div>
+
+
+</div>
 <div id="productos">
 
     <div id="sidebar">
@@ -25,23 +90,20 @@ if (isset($_SESSION["login"])) {
         </div>
         <div id="sidebar-list">
             <?php
-            $cont = 0;
-            $length = count($response);
-            foreach ($response as $categoria) {
-                if (isset($_GET["section"])&&$_GET["section"] == "Ensaladas y entrantes frios")
+            foreach ($categorias as $categoria) {
+                if (isset($_GET["section"]) && $_GET["section"] == 1)
                     $clicked = "clicked-first";
-                else if (isset($_GET["section"])&&$_GET["section"] == "Cocktails")
+                else if (isset($_GET["section"]) && $_GET["section"] == 12)
                     $clicked = "clicked-end"
 
             ?>
-                <a href="index.php?page=productos&section=<?php echo $categoria->categoria ?>">
-                    <div class="sidebar-div-border <?php echo (isset($_GET["section"]) && $_GET["section"] == $categoria->categoria) ? "clicked $clicked" : "noClicked" ?>">
+                <a href="index.php?page=productos&section=<?php echo $categoria->id ?>">
+                    <div class="sidebar-div-border <?php echo (isset($_GET["section"]) && $_GET["section"] == $categoria->id) ? "clicked $clicked" : "noClicked" ?>">
                         <div><img src='assets/img/logo.png' alt='Logo'></div>
                         <div><span><?php echo $categoria->categoria ?></span></div>
                     </div>
                 </a>
             <?php
-                $cont++;
             }
             ?>
         </div>
@@ -57,7 +119,7 @@ if (isset($_SESSION["login"])) {
         <div id="content-body">
 
             <?php
-            foreach ($response as $categoria) {
+            foreach ($categorias as $categoria) {
             ?>
                 <div>
                     <img src="assets/img/logo.png" alt="Logo">

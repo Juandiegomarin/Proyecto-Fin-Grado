@@ -17,6 +17,18 @@ function removeRequiredRegister() {
 //Jquery
 $(document).ready(function () {
 
+    $("header>#menu>svg").on("click",function(){
+        $(this).css("display","none")
+        $(this).next().css("display","flex")
+        $("#desplegable").slideDown("slow")
+    })
+
+    $("header>#menu>img").on("click",function(){
+        $(this).css("display","none")
+        $(this).prev().css("display","flex")
+        $("#desplegable").slideUp("slow")
+    })
+
     $("#formulario input").on("blur", function () {
 
         if ($(this).val().length == 0) {
