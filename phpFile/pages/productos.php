@@ -3,11 +3,10 @@
 //llamada para obtener los datos del sidebar
 
 $categorias = json_decode(consumir_servicios_REST(OBTENER_CATEGORIAS, METODO_GET));
+
 if (isset($_GET["section"]) && $_GET["section"] != "principal") {
     $id_categoria = $_GET["section"];
     $productos = json_decode(consumir_servicios_REST(OBTENER_PRODUCTOS_CATEGORIA . "/" . $id_categoria, METODO_GET));
-} else {
-    $productos = $categorias;
 }
 ?>
 <div id="productos-mobil">

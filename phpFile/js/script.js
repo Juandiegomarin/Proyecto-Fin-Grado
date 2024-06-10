@@ -17,7 +17,7 @@ function removeRequiredRegister() {
 //Jquery
 $(document).ready(function () {
 
-    $("header>#menu>svg").on("click",function(){
+    $("header>#menu>:nth-child(2)").on("click",function(){
         $(this).css("display","none")
         $(this).next().css("display","flex")
         $("#desplegable").slideDown("slow")

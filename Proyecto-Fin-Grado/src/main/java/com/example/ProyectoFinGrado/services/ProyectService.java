@@ -16,40 +16,39 @@ import com.example.ProyectoFinGrado.repository.UsuarioRepository;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @AllArgsConstructor
 @Service
 public class ProyectService {
-    
+
     private final UsuarioRepository usuarioRepository;
     private final CategoriaRepository categoriaRepository;
     private final ProductoRepository productoRepository;
 
-    public String existeNombreUsuario(String name){
+    public String existeNombreUsuario(String name) {
 
         Optional<Usuario> n = usuarioRepository.findByNombreUsuario(name);
-        
-        if(n.isPresent()){
+
+        if (n.isPresent()) {
             return Constants.EXIST.toString();
         }
-        
+
         return Constants.NOEXIST.toString();
     }
 
-    public String existeEmail(String email){
+    public String existeEmail(String email) {
 
         Optional<Usuario> e = usuarioRepository.findByEmail(email);
-       
-        if(e.isPresent()){
+
+        if (e.isPresent()) {
             return Constants.EXIST.toString();
         }
-        
+
         return Constants.NOEXIST.toString();
-        
-       
     }
 
-    public String insertar(String name,String clave,String email){
+    public String insertar(String name, String clave, String email) {
 
         Usuario usuario = Usuario.builder().nombreUsuario(name).clave(clave).email(email).build();
 
@@ -58,12 +57,12 @@ public class ProyectService {
         } catch (Exception e) {
             return Constants.ERROR.toString();
         }
-        
+
         return Constants.OK.toString();
     }
 
-        public String comprobarUsuarioLogueado(String name,String clave){
-        Optional <Usuario> ul= usuarioRepository.findByNombreUsuarioAndClave(name, clave);
+    public String comprobarUsuarioLogueado(String name, String clave) {
+        Optional<Usuario> ul = usuarioRepository.findByNombreUsuarioAndClave(name, clave);
 
         if (ul.isPresent()) {
             return Constants.EXIST.toString();
@@ -71,12 +70,11 @@ public class ProyectService {
         return Constants.NOEXIST.toString();
     }
 
-    public List<Categoria> obtenerCategorias(){
-
+    public List<Categoria> obtenerCategorias() {
         return categoriaRepository.findAll();
     }
 
-    public List<Producto> obtenerProdCategorias(Long idCategoria){
+    public List<Producto> obtenerProdCategorias(Long idCategoria) {
 
         return productoRepository.findByCategoria(idCategoria);
     }
