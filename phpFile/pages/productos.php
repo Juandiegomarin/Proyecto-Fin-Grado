@@ -45,7 +45,7 @@ if (isset($_GET["section"]) && $_GET["section"] != "principal") {
     </div>
     <div id="seleccion">
         <a href="index.php?page=productos&section=principal">
-            <div class="<?php echo (!isset($_GET["section"]) || $_GET["section"] == "principal") ? "seleccionado" : "" ?>">
+            <div class="<?= (!isset($_GET["section"]) || $_GET["section"] == "principal") ? "seleccionado" : "" ?>">
                 <div>
                     <img src="../assets/img/logo.png" alt="Logo">
                 </div>
@@ -53,18 +53,19 @@ if (isset($_GET["section"]) && $_GET["section"] != "principal") {
                     <span>Nuestros productos</span>
                 </div>
             </div>
-            <?php
-            foreach ($categorias as $categoria) {
-            ?>
-                <a href="index.php?page=productos&section=<?php echo $categoria->id ?>">
-                    <div class="<?php echo (isset($_GET["section"]) && $_GET["section"] == $categoria->id) ? "seleccionado" : "" ?>">
-                        <div><img src='assets/img/logo.png' alt='Logo'></div>
-                        <div><span><?php echo $categoria->categoria ?></span></div>
-                    </div>
-                </a>
-            <?php
-            }
-            ?>
+        </a>
+        <?php
+        foreach ($categorias as $categoria) {
+        ?>
+            <a href="index.php?page=productos&section=<?php echo $categoria->id ?>">
+                <div class="<?= (isset($_GET["section"]) && $_GET["section"] == $categoria->id) ? "seleccionado" : "" ?>">
+                    <div><img src='assets/img/logo.png' alt='Logo'></div>
+                    <div><span><?php echo $categoria->categoria ?></span></div>
+                </div>
+            </a>
+        <?php
+        }
+        ?>
     </div>
 
 
@@ -76,7 +77,7 @@ if (isset($_GET["section"]) && $_GET["section"] != "principal") {
         <div id="sidebar-header">
 
             <a href="index.php?page=productos&section=principal">
-                <div class="sidebar-div-border  <?php echo (!isset($_GET["section"]) || $_GET["section"] == "principal") ? "clicked-both" : "noClicked" ?>">
+                <div class="sidebar-div-border  <?= (!isset($_GET["section"]) || $_GET["section"] == "principal") ? "clicked-both" : "noClicked" ?>">
                     <div>
                         <img src="../assets/img/logo.png" alt="Logo">
                     </div>
@@ -97,7 +98,7 @@ if (isset($_GET["section"]) && $_GET["section"] != "principal") {
 
             ?>
                 <a href="index.php?page=productos&section=<?php echo $categoria->id ?>">
-                    <div class="sidebar-div-border <?php echo (isset($_GET["section"]) && $_GET["section"] == $categoria->id) ? "clicked $clicked" : "noClicked" ?>">
+                    <div class="sidebar-div-border <?= (isset($_GET["section"]) && $_GET["section"] == $categoria->id) ? "clicked $clicked" : "noClicked" ?>">
                         <div><img src='assets/img/logo.png' alt='Logo'></div>
                         <div><span><?php echo $categoria->categoria ?></span></div>
                     </div>

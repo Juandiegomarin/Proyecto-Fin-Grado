@@ -1,8 +1,11 @@
 package com.example.ProyectoFinGrado.services;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import org.springframework.stereotype.Service;
 
@@ -26,26 +29,38 @@ public class ProyectService {
     private final CategoriaRepository categoriaRepository;
     private final ProductoRepository productoRepository;
 
-    public String existeNombreUsuario(String name) {
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
 
-        Optional<Usuario> n = usuarioRepository.findByNombreUsuario(name);
+    public String[] comprobarRegistro(String name, String email, String password, String verifiedPassword) {
 
-        if (n.isPresent()) {
-            return Constants.EXIST.toString();
+        Optional<Usuario> userName = usuarioRepository.findByNombreUsuario(name);
+
+        Optional<Usuario> userEmail = usuarioRepository.findByEmail(email);
+
+        System.out.println("ProyectService.comprobarRegistro()");
+
+        List<String> response = new ArrayList<>();
+
+        if (userName.isPresent()) {
+            response.add(Constants.EXIST.toString());
         }
 
-        return Constants.NOEXIST.toString();
-    }
-
-    public String existeEmail(String email) {
-
-        Optional<Usuario> e = usuarioRepository.findByEmail(email);
-
-        if (e.isPresent()) {
-            return Constants.EXIST.toString();
+        if (!isValidEmail(email)) {
+            response.add(Constants.INVALID_EMAIL.toString());
+        } else if (userEmail.isPresent()) {
+            response.add(Constants.EMAIL_REPEATED.toString());
         }
 
-        return Constants.NOEXIST.toString();
+        if(!password.equals(verifiedPassword)){
+            response.add(Constants.WRONG_PASSWORD.toString());
+        }
+;
+        if(response.isEmpty()){
+            response.add(Constants.OK.toString());
+        }
+
+        String[] array = response.toArray(new String[response.size()]);
+        return array;
     }
 
     public String insertar(String name, String clave, String email) {
@@ -77,6 +92,12 @@ public class ProyectService {
     public List<Producto> obtenerProdCategorias(Long idCategoria) {
 
         return productoRepository.findByCategoria(idCategoria);
+    }
+
+    public boolean isValidEmail(String email) {
+        Pattern pattern = Pattern.compile(EMAIL_REGEX);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
 }

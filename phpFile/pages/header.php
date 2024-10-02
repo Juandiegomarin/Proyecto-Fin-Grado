@@ -39,7 +39,7 @@
                 foreach ($secciones as $seccion) {
                 ?>
                     <a href="index.php?page=<?php echo str_replace(" ", "", strtolower($seccion)) ?>">
-                        <li class="<?php if ($page == strtolower($seccion)) echo "underline" ?>"><?php echo $seccion ?></li>
+                        <li class="<?= ($page == strtolower($seccion)) ? "underline" : "" ?>"><?php echo $seccion ?></li>
                     </a>
                 <?php
                 }
