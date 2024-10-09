@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +27,7 @@ public class ProyectController {
     private final ProyectService service;
 
     @PostMapping("/comprobarRegistro")
-    public String[] comprobarRegistro(
+    public String comprobarRegistro(
 
             @RequestParam(name = "name") String name,
             @RequestParam(name = "email") String email,
@@ -39,17 +40,17 @@ public class ProyectController {
     @PostMapping("/insertar")
     public String insertar(
             @RequestParam(name = "name") String name,
-            @RequestParam(name = "clave") String clave,
+            @RequestParam(name = "password") String password,
             @RequestParam(name = "email") String email) {
-        log.info("Insertar parametros:{}" + name + " " + clave + " " + email);
-        return service.insertar(name, clave, email);
+        log.info("Insertar parametros:{}" + name + " " + password + " " + email);
+        return service.insertar(name, password, email);
     }
 
     @PostMapping("/comprobarUsuarioLogueado")
     public String comprobarUsuarioLogueado(
             @RequestParam(name = "name") String name,
-            @RequestParam(name = "clave") String clave) {
-        return service.comprobarUsuarioLogueado(name, clave);
+            @RequestParam(name = "password") String password) {
+        return service.comprobarUsuarioLogueado(name, password);
     }
 
     @GetMapping("/obtenerCategorias")

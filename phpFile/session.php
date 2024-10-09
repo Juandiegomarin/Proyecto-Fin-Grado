@@ -8,42 +8,59 @@ if (isset($_POST["btnSalir"])) {
 
 if (isset($_POST["btnLogin"])) {
 
-    $datos["name"] = $_POST["usuarioL"];
-    $datos["clave"] = $_POST["clave"];
+    $datos["name"] = $_POST["userL"];
+    $datos["password"] = $_POST["password"];
 
     $response = consumir_servicios_REST(COMPROBAR_USUARIO_LOGUEADO, METODO_POST, $datos);
-
-    
 
     if ($response == RESPONSE_EXIST) {
 
         $_SESSION["login"] = true;
-        header("Location:index.php");
-        exit;
+        $page = "home";
     } else {
         $error_logueo = true;
     }
+}
 
-} elseif (isset($_POST["btnContRegistrarse"])) {
+if (isset($_POST["btnRegistrarse"])) {
+    $page = "register";
+}
 
+if (isset($_POST["btnContRegistrarse"])) {
+
+    $page = "register";
     $datos = [];
 
-    $datos["name"] = $_POST["usuario"];
+    $datos["name"] = $_POST["user"];
     $datos["email"] = $_POST["email"];
-    $datos["password"] = $_POST["clave"];
-    $datos["verified_password"] = $_POST["clave2"];
+    $datos["password"] = $_POST["password"];
+    $datos["verified_password"] = $_POST["password2"];
 
-    $response = consumir_servicios_REST(COMPROBAR_REGISTRO, METODO_POST, $datos);
+    $obj = consumir_servicios_REST(COMPROBAR_REGISTRO, METODO_POST, $datos);
 
-    $error_form = $error_usuario || $error_clave || $error_email;
+    $response = json_decode($obj);
 
-    if (!$error_form) {
+    $valid_user = in_array(RESPONSE_OK, $response);
+
+    if ($valid_user) {
 
         $response = consumir_servicios_REST(INSERTAR, METODO_POST, $datos);
-        
+
         if ($response == RESPONSE_OK) {
-            header("Location:index.php");
-            exit;
+            $page = "login";
+        }
+    } else {
+        foreach ($response as $res) {
+
+            match ($res) {
+                RESPONSE_EXIST => $error_user = true,
+                RESPONSE_INVALID_EMAIL, RESPONSE_EMAIL_REPEATED => $error_email = $res,
+                RESPONSE_WRONG_PASSWORD => $error_password = true
+            };
         }
     }
+}
+
+if ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && $page != "contact" && $page != "register") {
+    $page = "login";
 }

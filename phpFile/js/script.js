@@ -6,12 +6,12 @@ window.addEventListener('pageshow', function (event) {
 });
 
 function removeRequiredLogin() {
-    document.querySelector('input[name="usuarioL"]').required = false
-    document.querySelector('input[name="clave"]').required = false
+    document.querySelector('input[name="userL"]').required = false
+    document.querySelector('input[name="password"]').required = false
 }
 function removeRequiredRegister() {
-    document.querySelector('input[name="usuario"]').required = false
-    document.querySelector('input[name="clave"]').required = false
+    document.querySelector('input[name="user"]').required = false
+    document.querySelector('input[name="password"]').required = false
     document.querySelector('input[name="email"]').required = false
 }
 //Jquery

@@ -12,8 +12,8 @@ define("METODO_POST", "POST");
 define("METODO_GET", "GET");
 
 //urls
-//define("DIR_SERV", "http://springProyect:8080");
-define("DIR_SERV", "http://localhost:8081"); //url local
+define("DIR_SERV", "http://springProyect:8080");
+//define("DIR_SERV", "http://localhost:8081"); //url local
 
 define('COMPROBAR_REGISTRO', DIR_SERV . "/comprobarRegistro");
 define("INSERTAR", DIR_SERV . "/insertar");
@@ -25,7 +25,10 @@ define("OBTENER_PRODUCTOS_CATEGORIA", DIR_SERV . "/obtenerProductos");
 define("RESPONSE_OK", "OK");
 define("RESPONSE_ERROR", "ERROR");
 define("RESPONSE_EXIST", "EXIST");
-define("RESPONSE_NOEXIST", "NOEXIST");
+define("RESPONSE_NO_EXIST", "NOEXIST");
+define("RESPONSE_INVALID_EMAIL", "INVALID_EMAIL");
+define("RESPONSE_WRONG_PASSWORD", "WRONG_PASSWORD");
+define("RESPONSE_EMAIL_REPEATED", "EMAIL_REPEATED");
 
 //funciones-------------------------------------------------------------------------
 function consumir_servicios_REST($url, $metodo, $datos = null)
@@ -43,15 +46,11 @@ function consumir_servicios_REST($url, $metodo, $datos = null)
 
     $response = curl_exec($ch);
 
-
     if ($response === false) {
         $error = curl_error($ch);
         // Manejar el error aquí, por ejemplo:
         echo "Error en la ch cURL: " . $error;
     }
-    var_dump(curl_errno($ch));
-    die;
-
 
     curl_close($ch);
     return $response;

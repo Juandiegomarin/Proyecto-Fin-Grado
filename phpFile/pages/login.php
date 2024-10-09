@@ -1,4 +1,5 @@
 
+</script>
 <video autoplay loop muted id="video_background" preload="auto">
 <source src="../assets/oleaje.mp4" type="video/mp4"/>
 </video>
@@ -8,7 +9,7 @@
 
     <form action="index.php" method="post" id="login">
 
-        <input type="text" name="usuarioL" id="usuario" aria-label="Usuario" placeholder="Usuario" required value="<?=  (isset($_POST["usuarioL"])) ?  $_POST["usuarioL"] : "" ?>">
+        <input type="text" name="userL" id="user" aria-label="user" placeholder="Usuario" required value="<?=  (isset($_POST["userL"])) ?  $_POST["userL"] : "" ?>">
         <small>Para continuar con el registro debes rellenar este campo</small>
 
         <?php
@@ -18,7 +19,7 @@
         ?>
 
         <div class="containerPassword">
-            <input type="password" name="clave" id="clave" aria-label="clave" placeholder="Contraseña" required>
+            <input type="password" name="password" id="password" aria-label="password" placeholder="Contraseña" required>
             <img src="assets/icons/show.svg" alt="Show">
             <img src="assets/icons/no-show.svg" alt="No show">
         </div>

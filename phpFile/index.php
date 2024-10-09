@@ -1,10 +1,10 @@
 <?php
 
-include("funciones_constantes.php");
-
-include("session.php");
+include("Global.php");
 
 $page = $_GET["page"] ?? "home";
+
+include("session.php");
 
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $page = $_GET["page"] ?? "home";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orderly</title>
+    <title>Dieguichi Orderly</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
@@ -24,24 +24,15 @@ $page = $_GET["page"] ?? "home";
 </head>
 
 <body>
-    <?php
 
-    if (isset($_SESSION["login"])) {
+    <?php
 
         include("pages/header.php");
         include("pages/".$page.".php");
+        include("pages/footer.php");
 
-    } else {
-
-        if (isset($_POST["btnRegistrarse"]) || isset($_POST["btnContRegistrarse"])) {
-
-            include("pages/register.php");
-
-        } else {
-            include("pages/login.php");
-        }
-    }
     ?>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

@@ -1,3 +1,21 @@
+.colorGraduado {
+    background-image: linear-gradient(to bottom, #0cb3d1, #e4f4f7 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Inter;
+    font-weight: 800;
+    font-style: italic;
+
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+
+
+
 /*Fondo del login y del registro*/
 #video_background {
     position: absolute;
@@ -24,6 +42,7 @@
     border-radius: 30px;
     border: 3px solid white;
     opacity: 0.7;
+    margin-bottom: 9.4rem;
 }
 
 .formulario>form {
@@ -105,9 +124,10 @@
 }
 
 /*Parte de la pagina principal-----------------------------*/
-#productos{
+#productos {
     display: none;
 }
+
 #productos-mobil {
     display: flex;
     flex-direction: column;
@@ -116,47 +136,54 @@
     background-size: cover;
     margin-top: 4rem;
 }
+
 /*Cabecera Titulo*/
 #productos-mobil>#content-header-mobil {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center ;
+    align-items: center;
     color: #000;
 }
 
-#productos-mobil>#content-header-mobil>h1,h2 {
+#productos-mobil>#content-header-mobil>h1,
+h2 {
     text-align: center;
     font-family: 'Luckiest Guy', sans-serif;
 }
-#productos-mobil>#lista{
-    display:flex;
+
+#productos-mobil>#lista {
+    display: flex;
     flex-flow: row wrap;
 }
-#productos-mobil>#seleccion{
-    display:flex;
+
+#productos-mobil>#seleccion {
+    display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     width: 90%;
 }
 
-#productos-mobil>#seleccion>a{
+#productos-mobil>#seleccion>a {
     text-decoration: none;
     color: black;
     font-family: 'Luckiest Guy', sans-serif;
     font-size: small;
     padding: 10px;
 }
-#productos-mobil>#seleccion>a>div{
+
+#productos-mobil>#seleccion>a>div {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5px;
 }
-#productos-mobil>#seleccion>a img{
+
+#productos-mobil>#seleccion>a img {
     width: 100px;
 }
-.seleccionado{
+
+.seleccionado {
     color: #0CB3D1;
     border: 2px solid #0CB3D1;
     border-radius: 6px;
@@ -178,32 +205,39 @@ header>div {
     justify-content: center;
     width: 30%;
 }
-header>div>a{
+
+header>div>a {
     width: 100%;
 }
+
 header>div>a>img {
     width: 100px;
 }
-header>#menu-escritorio{
+
+header>#menu-escritorio {
     display: none;
 }
-header>#menu{
+
+header>#menu {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     width: 70%;
     justify-content: flex-end;
     align-items: center;
 }
-header>#menu>svg{
+
+header>#menu>svg {
     margin-right: 5%;
     cursor: pointer;
 }
-header>#menu>img{
+
+header>#menu>img {
     display: none;
     margin-right: 8%;
     cursor: pointer;
 }
-header>#menu>#desplegable{
+
+header>#menu>#desplegable {
     display: none;
     position: absolute;
     flex-direction: column;
@@ -213,20 +247,24 @@ header>#menu>#desplegable{
     padding: 0.5rem 0;
     top: 102px;
 }
-header>#menu>#desplegable>a{
+
+header>#menu>#desplegable>a {
     display: flex;
     width: 100%;
     text-decoration: none;
 }
-header>#menu>#desplegable>a>li{
+
+header>#menu>#desplegable>a>li {
     color: #0CB3D1;
     padding: 1rem;
     width: 100%;
     margin-left: 5%;
 }
-header>#menu>#desplegable>a:hover{
+
+header>#menu>#desplegable>a:hover {
     background-color: rgb(250, 244, 244);
 }
+
 .underline {
     text-decoration: wavy underline #0CB3D1;
     text-decoration-thickness: 2px;
@@ -236,7 +274,7 @@ header>#menu>#desplegable>a:hover{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:#E4F4F7;
+    background-color: #E4F4F7;
 }
 
 #home>#contenedor-carrusel {
@@ -287,28 +325,161 @@ header>#menu>#desplegable>a:hover{
     border: none;
     margin: 2rem 0;
 }
-#home>#cartas>.card>img{
+
+#home>#cartas>.card>img {
     margin: 3rem;
     width: 50%;
 }
 
+/*------------------Footer-------------------------------*/
+footer {
+    display: flex;
+    flex-direction: column;
+    flex: 100%;
+    height: 450px;
+    background-color: #0b1733;
+}
+
+footer>#comentarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+footer>#comentarios>* {
+    margin-top: 1rem;
+    text-decoration: underline;
+    text-decoration-color: white;
+    font-size: 14px;
+}
+
+footer>#telefono {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 2.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+footer>#telefono>span {
+    font-size: 12px;
+}
+
+
+footer img {
+    width: 22px;
+    height: auto;
+    margin-right: 0.5rem;
+
+}
+
+footer>#redes {
+    display: flex;
+    flex-direction: column;
+    flex: 100%;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+footer>#redes>span {
+    background-image: linear-gradient(to bottom, #0cb3d1, #e4f4f7 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 16px;
+}
+
+footer>#redes>div {
+    display: flex;
+    flex-direction: row;
+    flex: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+footer>#redes>div>img {
+    width: 22px;
+    height: 22px;
+    margin-right: 1rem;
+
+}
+
+footer>#disclaimer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+footer>#disclaimer>p {
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+
+
+footer#footer-escritorio {
+    display: none;
+}
+
+/*Footer Escritorio*/
+
+
+footer#footer-escritorio>:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+footer#footer-escritorio>:nth-child(1) img {
+    width: 76px;
+    height: auto;
+    margin: 5rem 2.5rem 2rem 2.5rem;
+}
+
+
+footer#footer-escritorio>#comentarios {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 60%;
+    align-self: center;
+
+}
+
+footer#footer-escritorio>#comentarios>* {
+    text-decoration: underline;
+    font-family: Inter;
+    font-style: italic;
+    text-decoration-color: white;
+    width: 16.66%;
+    text-align: center;
+    font-size: 16px;
+}
+
+
 /*----------------Media queries----------------------------*/
 
 @media (min-width:1440px) {
-    header>#menu{
+    header>#menu {
         display: none;
     }
+
     header>#menu-escritorio {
         display: flex;
         flex-direction: row;
         align-items: center;
         width: 70%;
     }
-    
+
     header>#menu-escritorio>#lower-menu {
         width: 35%;
     }
-    
+
     header>#menu-escritorio>#lower-menu>ul {
         display: flex;
         flex-direction: row;
@@ -317,158 +488,189 @@ header>#menu>#desplegable>a:hover{
         align-items: stretch;
         justify-content: space-between;
     }
-    
+
     header>#menu-escritorio>#lower-menu>ul>a {
         width: 20%;
         text-decoration: none;
         color: black;
     }
-    
+
     header>#menu-escritorio>#lower-menu>ul li {
         text-align: center;
         font-family: 'Oswald Stencil';
     }
-    
+
     header>#menu-escritorio>#secondary-menu {
         width: 65%;
     }
 
     /*Productos escritorio*/
-    #productos-mobil{
+    #productos-mobil {
         display: none;
     }
-#productos {
-    display: flex;
-    flex-flow: row;
-    background-color: white;
-    background-size: cover;
-    margin-top: 4rem;
-}
 
-/*Parte izquierda-------------------------------------------*/
-#productos>#sidebar {
-    width: 15%;
-    margin-left: 5%;
-}
+    #productos {
+        display: flex;
+        flex-flow: row;
+        background-color: white;
+        background-size: cover;
+        margin-top: 4rem;
+    }
 
-/*Izquierda arriba*/
-#productos>#sidebar>#sidebar-header {
-    display: flex;
-    cursor: pointer;
-    border: 2px solid lightgray;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px lightgray;
-}
+    /*Parte izquierda-------------------------------------------*/
+    #productos>#sidebar {
+        width: 15%;
+        margin-left: 5%;
+    }
 
-#productos>#sidebar a {
-    text-decoration: none;
-    width: 100%;
-    color: black;
-}
+    /*Izquierda arriba*/
+    #productos>#sidebar>#sidebar-header {
+        display: flex;
+        cursor: pointer;
+        border: 2px solid lightgray;
+        border-radius: 8px;
+        box-shadow: 0px 2px 5px lightgray;
+    }
 
-.clicked {
-    cursor: default;
-    color: #0CB3D1;
-    border-left: 5px solid #0cb3d1;
-}
-.clicked-both{
-    cursor: default;
-    color: #0CB3D1;
-    border-left: 5px solid #0cb3d1;
-    border-radius: 6px;
-}
-.clicked-first{
-border-top-left-radius: 6px;
-}
-.clicked-end{
-    border-bottom-left-radius: 6px;
-}
+    #productos>#sidebar a {
+        text-decoration: none;
+        width: 100%;
+        color: black;
+    }
 
-.noClicked {
-    border-left: 5px solid transparent;
-}
+    .clicked {
+        cursor: default;
+        color: #0CB3D1;
+        border-left: 5px solid #0cb3d1;
+    }
 
-.sidebar-div-border {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-}
+    .clicked-both {
+        cursor: default;
+        color: #0CB3D1;
+        border-left: 5px solid #0cb3d1;
+        border-radius: 6px;
+    }
 
-#sidebar-list>.sidebar-div-border {
-    cursor: pointer;
-}
+    .clicked-first {
+        border-top-left-radius: 6px;
+    }
 
-.sidebar-div-border>:nth-child(1) {
-    width: 30%;
-}
+    .clicked-end {
+        border-bottom-left-radius: 6px;
+    }
 
-.sidebar-div-border>:nth-child(2) {
-    width: 70%;
-    text-align: left;
-}
+    .noClicked {
+        border-left: 5px solid transparent;
+    }
 
-.sidebar-div-border>:nth-child(2)>span {
-    font-family: 'Oswald Stencil';
-}
+    .sidebar-div-border {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+    }
 
-.sidebar-div-border img {
-    width: 100%;
-    height: auto;
-}
+    #sidebar-list>.sidebar-div-border {
+        cursor: pointer;
+    }
 
-/*izquierda abajo*/
-#productos>#sidebar>#sidebar-list {
-    margin-top: 2rem;
-    border: 2px solid lightgray;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px lightgray;
-}
+    .sidebar-div-border>:nth-child(1) {
+        width: 30%;
+    }
 
+    .sidebar-div-border>:nth-child(2) {
+        width: 70%;
+        text-align: left;
+    }
 
+    .sidebar-div-border>:nth-child(2)>span {
+        font-family: 'Oswald Stencil';
+    }
 
-/*Parte derecha-------------------------------------*/
-#productos>#content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-}
+    .sidebar-div-border img {
+        width: 100%;
+        height: auto;
+    }
 
-#productos>#content>#content-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #000;
-}
-
-#productos>#content>#content-header>h1,
-h2 {
-    font-family: 'Luckiest Guy', sans-serif;
-}
-
-#productos>#content>#content-body {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    margin-top: 4rem;
-    width: 90%;
-}
-
-#productos>#content>#content-body>div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 20% 0;
-    text-align: center;
-}
-
-#productos>#content>#content-body>div img {
-    width: 60%;
-}
-}
+    /*izquierda abajo*/
+    #productos>#sidebar>#sidebar-list {
+        margin-top: 2rem;
+        border: 2px solid lightgray;
+        border-radius: 8px;
+        box-shadow: 0px 2px 5px lightgray;
+    }
 
 
 
+    /*Parte derecha-------------------------------------*/
+    #productos>#content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+    }
+
+    #productos>#content>#content-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #000;
+    }
+
+    #productos>#content>#content-header>h1,
+    h2 {
+        font-family: 'Luckiest Guy', sans-serif;
+    }
+
+    #productos>#content>#content-body {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        margin-top: 4rem;
+        width: 90%;
+    }
+
+    #productos>#content>#content-body>div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 20% 0;
+        text-align: center;
+    }
+
+    #productos>#content>#content-body>div img {
+        width: 60%;
+    }
+
+    /*Footer*/
+    footer {
+        display: none;
+    }
+
+    footer#footer-escritorio {
+        display: flex;
+        flex-direction: column;
+        height: 400px;
+        top: 0;
+        right: 0;
+        align-self: flex-end;
+    }
+
+    footer#footer-escritorio>#desktop-disclaimer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+    }
+
+    footer#footer-escritorio>#desktop-disclaimer>p {
+        text-align: center;
+        color: white;
+        font-size: 1rem;
+    }
+
+}
