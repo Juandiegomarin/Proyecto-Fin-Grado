@@ -29,28 +29,28 @@ public class ProyectController {
     @PostMapping("/comprobarRegistro")
     public String comprobarRegistro(
 
-            @RequestParam(name = "name") String name,
+            @RequestParam(name = "nombre") String nombre,
             @RequestParam(name = "email") String email,
-            @RequestParam(name = "password") String password,
-            @RequestParam(name = "verified_password") String verifiedPassword) {
+            @RequestParam(name = "clave") String clave,
+            @RequestParam(name = "clave_verificada") String claveVerificada) {
 
-        return service.comprobarRegistro(name, email, password, verifiedPassword);
+        return service.comprobarRegistro(nombre, email, clave, claveVerificada);
     }
 
     @PostMapping("/insertar")
     public String insertar(
-            @RequestParam(name = "name") String name,
-            @RequestParam(name = "password") String password,
+            @RequestParam(name = "nombre") String nombre,
+            @RequestParam(name = "clave") String clave,
             @RequestParam(name = "email") String email) {
-        log.info("Insertar parametros:{}" + name + " " + password + " " + email);
-        return service.insertar(name, password, email);
+        log.info("Insertar parametros:{}" + nombre + " " + clave + " " + email);
+        return service.insertar(nombre, clave, email);
     }
 
     @PostMapping("/comprobarUsuarioLogueado")
     public String comprobarUsuarioLogueado(
-            @RequestParam(name = "name") String name,
-            @RequestParam(name = "password") String password) {
-        return service.comprobarUsuarioLogueado(name, password);
+            @RequestParam(name = "nombre") String nombre,
+            @RequestParam(name = "clave") String clave) {
+        return service.comprobarUsuarioLogueado(nombre, clave);
     }
 
     @GetMapping("/obtenerCategorias")
@@ -58,10 +58,16 @@ public class ProyectController {
         return service.obtenerCategorias();
     }
 
-    @GetMapping("/obtenerProductos/{idCategoria}")
+    @GetMapping("/obtenerProductos/{slug}")
     public List<Producto> obtenerProdCategorias(
-            @PathVariable(value = "idCategoria") Long idCategoria) {
-        return service.obtenerProdCategorias(idCategoria);
+            @PathVariable(value = "slug") String slug) {
+        return service.obtenerProdCategorias(slug);
+    }
+
+    @GetMapping("/obtenerProducto/{idProducto}")
+    public Producto obtenerProducto(
+            @PathVariable(value = "idProducto") Long idProducto) {
+        return service.obtenerProducto(idProducto);
     }
 
 }

@@ -13,7 +13,11 @@
     cursor: pointer;
 }
 
-
+html,
+body {
+    min-width: 375px;
+    /* O cualquier otro valor que desees */
+}
 
 
 /*Fondo del login y del registro*/
@@ -155,32 +159,78 @@ h2 {
 #productos-mobil>#lista {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
+    align-items: end;
+    width: 90%;
+    margin-top: 3rem;
 }
 
 #productos-mobil>#seleccion {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    align-items: end;
     width: 90%;
+    margin: 3rem 0;
 }
 
 #productos-mobil>#seleccion>a {
     text-decoration: none;
     color: black;
-    font-family: 'Luckiest Guy', sans-serif;
+    font-family: 'Oswald Stencil';
     font-size: small;
     padding: 10px;
+    flex: 20% 0;
 }
 
 #productos-mobil>#seleccion>a>div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     padding: 5px;
 }
 
 #productos-mobil>#seleccion>a img {
     width: 100px;
+}
+
+#productos-mobil>#lista>a {
+    text-decoration: none;
+    color: black;
+    font-size: small;
+    padding: 10px;
+    height: auto;
+    flex: 20% 0;
+}
+
+#productos-mobil>#lista>a>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.image-imagen {
+    height: 80%;
+    width: 100%;
+}
+
+.image-imagen>img {
+    height: auto;
+    max-width: 100%
+}
+
+.image-span {
+    height: 20%;
+    margin-top: 1rem;
+}
+
+.image-span>span {
+    font-family: 'Oswald Stencil';
+    font-size: smaller;
 }
 
 .seleccionado {
@@ -203,7 +253,7 @@ header {
 header>div {
     display: flex;
     justify-content: center;
-    width: 30%;
+    width: 10%;
 }
 
 header>div>a {
@@ -221,19 +271,18 @@ header>#menu-escritorio {
 header>#menu {
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 90%;
     justify-content: flex-end;
     align-items: center;
 }
 
-header>#menu>svg {
+header>#menu>img {
     margin-right: 5%;
     cursor: pointer;
 }
 
-header>#menu>img {
+header>#menu>#close-icon {
     display: none;
-    margin-right: 8%;
     cursor: pointer;
 }
 
@@ -298,10 +347,9 @@ header>#menu>#desplegable>a:hover {
 
 #home>#cartas {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-flow: row wrap;
     width: 100%;
+    margin-top: 5rem;
 }
 
 #home>#cartas>.card {
@@ -309,8 +357,8 @@ header>#menu>#desplegable>a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 80%;
-    margin: 2rem 5%;
+    flex: 0 40%;
+    margin: 3rem 5%;
 }
 
 #home>#cartas>.card>h5 {
@@ -328,7 +376,7 @@ header>#menu>#desplegable>a:hover {
 
 #home>#cartas>.card>img {
     margin: 3rem;
-    width: 50%;
+    width: 70%;
 }
 
 /*------------------Footer-------------------------------*/
@@ -344,7 +392,6 @@ footer>#comentarios {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1.5rem;
 }
 
 footer>#comentarios>* {
@@ -357,7 +404,8 @@ footer>#comentarios>* {
 footer>#telefono {
     display: flex;
     flex-flow: row wrap;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
     align-items: center;
     justify-content: center;
 }
@@ -378,7 +426,7 @@ footer>#redes {
     display: flex;
     flex-direction: column;
     flex: 100%;
-    margin-top: 1rem;
+    margin-top: 2rem;
     align-items: center;
     justify-content: center;
 }
@@ -396,6 +444,7 @@ footer>#redes>div {
     flex-direction: row;
     flex: 100%;
     justify-content: center;
+    align-items: center;
     margin-top: 1rem;
     margin-left: 1rem;
 }
@@ -413,20 +462,24 @@ footer>#disclaimer {
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
-footer>#disclaimer>p {
+footer>#disclaimer>span {
     text-align: center;
     color: white;
     font-size: 12px;
 }
 
 
-footer#footer-escritorio {
-    display: none;
-}
 
 /*Footer Escritorio*/
+
+footer#footer-escritorio {
+    display: none;
+    flex-direction: column;
+    height: 350px;
+}
 
 
 footer#footer-escritorio>:nth-child(1) {
@@ -448,7 +501,6 @@ footer#footer-escritorio>#comentarios {
     align-items: center;
     width: 60%;
     align-self: center;
-
 }
 
 footer#footer-escritorio>#comentarios>* {
@@ -462,7 +514,38 @@ footer#footer-escritorio>#comentarios>* {
 }
 
 
+footer#footer-escritorio>#desktop-disclaimer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    width: 100%;
+}
+
+footer#footer-escritorio>#desktop-disclaimer>span {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+}
+
 /*----------------Media queries----------------------------*/
+@media (min-width: 375px) and (max-width: 450px) {
+
+    .formulario {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1700px) {
+
+    .sidebar-div-border>:nth-child(2)>span {
+        font-size: 13px;
+    }
+    .sidebar-div-border>:nth-child(1)>img {
+        height: 50px;
+    }
+}
 
 @media (min-width:1440px) {
     header>#menu {
@@ -473,11 +556,11 @@ footer#footer-escritorio>#comentarios>* {
         display: flex;
         flex-direction: row;
         align-items: center;
-        width: 70%;
+        width: 90%;
     }
 
     header>#menu-escritorio>#lower-menu {
-        width: 35%;
+        width: 50%;
     }
 
     header>#menu-escritorio>#lower-menu>ul {
@@ -486,7 +569,7 @@ footer#footer-escritorio>#comentarios>* {
         list-style: none;
         width: 100%;
         align-items: stretch;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
 
     header>#menu-escritorio>#lower-menu>ul>a {
@@ -501,7 +584,17 @@ footer#footer-escritorio>#comentarios>* {
     }
 
     header>#menu-escritorio>#secondary-menu {
-        width: 65%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 50%;
+    }
+
+    header>#menu-escritorio>#secondary-menu>#icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 30%;
     }
 
     /*Productos escritorio*/
@@ -514,7 +607,7 @@ footer#footer-escritorio>#comentarios>* {
         flex-flow: row;
         background-color: white;
         background-size: cover;
-        margin-top: 4rem;
+        margin: 4rem 0;
     }
 
     /*Parte izquierda-------------------------------------------*/
@@ -572,12 +665,18 @@ footer#footer-escritorio>#comentarios>* {
         text-align: center;
     }
 
-    #sidebar-list>.sidebar-div-border {
+    #productos>#sidebar>#sidebar-list>.sidebar-div-border {
         cursor: pointer;
     }
 
     .sidebar-div-border>:nth-child(1) {
+        justify-content: center;
         width: 30%;
+        margin-right: 10px;
+    }
+
+    .sidebar-div-border>:nth-child(1)>img {
+        min-width: 60px;
     }
 
     .sidebar-div-border>:nth-child(2) {
@@ -590,8 +689,8 @@ footer#footer-escritorio>#comentarios>* {
     }
 
     .sidebar-div-border img {
-        width: 100%;
-        height: auto;
+        width: 80px;
+        height: 80px;
     }
 
     /*izquierda abajo*/
@@ -628,21 +727,32 @@ footer#footer-escritorio>#comentarios>* {
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
-        margin-top: 4rem;
+        align-items: end;
+        margin-top: 2rem;
         width: 90%;
     }
 
-    #productos>#content>#content-body>div {
+    #productos>#content>#content-body>a {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
+        justify-content: center;
         flex: 20% 0;
         text-align: center;
+        text-decoration: none;
+        color: black;
+        font-family: 'Oswald Stencil';
+        height: auto;
+        margin-top: 3rem;
     }
 
-    #productos>#content>#content-body>div img {
-        width: 60%;
+    #productos>#content>#content-body>a>div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
     }
+
 
     /*Footer*/
     footer {
@@ -651,26 +761,7 @@ footer#footer-escritorio>#comentarios>* {
 
     footer#footer-escritorio {
         display: flex;
-        flex-direction: column;
-        height: 400px;
-        top: 0;
-        right: 0;
-        align-self: flex-end;
     }
 
-    footer#footer-escritorio>#desktop-disclaimer {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3rem;
-    }
-
-    footer#footer-escritorio>#desktop-disclaimer>p {
-        text-align: center;
-        color: white;
-        font-size: 1rem;
-    }
 
 }

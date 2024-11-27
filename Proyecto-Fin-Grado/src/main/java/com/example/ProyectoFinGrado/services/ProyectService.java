@@ -31,16 +31,16 @@ public class ProyectService {
 
     private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
 
-    public String comprobarRegistro(String name, String email, String password,
-            String verifiedPassword) {
+    public String comprobarRegistro(String nombreUsuario, String email, String password,
+            String claveVerificada) {
 
-        Optional<Usuario> userName = usuarioRepository.findByUserName(name);
+        Optional<Usuario> nombre = usuarioRepository.findByNombreUsuario(nombreUsuario);
 
         Optional<Usuario> userEmail = usuarioRepository.findByEmail(email);
 
         ArrayList<String> listErrors = new ArrayList();
 
-        if (userName.isPresent()) {
+        if (nombre.isPresent()) {
             listErrors.add(Constants.EXIST.toString());
         }
 
@@ -50,7 +50,7 @@ public class ProyectService {
             listErrors.add(Constants.EMAIL_REPEATED.toString());
         }
 
-        if (!password.equals(verifiedPassword)) {
+        if (!password.equals(claveVerificada)) {
             listErrors.add(Constants.WRONG_PASSWORD.toString());
         }
 
@@ -71,9 +71,9 @@ public class ProyectService {
 
     }
 
-    public String insertar(String name, String password, String email) {
+    public String insertar(String nombreUsuario, String clave, String email) {
 
-        Usuario usuario = Usuario.builder().userName(name).password(password).email(email).build();
+        Usuario usuario = Usuario.builder().nombreUsuario(nombreUsuario).clave(clave).email(email).build();
 
         try {
             usuarioRepository.save(usuario);
@@ -84,8 +84,8 @@ public class ProyectService {
         return Constants.OK.toString();
     }
 
-    public String comprobarUsuarioLogueado(String name, String password) {
-        Optional<Usuario> ul = usuarioRepository.findByUserNameAndPassword(name, password);
+    public String comprobarUsuarioLogueado(String nombreUsuario, String clave) {
+        Optional<Usuario> ul = usuarioRepository.findByNombreUsuarioAndClave(nombreUsuario, clave);
 
         if (ul.isPresent()) {
             return Constants.EXIST.toString();
@@ -97,9 +97,13 @@ public class ProyectService {
         return categoriaRepository.findAll();
     }
 
-    public List<Producto> obtenerProdCategorias(Long idCategoria) {
+    public List<Producto> obtenerProdCategorias(String slug) {
 
-        return productoRepository.findByCategoria(idCategoria);
+        return productoRepository.findByCategoria(slug);
+    }
+    public Producto obtenerProducto(Long idProducto) {
+
+        return productoRepository.findById(idProducto).get();
     }
 
     public boolean isValidEmail(String email) {

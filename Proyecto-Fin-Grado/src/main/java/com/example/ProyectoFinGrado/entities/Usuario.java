@@ -23,8 +23,8 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer id;
-    @Column(name = "user_name")
-    private String userName;
-    private String password;
+    @Column(name = "nombre_usuario")
+    private String nombreUsuario;
+    private String clave;
     private String email;
 }

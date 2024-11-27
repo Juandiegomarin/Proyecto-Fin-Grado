@@ -4,10 +4,11 @@
 
 $categorias = json_decode(consumir_servicios_REST(OBTENER_CATEGORIAS, METODO_GET));
 
-if (isset($_GET["section"]) && $_GET["section"] != "principal") {
-    $id_categoria = $_GET["section"];
-    $productos = json_decode(consumir_servicios_REST(OBTENER_PRODUCTOS_CATEGORIA . "/" . $id_categoria, METODO_GET));
+if (isset($_GET["section"]) && $_GET["section"] != "productos") {
+    $slug = $_GET["section"];
+    $productos = json_decode(consumir_servicios_REST(OBTENER_PRODUCTOS_CATEGORIA . "/" . $slug, METODO_GET));
 }
+
 ?>
 <div id="productos-mobil">
     <div id="content-header-mobil">
@@ -15,37 +16,27 @@ if (isset($_GET["section"]) && $_GET["section"] != "principal") {
         <h2>Tus productos favoritos del Chiringuito Dieguichi</h2>
     </div>
     <div id="lista">
-        <?php
 
-        if (!isset($_GET["section"]) || $_GET["section"] == "principal") {
-            foreach ($categorias as $categoria) {
-        ?>
-                <a href="index.php">
-                    <div>
-                        <div><img src='assets/img/logo.png' alt='Logo'></div>
-                        <div><span><?php echo $categoria->categoria ?></span></div>
-                    </div>
-                </a>
-            <?php
-            }
-        } else {
-            foreach ($productos as $producto) {
-            ?>
-                <a href="index.php">
-                    <div>
-                        <div><img src='assets/img/logo.png' alt='Logo'></div>
-                        <div><span><?php echo $producto->nombre ?></span></div>
-                    </div>
-                </a>
         <?php
-            }
+        $list = (!isset($_GET["section"]) || $_GET["section"] == "productos") ? $categorias : $productos;
+        foreach ($list as $item) {
+        ?>
+            <a href="index.php">
+                <div class="imagen-container">
+                    <div class="image-imagen"><img src='assets/products/<?= $item->imagen ?>' alt='Logo'></div>
+                    <div class="image-span"><span><?php echo $item->nombre ?></span></div>
+                </div>
+            </a>
+
+        <?php
         }
         ?>
 
     </div>
     <div id="seleccion">
-        <a href="index.php?page=productos&section=principal">
-            <div class="<?= (!isset($_GET["section"]) || $_GET["section"] == "principal") ? "seleccionado" : "" ?>">
+
+        <a href="index.php?page=productos&section=productos">
+            <div class="<?= (!isset($_GET["section"]) || $_GET["section"] == "productos") ? "seleccionado" : "" ?>">
                 <div>
                     <img src="../assets/img/logo.png" alt="Logo">
                 </div>
@@ -54,30 +45,29 @@ if (isset($_GET["section"]) && $_GET["section"] != "principal") {
                 </div>
             </div>
         </a>
+
         <?php
         foreach ($categorias as $categoria) {
         ?>
-            <a href="index.php?page=productos&section=<?php echo $categoria->id ?>">
-                <div class="<?= (isset($_GET["section"]) && $_GET["section"] == $categoria->id) ? "seleccionado" : "" ?>">
-                    <div><img src='assets/img/logo.png' alt='Logo'></div>
-                    <div><span><?php echo $categoria->categoria ?></span></div>
+
+            <a href="index.php?page=productos&section=<?php echo $categoria->slug ?>">
+                <div class="<?= (isset($_GET["section"]) && $_GET["section"] == $categoria->slug) ? "seleccionado" : "" ?> imagen-container">
+                    <div class="image-imagen"><img src='assets/products/<?= $categoria->imagen ?>' alt='Logo'></div>
+                    <div class="image-span"><span><?php echo $categoria->nombre ?></span></div>
                 </div>
             </a>
+
         <?php
         }
         ?>
+
     </div>
-
-
 </div>
 <div id="productos">
-
     <div id="sidebar">
-
         <div id="sidebar-header">
-
-            <a href="index.php?page=productos&section=principal">
-                <div class="sidebar-div-border  <?= (!isset($_GET["section"]) || $_GET["section"] == "principal") ? "clicked-both" : "noClicked" ?>">
+            <a href="index.php?page=productos&section=productos">
+                <div class="sidebar-div-border  <?= (!isset($_GET["section"]) || $_GET["section"] == "productos") ? "clicked-both" : "noClicked" ?>">
                     <div>
                         <img src="../assets/img/logo.png" alt="Logo">
                     </div>
@@ -86,32 +76,35 @@ if (isset($_GET["section"]) && $_GET["section"] != "principal") {
                     </div>
                 </div>
             </a>
-
         </div>
         <div id="sidebar-list">
+
             <?php
-            foreach ($categorias as $categoria) {
-                if (isset($_GET["section"]) && $_GET["section"] == 1)
+            foreach ($categorias as $key => $categoria) {
+
+                if (isset($_GET["section"]) && $key == 0) {
                     $clicked = "clicked-first";
-                else if (isset($_GET["section"]) && $_GET["section"] == 12)
-                    $clicked = "clicked-end"
+                } elseif (isset($_GET["section"]) && $key == count($categorias) - 1) {
+                    $clicked = "clicked-end";
+                }else{
+                    $clicked = "";
+                }
 
             ?>
-                <a href="index.php?page=productos&section=<?php echo $categoria->id ?>">
-                    <div class="sidebar-div-border <?= (isset($_GET["section"]) && $_GET["section"] == $categoria->id) ? "clicked $clicked" : "noClicked" ?>">
-                        <div><img src='assets/img/logo.png' alt='Logo'></div>
-                        <div><span><?php echo $categoria->categoria ?></span></div>
+                
+                <a href="index.php?page=productos&section=<?php echo $categoria->slug ?>">
+                    <div class="sidebar-div-border <?= (isset($_GET["section"]) && $_GET["section"] == $categoria->slug) ? "clicked $clicked" : "noClicked" ?> imagen-container">
+                        <div class="image-imagen"><img src='assets/products/<?= $categoria->imagen ?>' alt='Logo'></div>
+                        <div class="image-span"><span><?php echo $categoria->nombre ?></span></div>
                     </div>
                 </a>
+
             <?php
             }
             ?>
         </div>
-
     </div>
-
     <div id="content">
-
         <div id="content-header">
             <h1>Nuestros productos</h1>
             <h2>Tus productos favoritos del Chiringuito Dieguichi</h2>
@@ -119,21 +112,21 @@ if (isset($_GET["section"]) && $_GET["section"] != "principal") {
         <div id="content-body">
 
             <?php
-            foreach ($categorias as $categoria) {
+            $list = (!isset($_GET["section"]) || $_GET["section"] == "productos") ? $categorias : $productos;
+            foreach ($list as $item) {
             ?>
-                <div>
-                    <img src="assets/img/logo.png" alt="Logo">
-                    <span><?php echo $categoria->categoria ?></span>
-                </div>
+
+                <a href="index.php">
+                    <div class="imagen-container">
+                        <div class="image-imagen"><img src='assets/products/<?= $item->imagen ?>' alt='Logo'></div>
+                        <div class="image-span"><span><?php echo $item->nombre ?></span></div>
+                    </div>
+                </a>
+
             <?php
             }
             ?>
 
-
         </div>
-        <form action="../index.php" method="post">
-            <button type="submit" name="btnSalir">Boton</button>
-        </form>
     </div>
-
 </div>

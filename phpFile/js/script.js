@@ -17,13 +17,13 @@ function removeRequiredRegister() {
 //Jquery
 $(document).ready(function () {
 
-    $("header>#menu>:nth-child(2)").on("click",function(){
+    $("header>#menu>#menu-icon").on("click",function(){
         $(this).css("display","none")
         $(this).next().css("display","flex")
         $("#desplegable").slideDown("slow")
     })
 
-    $("header>#menu>img").on("click",function(){
+    $("header>#menu>#close-icon").on("click",function(){
         $(this).css("display","none")
         $(this).prev().css("display","flex")
         $("#desplegable").slideUp("slow")

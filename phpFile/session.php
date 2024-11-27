@@ -8,8 +8,8 @@ if (isset($_POST["btnSalir"])) {
 
 if (isset($_POST["btnLogin"])) {
 
-    $datos["name"] = $_POST["userL"];
-    $datos["password"] = $_POST["password"];
+    $datos["nombre"] = $_POST["userL"];
+    $datos["clave"] = $_POST["password"];
 
     $response = consumir_servicios_REST(COMPROBAR_USUARIO_LOGUEADO, METODO_POST, $datos);
 
@@ -31,10 +31,10 @@ if (isset($_POST["btnContRegistrarse"])) {
     $page = "register";
     $datos = [];
 
-    $datos["name"] = $_POST["user"];
+    $datos["nombre"] = $_POST["user"];
     $datos["email"] = $_POST["email"];
-    $datos["password"] = $_POST["password"];
-    $datos["verified_password"] = $_POST["password2"];
+    $datos["clave"] = $_POST["password"];
+    $datos["clave_verificada"] = $_POST["password2"];
 
     $obj = consumir_servicios_REST(COMPROBAR_REGISTRO, METODO_POST, $datos);
 

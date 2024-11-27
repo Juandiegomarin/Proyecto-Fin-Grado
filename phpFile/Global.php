@@ -20,7 +20,7 @@ define("INSERTAR", DIR_SERV . "/insertar");
 define("COMPROBAR_USUARIO_LOGUEADO", DIR_SERV . "/comprobarUsuarioLogueado");
 define("OBTENER_CATEGORIAS", DIR_SERV . "/obtenerCategorias");
 define("OBTENER_PRODUCTOS_CATEGORIA", DIR_SERV . "/obtenerProductos");
-
+define("OBTENER_PRODUCTO", DIR_SERV . "/obtenerProducto");
 //Respuestas
 define("RESPONSE_OK", "OK");
 define("RESPONSE_ERROR", "ERROR");

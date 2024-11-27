@@ -1,4 +1,12 @@
 <footer class="footer">
+    <div id="redes">
+        <span class="colorGraduado">Siguenos en nuestras redes sociales</span>
+        <div>
+            <img src="assets/img/instagram.png" alt="logoInstagram" title="logoInstagram">
+            <img src="assets/img/facebook.png" alt="logoFacebook" title="logoFacebook">
+            <img src="assets/img/twitter.png" alt="logoTwitter" title="logoTwitter">
+        </div>
+    </div>
     <div id="comentarios">
         <span class="colorGraduado">PREGUNTAS FRECUENTES</span>
         <span class="colorGraduado">OPINIONES Y SUGERENCIAS</span>
@@ -12,16 +20,8 @@
         <img src="assets/img/telefono.png" alt="telefono" title="telefono">
         <span class="colorGraduado">También puedes contactar por telefono 682 07 97 69</span>
     </div>
-    <div id="redes">
-        <span class="colorGraduado">Siguenos en nuestras redes sociales</span>
-        <div>
-            <img src="assets/img/instagram.png" alt="logoInstagram" title="logoInstagram">
-            <img src="assets/img/facebook.png" alt="logoFacebook" title="logoFacebook">
-            <img src="assets/img/twitter.png" alt="logoTwitter" title="logoTwitter">
-        </div>
-    </div>
     <div id="disclaimer">
-        <p>Copyright &copy; <?= date("Y") ?> Dieguichi Orderly SL</p>
+        <span>Copyright &copy; <?= date("Y") ?> Dieguichi Orderly SL</span>
     </div>
 </footer>
 <footer id="footer-escritorio">
@@ -41,6 +41,6 @@
         <a href="politicaPrivacidad.html" aria-label="enlace"> <span class="colorGraduado pointer">POLITICA DE PRIVACIDAD</span></a>
     </div>
     <div id="desktop-disclaimer">
-        <p>Copyright &copy; <?= date("Y") ?> Dieguichi Orderly SL</p>
+        <span>Copyright &copy; <?= date("Y") ?> Dieguichi Orderly SL</span>
     </div>
 </footer>
