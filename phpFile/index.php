@@ -6,7 +6,60 @@ $page = $_GET["page"] ?? "home";
 
 include("session.php");
 
+if (isset($_POST["addProduct"])) {
 
+    $id = $_POST["idProducto"];
+    $unidades = $_POST["unidades"];
+    $precio = $unidades * $_POST["precio"];
+    $imagen = $_POST["imagen"];
+    $stock =  $_POST["stock"];
+
+    $producto_pedido = [];
+    $producto_pedido["id"] = $id;
+    $producto_pedido["unidades"] = $unidades;
+    $producto_pedido["precio"] = $precio;
+    $producto_pedido["imagen"] = $imagen;
+    $producto_pedido["stock"] = $stock;
+
+    $pos = buscarProductoId($id, $_SESSION["pedido"]);
+
+    if ($pos < 0) {
+        $_SESSION["pedido"][] = $producto_pedido;
+    } else {
+        $_SESSION["pedido"][$pos]["unidades"] += $unidades;
+        $_SESSION["pedido"][$pos]["precio"] += $precio;
+    }
+
+    header("Location:index.php?page=productos");
+    exit();
+}
+
+if (isset($_POST["btnModificar"])) {
+
+    $id = $_POST["id"];
+
+    $pos = buscarProductoId($id, $_SESSION["pedido"]);
+
+    $unidades = $_POST["unidades"];
+    $precio = $unidades * $_POST["precio"];
+
+    $_SESSION["pedido"][$pos]["unidades"] = $unidades;
+    $_SESSION["pedido"][$pos]["precio"] = $precio;
+
+    header("Location:index.php?page=pedido");
+    exit();
+}
+
+if (isset($_POST["btnEliminar"])) {
+
+    $id = $_POST["id"];
+    $pos = buscarProductoId($id, $_SESSION["pedido"]);
+
+    unset($_SESSION["pedido"][$pos]);
+    
+    header("Location:index.php?page=pedido");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

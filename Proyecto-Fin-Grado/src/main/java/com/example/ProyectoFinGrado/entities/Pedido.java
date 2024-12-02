@@ -1,14 +1,15 @@
 package com.example.ProyectoFinGrado.entities;
 
+import java.time.LocalDateTime;
 import java.util.List;
-
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -17,23 +18,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Table(name = "usuarios")
+@Table(name = "pedidos")
 @Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Usuario {
+public class Pedido {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer idUsuario;
-    @Column(name = "nombre_usuario")
-    private String nombreUsuario;
-    private String clave;
-    private String email;
 
-    @OneToMany(mappedBy="usuario")
-    private List<Pedido> pedidos;
+    @Column(name = "id_pedido")
+    private Integer idPedido;
 
+    @ManyToOne
+    @JoinColumn(name="idUsuario", nullable=false)
+    private Usuario usuario;
+
+    @Column(name = "fecha_pedido")
+    LocalDateTime fechaPedido;
+
+    Double total;
+
+    @OneToMany(mappedBy = "pedido")
+    List<PedidoProducto> pedidoProducto;
+    
 }

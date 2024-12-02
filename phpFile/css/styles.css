@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .colorGraduado {
     background-image: linear-gradient(to bottom, #0cb3d1, #e4f4f7 70%);
     -webkit-background-clip: text;
@@ -13,9 +17,19 @@
     cursor: pointer;
 }
 
+.active-alergen {
+    background-color: #f9f9f9;
+}
+
+.active-icon {
+    float: right;
+    margin-right: 1rem;
+}
+
 html,
 body {
     min-width: 375px;
+    height: 100vh;
     /* O cualquier otro valor que desees */
 }
 
@@ -132,7 +146,7 @@ body {
     display: none;
 }
 
-#productos-mobil {
+#productos-movil {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -142,7 +156,7 @@ body {
 }
 
 /*Cabecera Titulo*/
-#productos-mobil>#content-header-mobil {
+#productos-movil>#content-header-movil {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -150,13 +164,13 @@ body {
     color: #000;
 }
 
-#productos-mobil>#content-header-mobil>h1,
+#productos-movil>#content-header-movil>h1,
 h2 {
     text-align: center;
     font-family: 'Luckiest Guy', sans-serif;
 }
 
-#productos-mobil>#lista {
+#productos-movil>#lista {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -165,15 +179,16 @@ h2 {
     margin-top: 3rem;
 }
 
-#productos-mobil>#seleccion {
+#productos-movil>#seleccion {
     display: flex;
     flex-flow: row wrap;
     align-items: end;
+    justify-content: center;
     width: 90%;
     margin: 3rem 0;
 }
 
-#productos-mobil>#seleccion>a {
+#productos-movil>#seleccion>a {
     text-decoration: none;
     color: black;
     font-family: 'Oswald Stencil';
@@ -182,7 +197,7 @@ h2 {
     flex: 20% 0;
 }
 
-#productos-mobil>#seleccion>a>div {
+#productos-movil>#seleccion>a>div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,11 +205,11 @@ h2 {
     padding: 5px;
 }
 
-#productos-mobil>#seleccion>a img {
+#productos-movil>#seleccion>a img {
     width: 100px;
 }
 
-#productos-mobil>#lista>a {
+#productos-movil>#lista>a {
     text-decoration: none;
     color: black;
     font-size: small;
@@ -203,7 +218,7 @@ h2 {
     flex: 20% 0;
 }
 
-#productos-mobil>#lista>a>div {
+#productos-movil>#lista>a>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -220,10 +235,13 @@ h2 {
 
 .image-imagen>img {
     height: auto;
-    max-width: 100%
+    max-width: 100%;
+    min-width: 80px;
 }
 
 .image-span {
+    display: flex;
+    flex-direction: column;
     height: 20%;
     margin-top: 1rem;
 }
@@ -239,6 +257,7 @@ h2 {
     border-radius: 6px;
 }
 
+/*-----------Cabecera---------------*/
 header {
     display: flex;
     flex-direction: row;
@@ -250,17 +269,16 @@ header {
     z-index: 100;
 }
 
-header>div {
+header>a {
     display: flex;
     justify-content: center;
-    width: 10%;
 }
 
-header>div>a {
+header>a>div {
     width: 100%;
 }
 
-header>div>a>img {
+header>a>div>img {
     width: 100px;
 }
 
@@ -276,9 +294,30 @@ header>#menu {
     align-items: center;
 }
 
-header>#menu>img {
+header>#menu>img,
+a {
     margin-right: 5%;
     cursor: pointer;
+}
+
+header>#menu>a {
+    position: relative;
+}
+
+#cart_menu_num {
+    position: absolute;
+    bottom: -5px;
+    left: 55%;
+    background: #f1ac43;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 4px;
+    font-size: xx-small;
 }
 
 header>#menu>#close-icon {
@@ -319,6 +358,7 @@ header>#menu>#desplegable>a:hover {
     text-decoration-thickness: 2px;
 }
 
+/*----------Seccion home-------------------*/
 #home {
     display: flex;
     flex-direction: column;
@@ -379,13 +419,301 @@ header>#menu>#desplegable>a:hover {
     width: 70%;
 }
 
+/*------------------Single Product Movil-----------------------*/
+
+#product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 3rem 0;
+}
+
+#product-container>#product {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+#product-container>#product>#product-imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    align-items: center;
+}
+
+#product-container>#product>#product-imagen>img {
+    max-width: 100%;
+}
+
+#product-container>#product>#product-imagen>span {
+    font-family: 'Oswald Stencil';
+}
+
+#product-container>#product>#product-imagen>#product-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+#product-container>#product>#product-imagen>#product-form>span {
+    font-family: 'Oswald Stencil';
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: center
+}
+
+#product-container>#product>#product-imagen>#product-form>#product-units {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#product-container>#product>#product-imagen>#product-form>#product-units>#product-units-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+#product-container>#product>#product-imagen>#product-form>#product-units>#product-units-text>p {
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+#product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 60%;
+}
+
+
+#product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units>button {
+    width: 40%;
+}
+
+#product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units>span {
+    width: 20%;
+}
+
+#product-container>#product>#product-imagen>#product-form>button {
+    border: none;
+    padding: 0.5rem;
+    font-weight: 500;
+    border-radius: 10px;
+    color: rgb(39, 39, 39);
+    background-color: #f1ac43;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+#product-container>#product>#product-descripcion {
+    align-self: center;
+    width: 80%;
+    margin-top: 2rem;
+    text-wrap: pretty;
+    text-align: justify;
+    font-weight: 500;
+}
+
+#product-container h1 {
+    font-family: 'Luckiest Guy', sans-serif;
+    margin-top: 2rem;
+}
+
+#product-container h4,
+h5 {
+    font-family: 'Luckiest Guy', sans-serif;
+}
+
+#product-container>#alergenos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 2rem;
+}
+
+#product-container>#alergenos>ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style-type: none;
+    border-top: 1px dashed #c9c9c9;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#product-container>#alergenos>ul>li {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem 0;
+    padding-left: 2rem;
+    border-bottom: 1px dashed #c9c9c9;
+    vertical-align: middle;
+}
+
+#product-container>#alergenos>ul>li>img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+#product-container>#alergenos>ul>li>span {
+    width: 100%;
+}
+
+/*------------------Carrito-----------------------------*/
+
+main#carrito {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+}
+
+main#carrito>h1 {
+    font-family: 'Oswald Stencil';
+    margin-top: 4rem;
+}
+
+main#carrito>section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+main#carrito>section>article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+main#carrito>section>article>div {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+}
+
+main#carrito>section>article>div>span {
+    font-size: medium;
+    font-weight: 500;
+}
+
+main#carrito>section>article>.article-imagen>img {
+    max-height: 100px;
+    max-width: 100%;
+}
+
+main#carrito>section>article>.article-botones>form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main#carrito>#modal-modificar {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
+main#carrito>#modal-modificar>#modal-modificar-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: 500px;
+    top: 20%;
+    width: 80%;
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+main#carrito>#modal-modificar>#modal-modificar-contenido>#close-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-self: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+main#carrito>#modal-modificar>#modal-modificar-contenido>#close-modal>img{
+    margin-right: 1rem ;
+}
+
+main#carrito>#modal-modificar>#modal-modificar-contenido>img {
+    max-height: 250px;
+}
+
+main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 3rem;
+    width: 60%;
+}
+
+main#carrito>#modal-modificar>#modal-modificar-contenido>button {
+    border: none;
+    padding: 0.5rem;
+    font-weight: 500;
+    border-radius: 10px;
+    color: rgb(39, 39, 39);
+    background-color: #f1ac43;
+    width: 60%;
+    margin-top: auto;
+    margin-bottom: 2rem;
+}
+
+main#carrito>section>article>.article-botones>form>button {
+    width: 80%;
+    margin: 0.5rem 0;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem;
+    color: white;
+    font-weight: 500;
+}
+
+main#carrito>section>article>.article-botones>form>.btn-modificar {
+    background-color: #58b5eb;
+}
+
+main#carrito>section>article>.article-botones>form>.btn-eliminar {
+    background-color: #ee4e5e;
+}
+
+main#carrito>p{
+    font-size: 1.5em;
+    margin-top: 2rem;
+}
+
+
 /*------------------Footer-------------------------------*/
 footer {
     display: flex;
     flex-direction: column;
-    flex: 100%;
-    height: 450px;
     background-color: #0b1733;
+    width: 100%;
+    bottom: 0;
 }
 
 footer>#comentarios {
@@ -472,7 +800,6 @@ footer>#disclaimer>span {
 }
 
 
-
 /*Footer Escritorio*/
 
 footer#footer-escritorio {
@@ -537,17 +864,79 @@ footer#footer-escritorio>#desktop-disclaimer>span {
     }
 }
 
+@media (min-width: 600px) {
+
+    #product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units>button {
+        width: 33%;
+    }
+
+    #product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units>span {
+        width: 33%;
+    }
+}
+
+@media (min-width: 800px) {
+
+    #product-container>#product {
+        width: 70%;
+        flex-direction: row;
+    }
+
+    #product-container>#product>#product-descripcion,
+    #product-imagen {
+        width: 50%;
+    }
+
+    #product-container>#product>#product-descripcion {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    #product-container>#product>#product-imagen>span {
+        font-size: 15px;
+    }
+
+    #product-container>h1 {
+        margin-top: 8rem;
+    }
+
+    #product-container>#alergenos {
+        width: 60%;
+    }
+
+    #product-container>#alergenos>ul {
+        flex-flow: row wrap;
+    }
+
+    #product-container>#alergenos>ul>li {
+        flex: 50% 0;
+        padding-left: 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    #product-container>#product>#product-imagen>span {
+        font-size: 25px;
+    }
+}
+
 @media (min-width: 1440px) and (max-width: 1700px) {
 
     .sidebar-div-border>:nth-child(2)>span {
         font-size: 13px;
     }
+
     .sidebar-div-border>:nth-child(1)>img {
         height: 50px;
+    }
+
+    #sidebar-header .sidebar-div-border img {
+        width: 60px;
     }
 }
 
 @media (min-width:1440px) {
+
     header>#menu {
         display: none;
     }
@@ -597,8 +986,12 @@ footer#footer-escritorio>#desktop-disclaimer>span {
         width: 30%;
     }
 
+    header>#menu-escritorio>#secondary-menu>#icons>a {
+        position: relative;
+    }
+
     /*Productos escritorio*/
-    #productos-mobil {
+    #productos-movil {
         display: none;
     }
 
@@ -753,6 +1146,22 @@ footer#footer-escritorio>#desktop-disclaimer>span {
         height: 100%;
     }
 
+    /*-------Single Product Escritorio ------------*/
+    #product-container>#alergenos {
+        width: 40%;
+    }
+
+    #product-container>#product>#product-imagen>span {
+        font-size: 35px;
+    }
+
+    #product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units>button {
+        width: 20%;
+    }
+
+    #product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units>span {
+        width: 60%;
+    }
 
     /*Footer*/
     footer {

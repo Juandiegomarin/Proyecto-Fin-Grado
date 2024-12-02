@@ -1,5 +1,9 @@
 <?php
 
+if (!isset($_SESSION["pedido"])) {
+    $_SESSION["pedido"] = [];
+}
+
 if (isset($_POST["btnSalir"])) {
     session_destroy();
     header("Location:index.php");

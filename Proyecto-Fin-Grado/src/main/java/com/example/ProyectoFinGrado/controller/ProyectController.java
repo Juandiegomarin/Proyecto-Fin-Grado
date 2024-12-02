@@ -1,5 +1,6 @@
 package com.example.ProyectoFinGrado.controller;
 
+import com.example.ProyectoFinGrado.entities.Alergeno;
 import com.example.ProyectoFinGrado.entities.Categoria;
 import com.example.ProyectoFinGrado.entities.Producto;
 import com.example.ProyectoFinGrado.services.ProyectService;
@@ -64,10 +65,16 @@ public class ProyectController {
         return service.obtenerProdCategorias(slug);
     }
 
-    @GetMapping("/obtenerProducto/{idProducto}")
+    @GetMapping("/obtenerProducto/{slug}")
     public Producto obtenerProducto(
-            @PathVariable(value = "idProducto") Long idProducto) {
-        return service.obtenerProducto(idProducto);
+            @PathVariable(value = "slug") String slug) {
+        return service.obtenerProducto(slug);
+    }
+
+    @GetMapping("/obtenerAlergenos")
+    public List<Alergeno> obtenerAlergenos()
+    {
+        return service.obtenerAlergenos();
     }
 
 }

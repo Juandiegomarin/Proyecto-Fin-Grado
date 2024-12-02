@@ -10,20 +10,27 @@ if (isset($_GET["section"]) && $_GET["section"] != "productos") {
 }
 
 ?>
-<div id="productos-mobil">
-    <div id="content-header-mobil">
+<div id="productos-movil">
+    <div id="content-header-movil">
         <h1>Nuestros productos</h1>
         <h2>Tus productos favoritos del Chiringuito Dieguichi</h2>
     </div>
     <div id="lista">
 
         <?php
-        $list = (!isset($_GET["section"]) || $_GET["section"] == "productos") ? $categorias : $productos;
+
+        $es_categoria = !isset($_GET["section"]) || $_GET["section"] == "productos";
+
+        $list = $es_categoria ? $categorias : $productos;
+        $page = $es_categoria ? "productos" : "producto";
+        $param = $es_categoria ? "section" : "producto";
+
         foreach ($list as $item) {
         ?>
-            <a href="index.php">
+
+           <a href="index.php?page=<?= $page ?>&<?= $param ?>=<?= $item->slug ?>">
                 <div class="imagen-container">
-                    <div class="image-imagen"><img src='assets/products/<?= $item->imagen ?>' alt='Logo'></div>
+                    <div class="image-imagen"><img src='assets/products/<?= $item->imagen ?>' alt='<?= $item->nombre ?>' > </div>
                     <div class="image-span"><span><?php echo $item->nombre ?></span></div>
                 </div>
             </a>
@@ -38,7 +45,7 @@ if (isset($_GET["section"]) && $_GET["section"] != "productos") {
         <a href="index.php?page=productos&section=productos">
             <div class="<?= (!isset($_GET["section"]) || $_GET["section"] == "productos") ? "seleccionado" : "" ?>">
                 <div>
-                    <img src="../assets/img/logo.png" alt="Logo">
+                    <img src="../assets/img/logo.png" alt="Logo" style="min-width: 80px; max-width:100%">
                 </div>
                 <div>
                     <span>Nuestros productos</span>
@@ -86,16 +93,16 @@ if (isset($_GET["section"]) && $_GET["section"] != "productos") {
                     $clicked = "clicked-first";
                 } elseif (isset($_GET["section"]) && $key == count($categorias) - 1) {
                     $clicked = "clicked-end";
-                }else{
+                } else {
                     $clicked = "";
                 }
 
             ?>
-                
-                <a href="index.php?page=productos&section=<?php echo $categoria->slug ?>">
+
+                <a href="index.php?page=productos&section=<?= $categoria->slug ?>">
                     <div class="sidebar-div-border <?= (isset($_GET["section"]) && $_GET["section"] == $categoria->slug) ? "clicked $clicked" : "noClicked" ?> imagen-container">
                         <div class="image-imagen"><img src='assets/products/<?= $categoria->imagen ?>' alt='Logo'></div>
-                        <div class="image-span"><span><?php echo $categoria->nombre ?></span></div>
+                        <div class="image-span"><span><?= $categoria->nombre ?></span></div>
                     </div>
                 </a>
 
@@ -112,14 +119,20 @@ if (isset($_GET["section"]) && $_GET["section"] != "productos") {
         <div id="content-body">
 
             <?php
-            $list = (!isset($_GET["section"]) || $_GET["section"] == "productos") ? $categorias : $productos;
+
+            $es_categoria = !isset($_GET["section"]) || $_GET["section"] == "productos";
+
+            $list = $es_categoria ? $categorias : $productos;
+            $page = $es_categoria ? "productos" : "producto";
+            $param = $es_categoria ? "section" : "producto";
+
             foreach ($list as $item) {
             ?>
 
-                <a href="index.php">
+                <a href="index.php?page=<?= $page ?>&<?= $param ?>=<?= $item->slug ?>">
                     <div class="imagen-container">
                         <div class="image-imagen"><img src='assets/products/<?= $item->imagen ?>' alt='Logo'></div>
-                        <div class="image-span"><span><?php echo $item->nombre ?></span></div>
+                        <div class="image-span"><span><?= $item->nombre ?></span><?= (!$es_categoria)  ? (number_format( $item->precio,2)."€") : "" ?></span></div>
                     </div>
                 </a>
 

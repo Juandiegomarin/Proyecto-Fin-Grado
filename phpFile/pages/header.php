@@ -1,21 +1,34 @@
 <?php
 
 $secciones = [
-    ["title" => "Home" ,"slug" => "home"],
-    ["title" => "Productos" ,"slug" => "productos"],
-    ["title" => "Contacto" ,"slug" => "contacto"]
+    ["title" => "Home", "slug" => "home"],
+    ["title" => "Productos", "slug" => "productos"],
+    ["title" => "Contacto", "slug" => "contacto"]
 ];
 
 ?>
 
 <header>
-    <div>
-        <a href="index.php?page=home">
+    <a href="index.php?page=home">
+        <div>
             <img src="../assets/img/logo.png" alt="Logo del Chiringuito Dieguichi">
-        </a>
-    </div>
+        </div>
+    </a>
     <nav id="menu">
-        <img src="assets/icons/shoping-bag.svg" alt="shoping bag" id="shoping-bag-icon">
+        <a href="index.php?page=pedido">
+            <img src="assets/icons/shoping-bag.svg" alt="shoping bag" id="shoping-bag-icon">
+
+            <?php
+            if (!empty($_SESSION["pedido"])) {
+            ?>
+
+                <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
+
+            <?php
+            }
+            ?>
+            
+        </a>
         <img src="assets/icons/menu.svg" alt="menu" id="menu-icon">
         <img src="assets/icons/x.svg" alt="close" id="close-icon">
         <img src="assets/icons/person.svg" alt="login" id="login-icon">
@@ -56,7 +69,20 @@ $secciones = [
         </div>
         <div id="secondary-menu">
             <div id="icons">
-                <img src="assets/icons/shoping-bag.svg" alt="shoping bag">
+                <a href="index.php?page=pedido">
+                    <img src="assets/icons/shoping-bag.svg" alt="shoping bag">
+
+                    <?php
+                    if (!empty($_SESSION["pedido"])) {
+                    ?>
+
+                        <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
+
+                    <?php
+                    }
+                    ?>
+
+                </a>
                 <img src="assets/icons/person.svg" alt="login">
             </div>
         </div>

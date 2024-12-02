@@ -9,9 +9,11 @@ import java.util.regex.Matcher;
 import org.springframework.stereotype.Service;
 
 import com.example.ProyectoFinGrado.constants.Constants;
+import com.example.ProyectoFinGrado.entities.Alergeno;
 import com.example.ProyectoFinGrado.entities.Categoria;
 import com.example.ProyectoFinGrado.entities.Producto;
 import com.example.ProyectoFinGrado.entities.Usuario;
+import com.example.ProyectoFinGrado.repository.AlergenoRepository;
 import com.example.ProyectoFinGrado.repository.CategoriaRepository;
 import com.example.ProyectoFinGrado.repository.ProductoRepository;
 import com.example.ProyectoFinGrado.repository.UsuarioRepository;
@@ -28,6 +30,7 @@ public class ProyectService {
     private final UsuarioRepository usuarioRepository;
     private final CategoriaRepository categoriaRepository;
     private final ProductoRepository productoRepository;
+    private final AlergenoRepository alergenoRepository;
 
     private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
 
@@ -101,9 +104,13 @@ public class ProyectService {
 
         return productoRepository.findByCategoria(slug);
     }
-    public Producto obtenerProducto(Long idProducto) {
 
-        return productoRepository.findById(idProducto).get();
+    public Producto obtenerProducto(String slug) {
+
+        return productoRepository.findBySlug(slug).get();
+    }
+    public List<Alergeno> obtenerAlergenos() {
+        return alergenoRepository.findAll();
     }
 
     public boolean isValidEmail(String email) {

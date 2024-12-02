@@ -12,6 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,14 +31,22 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name = "id")
+
     private Integer idProducto;
-    private Integer categoria;
+
+    @ManyToOne
+    @JoinColumn(name="idCategoria", nullable=false)
+    private Categoria categoria;
+
     private String nombre;
     private String slug;
     private String descripcion;
     private Integer unidades;
     private Double precio;
     private String imagen;
+
+    @OneToMany(mappedBy = "producto")
+    List<PedidoProducto> pedidoProducto;
 
     @ManyToMany
     @JoinTable(name = "producto_alergeno", joinColumns = @JoinColumn(name = "idProducto"), inverseJoinColumns = @JoinColumn(name = "idAlergeno"))

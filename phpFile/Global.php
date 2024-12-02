@@ -21,6 +21,7 @@ define("COMPROBAR_USUARIO_LOGUEADO", DIR_SERV . "/comprobarUsuarioLogueado");
 define("OBTENER_CATEGORIAS", DIR_SERV . "/obtenerCategorias");
 define("OBTENER_PRODUCTOS_CATEGORIA", DIR_SERV . "/obtenerProductos");
 define("OBTENER_PRODUCTO", DIR_SERV . "/obtenerProducto");
+define("OBTENER_ALERGENOS", DIR_SERV . "/obtenerAlergenos");
 //Respuestas
 define("RESPONSE_OK", "OK");
 define("RESPONSE_ERROR", "ERROR");
@@ -54,4 +55,9 @@ function consumir_servicios_REST($url, $metodo, $datos = null)
 
     curl_close($ch);
     return $response;
+}
+
+function buscarProductoId($id, $array) {
+    $indices = array_flip(array_column($array, 'id'));
+    return isset($indices[$id]) ? $indices[$id] : -1;
 }
