@@ -20,6 +20,7 @@ if (isset($_POST["btnLogin"])) {
     if ($response == RESPONSE_EXIST) {
 
         $_SESSION["login"] = true;
+        $_SESSION["nombre_usuario"] = $_POST["userL"];
         $page = "home";
     } else {
         $error_logueo = true;

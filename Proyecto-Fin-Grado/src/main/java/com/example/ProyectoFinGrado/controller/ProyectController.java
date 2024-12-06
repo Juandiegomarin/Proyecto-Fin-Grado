@@ -5,13 +5,14 @@ import com.example.ProyectoFinGrado.entities.Categoria;
 import com.example.ProyectoFinGrado.entities.Producto;
 import com.example.ProyectoFinGrado.services.ProyectService;
 
+import dto.PedidoProductoDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -72,9 +73,16 @@ public class ProyectController {
     }
 
     @GetMapping("/obtenerAlergenos")
-    public List<Alergeno> obtenerAlergenos()
-    {
+    public List<Alergeno> obtenerAlergenos() {
         return service.obtenerAlergenos();
+    }
+
+    @PostMapping("/insertarPedido")
+    public String insertarPedido(
+            @RequestBody PedidoProductoDTO pedido) {
+
+        log.info("Pedido {}:", pedido.toString());
+        return service.insertarPedido(pedido);
     }
 
 }

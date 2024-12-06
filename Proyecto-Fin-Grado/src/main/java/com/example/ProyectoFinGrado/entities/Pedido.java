@@ -32,7 +32,7 @@ public class Pedido {
     private Integer idPedido;
 
     @ManyToOne
-    @JoinColumn(name="idUsuario", nullable=false)
+    @JoinColumn(name="id_usuario", nullable=false)
     private Usuario usuario;
 
     @Column(name = "fecha_pedido")

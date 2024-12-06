@@ -1,5 +1,6 @@
 package com.example.ProyectoFinGrado.services;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -7,18 +8,26 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.ProyectoFinGrado.constants.Constants;
 import com.example.ProyectoFinGrado.entities.Alergeno;
 import com.example.ProyectoFinGrado.entities.Categoria;
+import com.example.ProyectoFinGrado.entities.Pedido;
+import com.example.ProyectoFinGrado.entities.PedidoProducto;
+import com.example.ProyectoFinGrado.entities.PedidoProductoKey;
 import com.example.ProyectoFinGrado.entities.Producto;
 import com.example.ProyectoFinGrado.entities.Usuario;
 import com.example.ProyectoFinGrado.repository.AlergenoRepository;
 import com.example.ProyectoFinGrado.repository.CategoriaRepository;
+import com.example.ProyectoFinGrado.repository.PedidoProductoRepository;
+import com.example.ProyectoFinGrado.repository.PedidoRepository;
 import com.example.ProyectoFinGrado.repository.ProductoRepository;
 import com.example.ProyectoFinGrado.repository.UsuarioRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import dto.PedidoProductoDTO;
+import dto.ProductoDTO;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,6 +40,8 @@ public class ProyectService {
     private final CategoriaRepository categoriaRepository;
     private final ProductoRepository productoRepository;
     private final AlergenoRepository alergenoRepository;
+    private final PedidoRepository pedidoRepository;
+    private final PedidoProductoRepository pedidoProductoRepository;
 
     private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
 
@@ -102,15 +113,58 @@ public class ProyectService {
 
     public List<Producto> obtenerProdCategorias(String slug) {
 
-        return productoRepository.findByCategoria(slug);
+        return categoriaRepository.findBySlug(slug).get().getProductos();
     }
 
     public Producto obtenerProducto(String slug) {
 
         return productoRepository.findBySlug(slug).get();
     }
+
     public List<Alergeno> obtenerAlergenos() {
         return alergenoRepository.findAll();
+    }
+
+    @Transactional
+    public String insertarPedido(PedidoProductoDTO pedidoProducto) {
+
+        Usuario user = usuarioRepository.findByNombreUsuario(pedidoProducto.getUser()).get();
+
+        List<ProductoDTO> productoDTOs = pedidoProducto.getProductos();
+
+        double total = productoDTOs.stream()
+                .mapToDouble(ProductoDTO::getPrecio)
+                .sum();
+
+        try {
+            Pedido pedido = Pedido.builder().usuario(user).total(total).fechaPedido(LocalDateTime.now()).build();
+            pedidoRepository.save(pedido);
+
+            int idPedido = pedido.getIdPedido();
+
+            for (ProductoDTO productoDTO : productoDTOs) {
+
+                PedidoProductoKey pedidoProductoKey = PedidoProductoKey.builder().idPedido(idPedido).idProducto(productoDTO.getId()).build();
+
+                PedidoProducto p = new PedidoProducto();
+                p.setId(pedidoProductoKey);
+                p.setPedido(pedido);
+
+                Producto paux = productoRepository.findById(Long.valueOf(productoDTO.getId())).get();
+                p.setProducto(paux);
+                p.setNombre(paux.getNombre());
+                p.setPrecio(productoDTO.getPrecio());
+                p.setUnidades(productoDTO.getUnidades());
+
+                pedidoProductoRepository.save(p);
+            }
+
+            return Constants.OK.toString();
+
+        } catch (Exception e) {
+            log.error("Error al insertar los productos", e.getMessage());
+            return Constants.ERROR.toString();
+        }
     }
 
     public boolean isValidEmail(String email) {

@@ -31,11 +31,10 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name = "id")
-
     private Integer idProducto;
 
     @ManyToOne
-    @JoinColumn(name="idCategoria", nullable=false)
+    @JoinColumn(name="categoria")
     private Categoria categoria;
 
     private String nombre;
@@ -45,8 +44,8 @@ public class Producto {
     private Double precio;
     private String imagen;
 
-    @OneToMany(mappedBy = "producto")
-    List<PedidoProducto> pedidoProducto;
+    // @OneToMany(mappedBy = "producto")
+    // List<PedidoProducto> pedidoProducto;
 
     @ManyToMany
     @JoinTable(name = "producto_alergeno", joinColumns = @JoinColumn(name = "idProducto"), inverseJoinColumns = @JoinColumn(name = "idAlergeno"))

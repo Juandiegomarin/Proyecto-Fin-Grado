@@ -22,6 +22,7 @@ define("OBTENER_CATEGORIAS", DIR_SERV . "/obtenerCategorias");
 define("OBTENER_PRODUCTOS_CATEGORIA", DIR_SERV . "/obtenerProductos");
 define("OBTENER_PRODUCTO", DIR_SERV . "/obtenerProducto");
 define("OBTENER_ALERGENOS", DIR_SERV . "/obtenerAlergenos");
+define("INSERTAR_PEDIDO", DIR_SERV . "/insertarPedido");
 //Respuestas
 define("RESPONSE_OK", "OK");
 define("RESPONSE_ERROR", "ERROR");
@@ -41,8 +42,17 @@ function consumir_servicios_REST($url, $metodo, $datos = null)
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $metodo);
-    if (isset($datos)) {
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($datos));
+
+    if ($datos && !empty($datos)) {
+
+        if (!is_array($datos)) {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json'
+            ]);
+        } else {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($datos));
+        }
     }
 
     $response = curl_exec($ch);
@@ -57,7 +67,29 @@ function consumir_servicios_REST($url, $metodo, $datos = null)
     return $response;
 }
 
-function buscarProductoId($id, $array) {
+function buscarProductoId($id, $array)
+{
     $indices = array_flip(array_column($array, 'id'));
     return isset($indices[$id]) ? $indices[$id] : -1;
+}
+
+function filtrar_pedido($array)
+{
+
+
+    $pedido = [];
+    $pedido["user"] = $_SESSION["nombre_usuario"];
+    $pedido["productos"] = [];
+
+    foreach ($array as $value) {
+
+        $prod = [];
+        $prod["id"] = $value["id"];
+        $prod["unidades"] = $value["unidades"];
+        $prod["precio"] = $value["precio"];
+
+        $pedido["productos"][] = $prod;
+    }
+
+    return json_encode($pedido);
 }

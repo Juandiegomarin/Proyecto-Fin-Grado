@@ -34,6 +34,7 @@ body {
 }
 
 
+
 /*Fondo del login y del registro*/
 #video_background {
     position: absolute;
@@ -130,7 +131,7 @@ body {
     color: yellow;
 }
 
-.formulario>form>.error {
+.formulario>form>.error{
     margin: 0;
     color: red;
     font-weight: bold;
@@ -294,13 +295,14 @@ header>#menu {
     align-items: center;
 }
 
-header>#menu>img,
-a {
+header>#menu>img {
     margin-right: 5%;
     cursor: pointer;
 }
 
 header>#menu>a {
+    margin-right: 5%;
+    cursor: pointer;
     position: relative;
 }
 
@@ -574,9 +576,9 @@ h5 {
 main#carrito {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100%;
     align-items: center;
+    min-height: 80vh;
+    width: 100%;
 }
 
 main#carrito>h1 {
@@ -654,8 +656,8 @@ main#carrito>#modal-modificar>#modal-modificar-contenido>#close-modal {
     padding: 1rem;
 }
 
-main#carrito>#modal-modificar>#modal-modificar-contenido>#close-modal>img{
-    margin-right: 1rem ;
+main#carrito>#modal-modificar>#modal-modificar-contenido>#close-modal>img {
+    margin-right: 1rem;
 }
 
 main#carrito>#modal-modificar>#modal-modificar-contenido>img {
@@ -665,6 +667,7 @@ main#carrito>#modal-modificar>#modal-modificar-contenido>img {
 main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     margin-top: 3rem;
     width: 60%;
@@ -701,19 +704,147 @@ main#carrito>section>article>.article-botones>form>.btn-eliminar {
     background-color: #ee4e5e;
 }
 
-main#carrito>p{
+main#carrito>p {
     font-size: 1.5em;
     margin-top: 2rem;
 }
 
+main#carrito>a {
+    display: inline;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: medium;
+    font-weight: 500;
+    color: rgb(39, 39, 39);
+    background-color: #f1ac43;
+    border-radius: 5px;
+    margin-top: 3rem;
+}
+main#carrito>form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/*-----------------------Pago----------------------------*/
+
+main#pago{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 3rem;
+    min-height: 50vh;
+}
+
+main#pago > .card-header{
+    width: 80%;
+    padding: .75rem 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    background-color: #d5e4ef;
+}
+
+main#pago >.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+main#pago >.card-body > #miFormulario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+}
+main#pago >.card-body > #miFormulario > #card-data{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+main#pago >.card-body > #miFormulario > #card-data >#card-data-number{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+main#pago >.card-body > #miFormulario > #card-data >#card-data-number >input{
+    width: 100%;
+}
+
+main#pago >.card-body > #miFormulario  span{
+    color: red;
+    font-size: small;
+    font-weight: bold;
+}
+
+main#pago >.card-body > #miFormulario > #card-data > #card-data-date{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+main#pago >.card-body > #miFormulario > #card-data > #card-data-date >div{
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+}
+
+main#pago >.card-body > #miFormulario > #card-data > #card-data-date >div>input{
+    max-width: 100%;
+}
+
+main#pago >.card-body > #miFormulario > #card-name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+main#pago >.card-body > #miFormulario > #card-name > #card-name-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+main#pago >.card-body > #miFormulario > #card-name > #card-name-container>input{
+    width: 100%;
+}
+
+
+main#pago >.card-body > #miFormulario > #card-type{
+    width: 100%;
+}
+main#pago >.card-body > #miFormulario > #card-type > #cards-images{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+main#pago >.card-body > #miFormulario >button{ 
+    align-self: center;
+    margin-top: 3rem;
+}
+main#pago >.card-body > div{
+    margin-top: 3rem;
+}
 
 /*------------------Footer-------------------------------*/
 footer {
     display: flex;
     flex-direction: column;
     background-color: #0b1733;
+    height: 450px;
     width: 100%;
-    bottom: 0;
 }
 
 footer>#comentarios {
@@ -873,6 +1004,35 @@ footer#footer-escritorio>#desktop-disclaimer>span {
     #product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units>span {
         width: 33%;
     }
+
+    /*----------Carrito--------------*/
+    main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units>button {
+        width: 40%;
+    }
+
+    /*----------------Pago-------------------*/
+    main#pago >.card-body > #miFormulario > #card-data > #card-data-date{
+        justify-content: space-between;
+    }
+    main#pago >.card-body > #miFormulario > #card-data > #card-data-date >div{
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+    }
+
+    main#pago >.card-body > #miFormulario > #card-data > #card-data-date >:nth-child(1){
+        align-self: flex-start;
+    }
+    main#pago >.card-body > #miFormulario > #card-data > #card-data-date >:nth-child(3){
+        justify-self:end;
+    }
+
+    main#pago > .card-header{
+        width: 70%;
+    }
+    main#pago >.card-body > #miFormulario > #card-type > #cards-images i{
+       font-size: 1.5rem;
+    }
 }
 
 @media (min-width: 800px) {
@@ -912,11 +1072,67 @@ footer#footer-escritorio>#desktop-disclaimer>span {
         flex: 50% 0;
         padding-left: 1rem;
     }
+
+    /*-----------------Carrito-----------------*/
+    main#carrito>#modal-modificar>#modal-modificar-contenido {
+        width: 60%;
+    }
+
+    main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units>button {
+        width: 30%;
+    }
+
+    /*--------------------Pago*----------------------------*/
+    main#pago >.card-body > #miFormulario{
+        width: 50%;
+    }
+    main#pago > .card-header{
+        width: 50%;
+    }
 }
 
 @media (min-width: 1200px) {
     #product-container>#product>#product-imagen>span {
         font-size: 25px;
+    }
+
+    /*---------------Carrito-----------------*/
+    main#carrito>section>article>.article-botones {
+        width: 10%;
+    }
+
+    main#carrito>section>article>.article-botones {
+        width: 40%;
+    }
+
+    main#carrito>section>article>.article-botones>form {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    main#carrito>section>article>.article-botones>form>button {
+        width: 30%;
+        margin: 0 10%;
+    }
+
+    main#carrito>#modal-modificar>#modal-modificar-contenido {
+        width: 40%;
+    }
+
+    main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units>button {
+        width: 35%;
+    }
+
+    main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units>button {
+        width: 25%;
+    }
+
+    /*--------------------Pago*----------------------------*/
+    main#pago >.card-body > #miFormulario{
+        width: 40%;
+    }
+    main#pago > .card-header{
+        width: 40%;
     }
 }
 
@@ -1161,6 +1377,14 @@ footer#footer-escritorio>#desktop-disclaimer>span {
 
     #product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units>span {
         width: 60%;
+    }
+
+     /*--------------------Pago*----------------------------*/
+     main#pago >.card-body > #miFormulario{
+        width: 30%;
+    }
+    main#pago > .card-header{
+        width: 30%;
     }
 
     /*Footer*/

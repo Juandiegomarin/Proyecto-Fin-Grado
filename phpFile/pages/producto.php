@@ -9,7 +9,7 @@ $product_alergenos = array_column($product->alergenos, "idAlergeno");
 
 ?>
 
-<main id="product-container">
+<main id="product-container"  class="page-container">
     <div id="product">
         <div id="product-imagen">
             <img src="assets/products/<?= $product->imagen ?>" alt="<?= $product->nombre ?>">

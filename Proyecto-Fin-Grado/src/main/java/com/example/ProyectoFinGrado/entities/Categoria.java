@@ -2,7 +2,7 @@ package com.example.ProyectoFinGrado.entities;
 
 import java.util.List;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,5 +33,6 @@ public class Categoria {
     private String imagen;
 
     @OneToMany(mappedBy = "categoria")
+    @JsonBackReference
     private List<Producto> productos;
 }

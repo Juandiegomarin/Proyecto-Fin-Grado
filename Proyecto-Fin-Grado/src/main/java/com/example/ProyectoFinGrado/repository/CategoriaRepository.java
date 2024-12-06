@@ -1,6 +1,7 @@
 package com.example.ProyectoFinGrado.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -12,4 +13,6 @@ public interface CategoriaRepository extends CrudRepository<Categoria,Long>{
     
      @Query(value = "SELECT * FROM categorias c ORDER BY c.nombre ASC ", nativeQuery = true)
     List<Categoria> findAll();
+
+    Optional <Categoria> findBySlug(String slug);
 }

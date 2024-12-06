@@ -32,6 +32,7 @@ public class PedidoProducto {
     @JoinColumn(name = "idProducto")
     private Producto producto;
 
+    private String nombre;
     private int unidades;
     private double precio;
 
