@@ -2,6 +2,7 @@ package com.example.ProyectoFinGrado.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
@@ -44,8 +45,9 @@ public class Producto {
     private Double precio;
     private String imagen;
 
-    // @OneToMany(mappedBy = "producto")
-    // List<PedidoProducto> pedidoProducto;
+    @OneToMany(mappedBy = "producto")
+    @JsonBackReference
+    List<PedidoProducto> pedidoProducto;
 
     @ManyToMany
     @JoinTable(name = "producto_alergeno", joinColumns = @JoinColumn(name = "idProducto"), inverseJoinColumns = @JoinColumn(name = "idAlergeno"))

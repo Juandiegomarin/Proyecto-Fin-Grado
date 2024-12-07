@@ -28,7 +28,6 @@
 
 html,
 body {
-    min-width: 375px;
     height: 100vh;
     /* O cualquier otro valor que desees */
 }
@@ -53,15 +52,15 @@ body {
 .formulario {
     display: flex;
     flex-direction: column;
-    background-color: rgb(0, 0, 0);
-    width: 70%;
+    background-color: black;
+    width: 90%;
     max-width: 500px;
     margin: 0 auto;
-    margin-top: 10rem;
+    margin-top: 3.5rem;
     border-radius: 30px;
     border: 3px solid white;
     opacity: 0.7;
-    margin-bottom: 9.4rem;
+    margin-bottom: 1rem;
 }
 
 .formulario>form {
@@ -131,7 +130,7 @@ body {
     color: yellow;
 }
 
-.formulario>form>.error{
+.formulario>form>.error {
     margin: 0;
     color: red;
     font-weight: bold;
@@ -354,6 +353,101 @@ header>#menu>#desplegable>a>li {
 header>#menu>#desplegable>a:hover {
     background-color: rgb(250, 244, 244);
 }
+
+header>#user-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    width: 200px;
+    height: 306px;
+    background-color: white;
+    border: 3px solid #0b1733;
+    border-top: none;
+    border-right: none;
+    transition: all 500ms ease;
+    transform: translateX(200px);
+}
+
+header>#user-sidebar>#close-user-sidebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-self: center;
+    width: 100%;
+    padding: 0.5rem;
+    border-bottom: 3px solid #0b1733;
+}
+
+header>#user-sidebar>#close-user-sidebar>img {
+    width: 20px;
+    height: 20px;
+}
+
+header>#user-sidebar>#user-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: 'Luckiest Guy', sans-serif;
+    margin-top: 1rem;
+}
+
+header>#user-sidebar>#user-content>p {
+    font-size: small;
+}
+
+header>#user-sidebar>#user-content>a {
+    text-decoration: none;
+    color: black;
+    font-size: small;
+    text-align: center;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+header>#user-sidebar>#user-content>form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+header>#user-sidebar>#user-content>#user-logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+header>#user-sidebar>#user-content>#user-logout>button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header>#user-sidebar>#user-content>#user-logout>button>img {
+    align-self: flex-end;
+}
+
+header>#user-sidebar>#user-content>form>button {
+    background: none;
+    border: none;
+    font-size: small;
+}
+
+header>#user-sidebar .user-hover-color:hover {
+    color: #0b1733 !important;
+}
+
+header>#user-sidebar .user-hover-background:hover {
+    background-color: #f8f8f8 !important;
+}
+
 
 .underline {
     text-decoration: wavy underline #0CB3D1;
@@ -705,6 +799,7 @@ main#carrito>section>article>.article-botones>form>.btn-eliminar {
 }
 
 main#carrito>p {
+    text-align: center;
     font-size: 1.5em;
     margin-top: 2rem;
 }
@@ -721,7 +816,8 @@ main#carrito>a {
     border-radius: 5px;
     margin-top: 3rem;
 }
-main#carrito>form{
+
+main#carrito>form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -731,7 +827,7 @@ main#carrito>form{
 
 /*-----------------------Pago----------------------------*/
 
-main#pago{
+main#pago {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -740,7 +836,7 @@ main#pago{
     min-height: 50vh;
 }
 
-main#pago > .card-header{
+main#pago>.card-header {
     width: 80%;
     padding: .75rem 1.25rem;
     margin-bottom: 2rem;
@@ -748,80 +844,84 @@ main#pago > .card-header{
     background-color: #d5e4ef;
 }
 
-main#pago >.card-body{
+main#pago>.card-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 80%;
 }
 
-main#pago >.card-body > #miFormulario{
+main#pago>.card-body>#miFormulario {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 80%;
 }
-main#pago >.card-body > #miFormulario > #card-data{
+
+main#pago>.card-body>#miFormulario>#card-data {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
 }
 
-main#pago >.card-body > #miFormulario > #card-data >#card-data-number{
+main#pago>.card-body>#miFormulario>#card-data>#card-data-number {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-main#pago >.card-body > #miFormulario > #card-data >#card-data-number >input{
+
+main#pago>.card-body>#miFormulario>#card-data>#card-data-number>input {
     width: 100%;
 }
 
-main#pago >.card-body > #miFormulario  span{
+main#pago>.card-body>#miFormulario span {
     color: red;
     font-size: small;
     font-weight: bold;
 }
 
-main#pago >.card-body > #miFormulario > #card-data > #card-data-date{
+main#pago>.card-body>#miFormulario>#card-data>#card-data-date {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
 }
 
-main#pago >.card-body > #miFormulario > #card-data > #card-data-date >div{
+main#pago>.card-body>#miFormulario>#card-data>#card-data-date>div {
     display: flex;
     flex-direction: column;
     width: 33.33%;
 }
 
-main#pago >.card-body > #miFormulario > #card-data > #card-data-date >div>input{
+main#pago>.card-body>#miFormulario>#card-data>#card-data-date>div>input {
     max-width: 100%;
 }
 
-main#pago >.card-body > #miFormulario > #card-name{
+main#pago>.card-body>#miFormulario>#card-name {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
-main#pago >.card-body > #miFormulario > #card-name > #card-name-container{
+
+main#pago>.card-body>#miFormulario>#card-name>#card-name-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
 }
 
-main#pago >.card-body > #miFormulario > #card-name > #card-name-container>input{
+main#pago>.card-body>#miFormulario>#card-name>#card-name-container>input {
     width: 100%;
 }
 
 
-main#pago >.card-body > #miFormulario > #card-type{
+main#pago>.card-body>#miFormulario>#card-type {
     width: 100%;
 }
-main#pago >.card-body > #miFormulario > #card-type > #cards-images{
+
+main#pago>.card-body>#miFormulario>#card-type>#cards-images {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -830,12 +930,94 @@ main#pago >.card-body > #miFormulario > #card-type > #cards-images{
 
 
 
-main#pago >.card-body > #miFormulario >button{ 
+main#pago>.card-body>#miFormulario>button {
     align-self: center;
     margin-top: 3rem;
 }
-main#pago >.card-body > div{
+
+main#pago>.card-body>div {
     margin-top: 3rem;
+}
+
+/*---------------Pedidos--------------------------------*/
+
+main#pedidos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+main#pedidos>h1 {
+    margin-top: 3rem;
+    font-family: 'Oswald Stencil';
+}
+
+main#pedidos>section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+main#pedidos>section>.pedido-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 1rem;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 0.5rem;
+}
+
+main#pedidos>section>.pedido-info>.cabecera {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+main#pedidos>section>.pedido-info>.cabecera>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 37%;
+    font-size: xx-small;
+}
+
+main#pedidos>section>.pedido-info>.cabecera>.chevron {
+    width: 19%;
+}
+
+main#pedidos>section>.pedido-info>.list-pedidos {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    font-size: xx-small;
+    width: 90%;
+    margin-top: 1rem;
+}
+
+main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed black;
+}
+
+main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto>.unique-producto-imagen>img {
+    width: 50px;
+    height: 50px;
 }
 
 /*------------------Footer-------------------------------*/
@@ -1011,31 +1193,35 @@ footer#footer-escritorio>#desktop-disclaimer>span {
     }
 
     /*----------------Pago-------------------*/
-    main#pago >.card-body > #miFormulario > #card-data > #card-data-date{
+    main#pago>.card-body>#miFormulario>#card-data>#card-data-date {
         justify-content: space-between;
     }
-    main#pago >.card-body > #miFormulario > #card-data > #card-data-date >div{
+
+    main#pago>.card-body>#miFormulario>#card-data>#card-data-date>div {
         display: flex;
         flex-direction: column;
         width: 25%;
     }
 
-    main#pago >.card-body > #miFormulario > #card-data > #card-data-date >:nth-child(1){
+    main#pago>.card-body>#miFormulario>#card-data>#card-data-date>:nth-child(1) {
         align-self: flex-start;
     }
-    main#pago >.card-body > #miFormulario > #card-data > #card-data-date >:nth-child(3){
-        justify-self:end;
+
+    main#pago>.card-body>#miFormulario>#card-data>#card-data-date>:nth-child(3) {
+        justify-self: end;
     }
 
-    main#pago > .card-header{
+    main#pago>.card-header {
         width: 70%;
     }
-    main#pago >.card-body > #miFormulario > #card-type > #cards-images i{
-       font-size: 1.5rem;
+
+    main#pago>.card-body>#miFormulario>#card-type>#cards-images i {
+        font-size: 1.5rem;
     }
 }
 
 @media (min-width: 800px) {
+
 
     #product-container>#product {
         width: 70%;
@@ -1083,76 +1269,17 @@ footer#footer-escritorio>#desktop-disclaimer>span {
     }
 
     /*--------------------Pago*----------------------------*/
-    main#pago >.card-body > #miFormulario{
+    main#pago>.card-body>#miFormulario {
         width: 50%;
     }
-    main#pago > .card-header{
+
+    main#pago>.card-header {
         width: 50%;
     }
 }
 
-@media (min-width: 1200px) {
-    #product-container>#product>#product-imagen>span {
-        font-size: 25px;
-    }
 
-    /*---------------Carrito-----------------*/
-    main#carrito>section>article>.article-botones {
-        width: 10%;
-    }
-
-    main#carrito>section>article>.article-botones {
-        width: 40%;
-    }
-
-    main#carrito>section>article>.article-botones>form {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    main#carrito>section>article>.article-botones>form>button {
-        width: 30%;
-        margin: 0 10%;
-    }
-
-    main#carrito>#modal-modificar>#modal-modificar-contenido {
-        width: 40%;
-    }
-
-    main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units>button {
-        width: 35%;
-    }
-
-    main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units>button {
-        width: 25%;
-    }
-
-    /*--------------------Pago*----------------------------*/
-    main#pago >.card-body > #miFormulario{
-        width: 40%;
-    }
-    main#pago > .card-header{
-        width: 40%;
-    }
-}
-
-@media (min-width: 1440px) and (max-width: 1700px) {
-
-    .sidebar-div-border>:nth-child(2)>span {
-        font-size: 13px;
-    }
-
-    .sidebar-div-border>:nth-child(1)>img {
-        height: 50px;
-    }
-
-    #sidebar-header .sidebar-div-border img {
-        width: 60px;
-    }
-}
-
-@media (min-width:1440px) {
-
+@media (min-width: 1000px) {
     header>#menu {
         display: none;
     }
@@ -1161,7 +1288,7 @@ footer#footer-escritorio>#desktop-disclaimer>span {
         display: flex;
         flex-direction: row;
         align-items: center;
-        width: 90%;
+        width: 100%;
     }
 
     header>#menu-escritorio>#lower-menu {
@@ -1205,6 +1332,71 @@ footer#footer-escritorio>#desktop-disclaimer>span {
     header>#menu-escritorio>#secondary-menu>#icons>a {
         position: relative;
     }
+}
+
+@media (min-width: 1200px) {
+    #product-container>#product>#product-imagen>span {
+        font-size: 25px;
+    }
+
+    /*---------------Carrito-----------------*/
+    main#carrito>section>article>.article-botones {
+        width: 10%;
+    }
+
+    main#carrito>section>article>.article-botones {
+        width: 40%;
+    }
+
+    main#carrito>section>article>.article-botones>form {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    main#carrito>section>article>.article-botones>form>button {
+        width: 30%;
+        margin: 0 10%;
+    }
+
+    main#carrito>#modal-modificar>#modal-modificar-contenido {
+        width: 40%;
+    }
+
+    main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units>button {
+        width: 35%;
+    }
+
+    main#carrito>#modal-modificar>#modal-modificar-contenido>#product-units-units>button {
+        width: 25%;
+    }
+
+    /*--------------------Pago*----------------------------*/
+    main#pago>.card-body>#miFormulario {
+        width: 40%;
+    }
+
+    main#pago>.card-header {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1700px) {
+
+    .sidebar-div-border>:nth-child(2)>span {
+        font-size: 13px;
+    }
+
+    .sidebar-div-border>:nth-child(1)>img {
+        height: 50px;
+    }
+
+    #sidebar-header .sidebar-div-border img {
+        width: 60px;
+    }
+}
+
+@media (min-width:1440px) {
+
 
     /*Productos escritorio*/
     #productos-movil {
@@ -1311,7 +1503,6 @@ footer#footer-escritorio>#desktop-disclaimer>span {
     }
 
 
-
     /*Parte derecha-------------------------------------*/
     #productos>#content {
         display: flex;
@@ -1379,11 +1570,12 @@ footer#footer-escritorio>#desktop-disclaimer>span {
         width: 60%;
     }
 
-     /*--------------------Pago*----------------------------*/
-     main#pago >.card-body > #miFormulario{
+    /*--------------------Pago*----------------------------*/
+    main#pago>.card-body>#miFormulario {
         width: 30%;
     }
-    main#pago > .card-header{
+
+    main#pago>.card-header {
         width: 30%;
     }
 

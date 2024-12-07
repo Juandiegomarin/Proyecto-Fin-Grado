@@ -144,7 +144,8 @@ public class ProyectService {
 
             for (ProductoDTO productoDTO : productoDTOs) {
 
-                PedidoProductoKey pedidoProductoKey = PedidoProductoKey.builder().idPedido(idPedido).idProducto(productoDTO.getId()).build();
+                PedidoProductoKey pedidoProductoKey = PedidoProductoKey.builder().idPedido(idPedido)
+                        .idProducto(productoDTO.getId()).build();
 
                 PedidoProducto p = new PedidoProducto();
                 p.setId(pedidoProductoKey);
@@ -165,6 +166,14 @@ public class ProyectService {
             log.error("Error al insertar los productos", e.getMessage());
             return Constants.ERROR.toString();
         }
+    }
+
+    public List<Pedido> obtenerPedidosUsuario(String nombre) {
+
+        int idUsuario = usuarioRepository.findByNombreUsuario(nombre).get().getIdUsuario();
+
+        return pedidoRepository.findByUsuario(idUsuario);
+
     }
 
     public boolean isValidEmail(String email) {

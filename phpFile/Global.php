@@ -23,6 +23,7 @@ define("OBTENER_PRODUCTOS_CATEGORIA", DIR_SERV . "/obtenerProductos");
 define("OBTENER_PRODUCTO", DIR_SERV . "/obtenerProducto");
 define("OBTENER_ALERGENOS", DIR_SERV . "/obtenerAlergenos");
 define("INSERTAR_PEDIDO", DIR_SERV . "/insertarPedido");
+define("OBTENER_PEDIDOS_USUARIO", DIR_SERV . "/obtenerPedidosUsuario");
 //Respuestas
 define("RESPONSE_OK", "OK");
 define("RESPONSE_ERROR", "ERROR");
@@ -35,7 +36,7 @@ define("RESPONSE_EMAIL_REPEATED", "EMAIL_REPEATED");
 //funciones-------------------------------------------------------------------------
 function consumir_servicios_REST($url, $metodo, $datos = null)
 {
-
+    
     $ch = curl_init();
 
     curl_setopt($ch, CURLOPT_URL, $url);

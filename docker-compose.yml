@@ -24,7 +24,7 @@ services:
       timeout: 5s
       retries: 6
   spring:
-    build: Proyecto-Fin-Grado
+    build: Proyecto-Fin-Grado    
     hostname: springProyect #sustituir por localhost/springProyect
     depends_on:
       - mysql

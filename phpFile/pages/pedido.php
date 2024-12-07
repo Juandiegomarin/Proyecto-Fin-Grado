@@ -70,10 +70,13 @@ $carrito = json_decode(json_encode($_SESSION["pedido"]));
         <form action="index.php" method="post">
             <button type="submit" class="btn btn-danger" name="btnVaciarPedido">Vaciar carrito</button>
         </form>
+
     <?php
     } else {
     ?>
+
     <p>No hay productos en el pedido</p>
+    
     <?php
     }
     ?>

@@ -2,6 +2,7 @@ package com.example.ProyectoFinGrado.controller;
 
 import com.example.ProyectoFinGrado.entities.Alergeno;
 import com.example.ProyectoFinGrado.entities.Categoria;
+import com.example.ProyectoFinGrado.entities.Pedido;
 import com.example.ProyectoFinGrado.entities.Producto;
 import com.example.ProyectoFinGrado.services.ProyectService;
 
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -81,8 +84,16 @@ public class ProyectController {
     public String insertarPedido(
             @RequestBody PedidoProductoDTO pedido) {
 
-        log.info("Pedido {}:", pedido.toString());
         return service.insertarPedido(pedido);
+    }
+
+    @GetMapping("/obtenerPedidosUsuario/{nombre}")
+    public List<Pedido> obtenerPedidosUsuario(
+        @PathVariable(value = "nombre") String nombre
+    ) {
+    
+        nombre = URLDecoder.decode(nombre, StandardCharsets.UTF_8);
+        return service.obtenerPedidosUsuario(nombre);
     }
 
 }

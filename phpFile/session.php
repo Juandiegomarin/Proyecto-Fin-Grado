@@ -4,7 +4,7 @@ if (!isset($_SESSION["pedido"])) {
     $_SESSION["pedido"] = [];
 }
 
-if (isset($_POST["btnSalir"])) {
+if (isset($_POST["btnLogout"])) {
     session_destroy();
     header("Location:index.php");
     exit;

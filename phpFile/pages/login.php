@@ -25,11 +25,11 @@
         </div>
         <small>Para continuar con el registro debes rellenar este campo</small>
         <div>
-            <button type="submit" class="btn btn-primary" name="btnLogin">Login</button>
+            <button type="submit" class="btn btn-primary" name="btnLogin">Iniciar Sesión</button>
         </div>
         <span>¿Aún no tienes tu cuenta?</span>
         <div>
-            <button type="submit" class="btn btn-primary" name="btnRegistrarse" onclick="removeRequiredLogin()">Register</button>
+            <button type="submit" class="btn btn-primary" name="btnRegistrarse" onclick="removeRequiredLogin()">Registrarse</button>
         </div>
     </form>
 </div>

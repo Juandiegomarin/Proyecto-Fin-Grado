@@ -47,10 +47,10 @@
         ?>
 
         <div>
-            <button type="submit" class="btn btn-primary" name="btnContRegistrarse">Register</button>
+            <button type="submit" class="btn btn-primary" name="btnContRegistrarse">Registrarse</button>
         </div>
         <div>
-            <button class="btn btn-primary" type="submit" onclick="removeRequiredRegister()">Back</button>
+            <button class="btn btn-primary" type="submit" onclick="removeRequiredRegister()">Volver</button>
         </div>
     </form>
 </div>
