@@ -1,7 +1,7 @@
 FROM maven:3-amazoncorretto-17 as builder
 WORKDIR /application 
 COPY . .
-RUN mvn clean install
+RUN mvn clean package -DskipTests
 RUN java -Djarmode=layertools -jar target/Proyecto-Fin-Grado-0.0.1-SNAPSHOT.jar extract
 
 FROM amazoncorretto:17-alpine
