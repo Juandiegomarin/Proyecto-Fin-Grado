@@ -14,7 +14,7 @@
 # COPY --from=builder /application/snapshot-dependencies/ ./
 # COPY --from=builder /application/application/ ./
 FROM maven:3-amazoncorretto-17-alpine AS build
-COPY ./ .
+COPY ./Proyecto-Fin-Grado .
 RUN mvn clean package -DskipTests
 
 FROM amazoncorretto:17-alpine-jdk 
