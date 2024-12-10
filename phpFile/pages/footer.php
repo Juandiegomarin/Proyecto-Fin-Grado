@@ -1,24 +1,23 @@
 <footer class="footer">
     <div id="redes">
-        <span class="colorGraduado">Siguenos en nuestras redes sociales</span>
+        <span class="colorGraduado">Nuestras redes sociales</span>
         <div>
-            <img src="assets/img/instagram.png" alt="logoInstagram" title="logoInstagram">
-            <img src="assets/img/facebook.png" alt="logoFacebook" title="logoFacebook">
-            <img src="assets/img/twitter.png" alt="logoTwitter" title="logoTwitter">
+            <a href="https://www.instagram.com/chiringuito.dieguichi/" target="_blank"><img src="assets/img/instagram.png" alt="logoInstagram" title="logoInstagram"></a>
+            <a href="https://www.facebook.com/chiringuitocasadieguichi/" target="_blank"><img src="assets/img/facebook.png" alt="logoFacebook" title="logoFacebook"></a>
+            <a href="index.php?page=contacto" target="_blank"><img src="assets/img/email.png" alt="logoEmail" title="logoEmail"></a>
         </div>
     </div>
     <div id="comentarios">
-        <span class="colorGraduado">PREGUNTAS FRECUENTES</span>
-        <span class="colorGraduado">OPINIONES Y SUGERENCIAS</span>
-        <span class="colorGraduado">AVISO LEGAL</span>
-        <span class="colorGraduado">CONDICIONES GENERALES</span>
-        <a href="politicaCookies.html" aria-label="enlace"> <span class="colorGraduado pointer">POLITICA DE COOKIES</span></a>
-        <a href="politicaPrivacidad.html" aria-label="enlace"> <span class="colorGraduado pointer">POLITICA DE PRIVACIDAD</span></a>
+        <a href="index.php?page=aboutus" aria-label="enlace"> <span class="colorGraduado pointer">SOBRE NOSOTROS</span></a>
+        <a href="index.php?page=contacto" aria-label="enlace"> <span class="colorGraduado pointer">CONTACTO</span></a>
+        <a href="index.php?page=terminos" aria-label="enlace"> <span class="colorGraduado pointer">TÉRMINOS & CONDICIONES</span></a>
+        <a href="index.php?page=cookies" aria-label="enlace"> <span class="colorGraduado pointer">POLITÍCA DE COOKIES</span></a>
+        <a href="index.php?page=privacidad" aria-label="enlace"> <span class="colorGraduado pointer">POLITÍCA DE PRIVACIDAD</span></a>
     </div>
 
     <div id="telefono">
-        <img src="assets/img/telefono.png" alt="telefono" title="telefono">
-        <span class="colorGraduado">También puedes contactar por telefono 682 07 97 69</span>
+    <a href="tel:+682 07 97 69" target="_blank"><img src="assets/img/telefono.png" alt="telefono" title="telefono"></a>
+        <span class="colorGraduado">Teléfono: 682 07 97 69</span>
     </div>
     <div id="disclaimer">
         <span>Copyright &copy; <?= date("Y") ?> Dieguichi Orderly SL</span>
@@ -26,19 +25,17 @@
 </footer>
 <footer id="footer-escritorio">
     <div>
-        <img src="assets/img/email.png" alt="logoEmail" title="logoEmail">
-        <img src="assets/img/telefono.png" alt="logoTelefono" title="logoTelefono">
         <a href="https://www.instagram.com/chiringuito.dieguichi/" target="_blank"><img src="assets/img/instagram.png" alt="logoInstagram" title="logoInstagram"></a>
         <a href="https://www.facebook.com/chiringuitocasadieguichi/" target="_blank"><img src="assets/img/facebook.png" alt="logoFacebook" title="logoFacebook"></a>
-        <img src="assets/img/twitter.png" alt="logoTwitter" title="logoTwitter">
+        <a href="index.php?page=contacto" target="_blank"><img src="assets/img/email.png" alt="logoEmail" title="logoEmail"></a>
+        <a href="tel:+682 07 97 69" target="_blank"><img src="assets/img/telefono.png" alt="telefono" title="telefono"></a>
     </div>
     <div id="comentarios">
-        <span class="colorGraduado">PREGUNTAS FRECUENTES</span>
-        <span class="colorGraduado">OPINIONES Y SUGERENCIAS</span>
-        <span class="colorGraduado">AVISO LEGAL</span>
-        <span class="colorGraduado">CONDICIONES GENERALES</span>
-        <a href="politicaCookies.html" aria-label="enlace"> <span class="colorGraduado pointer">POLITICA DE COOKIES</span></a>
-        <a href="politicaPrivacidad.html" aria-label="enlace"> <span class="colorGraduado pointer">POLITICA DE PRIVACIDAD</span></a>
+        <a href="index.php?page=aboutus" aria-label="enlace"> <span class="colorGraduado pointer">SOBRE NOSOTROS</span></a>
+        <a href="index.php?page=terminos" aria-label="enlace"> <span class="colorGraduado pointer">TÉRMINOS & CONDICIONES</span></a>
+        <a href="index.php?page=contacto" aria-label="enlace"> <span class="colorGraduado pointer">CONTACTO</span></a>
+        <a href="index.php?page=cookies" aria-label="enlace"> <span class="colorGraduado pointer">POLITÍCA DE COOKIES</span></a>
+        <a href="index.php?page=privacidad" aria-label="enlace"> <span class="colorGraduado pointer">POLITÍCA DE PRIVACIDAD</span></a>
     </div>
     <div id="desktop-disclaimer">
         <span>Copyright &copy; <?= date("Y") ?> Dieguichi Orderly SL</span>

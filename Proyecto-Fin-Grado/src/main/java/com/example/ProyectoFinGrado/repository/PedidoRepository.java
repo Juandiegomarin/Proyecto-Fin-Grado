@@ -11,6 +11,6 @@ import com.example.ProyectoFinGrado.entities.Usuario;
 
 public interface PedidoRepository extends CrudRepository<Pedido, Long> {
     
-    @Query(value = "SELECT * FROM pedidos p where p.id_usuario = :id", nativeQuery = true)
-    List<Pedido> findByUsuario(Integer id);;
+    @Query(value = "SELECT * FROM pedidos p where p.id_usuario = :id ORDER BY p.fecha_pedido DESC LIMIT 10", nativeQuery = true)
+    List<Pedido> findByUsuario(Integer id);
 }

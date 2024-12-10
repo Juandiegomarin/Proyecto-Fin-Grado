@@ -8,6 +8,8 @@ include("session.php");
 
 include("pedido_utilities.php");
 
+include("mail.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

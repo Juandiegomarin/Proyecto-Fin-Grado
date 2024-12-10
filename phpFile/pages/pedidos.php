@@ -51,7 +51,7 @@ $pedidos = json_decode(consumir_servicios_REST(OBTENER_PEDIDOS_USUARIO . "/$nomb
                                     <span>Unidades: <?= $producto->unidades ?></span>
                                 </div>
                                 <div class="unique-producto-precio">
-                                    <span>Precio: <?= $producto->precio ?>€</span>
+                                    <span>Precio: <?= $producto->precio ?> €</span>
                                 </div>
                             </div>
 

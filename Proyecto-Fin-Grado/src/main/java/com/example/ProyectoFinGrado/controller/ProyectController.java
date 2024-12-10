@@ -4,6 +4,7 @@ import com.example.ProyectoFinGrado.entities.Alergeno;
 import com.example.ProyectoFinGrado.entities.Categoria;
 import com.example.ProyectoFinGrado.entities.Pedido;
 import com.example.ProyectoFinGrado.entities.Producto;
+import com.example.ProyectoFinGrado.entities.Usuario;
 import com.example.ProyectoFinGrado.services.ProyectService;
 
 import dto.PedidoProductoDTO;
@@ -51,6 +52,14 @@ public class ProyectController {
         return service.insertar(nombre, clave, email);
     }
 
+    @GetMapping("/obtenerDatosUsuario/{nombre}")
+    public Usuario obtenerDatosUsuario(
+        @PathVariable(value = "nombre") String nombre
+    ) {
+    
+        nombre = URLDecoder.decode(nombre, StandardCharsets.UTF_8);
+        return service.obtenerDatosUsuario(nombre);
+    }
     @PostMapping("/comprobarUsuarioLogueado")
     public String comprobarUsuarioLogueado(
             @RequestParam(name = "nombre") String nombre,

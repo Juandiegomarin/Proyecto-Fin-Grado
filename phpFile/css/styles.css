@@ -36,15 +36,17 @@ body {
 
 /*Fondo del login y del registro*/
 #video_background {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     min-width: 100%;
     min-height: 100%;
-    width: auto;
-    height: auto;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
     z-index: -1000;
     overflow: hidden;
+    object-fit: cover;
 }
 
 /*Parte de los formularios del login como de el regsitro-------------------*/
@@ -60,7 +62,8 @@ body {
     border-radius: 30px;
     border: 3px solid white;
     opacity: 0.7;
-    margin-bottom: 1rem;
+    margin-top: 9rem;
+    margin-bottom: 9rem;
 }
 
 .formulario>form {
@@ -361,14 +364,14 @@ header>#user-sidebar {
     position: absolute;
     right: 0px;
     top: 0;
-    width: 200px;
-    height: 306px;
+    width: 300px;
+    height: 377px;
     background-color: white;
     border: 3px solid #0b1733;
     border-top: none;
     border-right: none;
     transition: all 500ms ease;
-    transform: translateX(200px);
+    transform: translateX(300px);
 }
 
 header>#user-sidebar>#close-user-sidebar {
@@ -377,13 +380,13 @@ header>#user-sidebar>#close-user-sidebar {
     justify-content: end;
     align-self: center;
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem;
     border-bottom: 3px solid #0b1733;
 }
 
 header>#user-sidebar>#close-user-sidebar>img {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 }
 
 header>#user-sidebar>#user-content {
@@ -392,17 +395,17 @@ header>#user-sidebar>#user-content {
     align-items: center;
     width: 100%;
     font-family: 'Luckiest Guy', sans-serif;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 header>#user-sidebar>#user-content>p {
-    font-size: small;
+    font-size: medium;
 }
 
 header>#user-sidebar>#user-content>a {
     text-decoration: none;
     color: black;
-    font-size: small;
+    font-size: medium;
     text-align: center;
     padding: 0.5rem 0;
     width: 100%;
@@ -437,7 +440,7 @@ header>#user-sidebar>#user-content>#user-logout>button>img {
 header>#user-sidebar>#user-content>form>button {
     background: none;
     border: none;
-    font-size: small;
+    font-size: medium;
 }
 
 header>#user-sidebar .user-hover-color:hover {
@@ -445,7 +448,7 @@ header>#user-sidebar .user-hover-color:hover {
 }
 
 header>#user-sidebar .user-hover-background:hover {
-    background-color: #f8f8f8 !important;
+    background-color: #f1eeee !important;
 }
 
 
@@ -987,7 +990,7 @@ main#pedidos>section>.pedido-info>.cabecera>div {
     align-items: center;
     text-align: center;
     width: 37%;
-    font-size: xx-small;
+    font-size: small;
 }
 
 main#pedidos>section>.pedido-info>.cabecera>.chevron {
@@ -1020,12 +1023,210 @@ main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto>.unique-product
     height: 50px;
 }
 
+/*------------Contact Page-------------------------------*/
+
+
+
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 104px 0;
+    padding-bottom: 160px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#501755+0,2d1854+100 */
+    background: #0cb3d1;
+    background: -webkit-linear-gradient(45deg, #c2dbe0 0%, #0cb3d1 100%);
+    background: -o-linear-gradient(45deg, #c2dbe0 0%, #0cb3d1 100%);
+    background: linear-gradient(45deg, #c2dbe0 0%, #0cb3d1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#501755', endColorstr='#2d1854', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    border-bottom: 10px solid white;
+}
+
+.contact-page>h1 {
+    font-weight: 700;
+    font-family: 'Luckiest Guy', sans-serif;
+    margin-bottom: 5rem;
+}
+
+.contact-text {
+    text-wrap: pretty;
+    text-align: justify;
+    margin-bottom: 50px;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bolder;
+    color: white;
+    margin-right: 2rem;
+}
+
+.contact-text>h2 {
+    text-align: left;
+}
+
+.contact-text>ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.contact-text>.contact-info {
+    margin-top: 30px;
+}
+
+.contact-form {
+    margin-bottom: 3rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid white;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    font-style: italic;
+    color: white;
+    line-height: 1;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    font-size: larger;
+    text-shadow: 1px 1px 1px black;
+    font-weight: 900;
+    color: white;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.contact-form textarea {
+    line-height: 1.4;
+    height: 156px;
+    margin-bottom: 48px;
+}
+
+.contact-form .site-btn img {
+    left: 5px;
+}
+
+.site-btn {
+    display: inline-block;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    min-width: 186px;
+    padding: 24px 30px;
+    border-radius: 0;
+    text-transform: uppercase;
+    color: #081624;
+    line-height: normal;
+    cursor: pointer;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.site-btn img {
+    position: relative;
+    left: 13px;
+    width: auto !important;
+    display: inline-block !important;
+}
+
+.site-btn:after,
+.site-btn:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 9px;
+    top: 10px;
+    background: #f1ac43;
+    z-index: -2;
+}
+
+.site-btn:before {
+    left: 0;
+    top: 0;
+    background: #fff;
+    z-index: -1;
+}
+
+.site-btn:hover {
+    color: #081624;
+}
+
+.contact-form .site-btn img {
+    left: 5px;
+}
+
+
+/*-------------------Static Content---------------------------------*/
+
+main.static-content {
+    background: #0cb3d1;
+    background: -webkit-linear-gradient(45deg, #c2dbe0 0%, #0cb3d1 100%);
+    background: -o-linear-gradient(45deg, #c2dbe0 0%, #0cb3d1 100%);
+    background: linear-gradient(45deg, #c2dbe0 0%, #0cb3d1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#501755', endColorstr='#2d1854', GradientType=1);
+    padding: 104px 0;
+    padding-bottom: 160px;
+}
+
+main.static-content>.container>.row>.div-content h1 {
+    text-align: center;
+    color: black;
+    font-family: 'Luckiest Guy', sans-serif;
+    margin-bottom: 30px;
+}
+
+main.static-content>.container>.row>.div-content h2 {
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 15px;
+}
+
+main.static-content>.container>.row>.div-content ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+main.static-content>.container>.row>.div-content li {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+
+
+main.static-content>.container>.row>.div-content h4 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+main.static-content>.container>.row>.div-content p{
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    line-height: 1.8;
+    margin-bottom: 70px;
+}
+
 /*------------------Footer-------------------------------*/
 footer {
     display: flex;
     flex-direction: column;
     background-color: #0b1733;
-    height: 450px;
+    height: 400px;
     width: 100%;
 }
 
@@ -1035,7 +1236,7 @@ footer>#comentarios {
     align-items: center;
 }
 
-footer>#comentarios>* {
+footer>#comentarios>a {
     margin-top: 1rem;
     text-decoration: underline;
     text-decoration-color: white;
@@ -1066,10 +1267,9 @@ footer img {
 footer>#redes {
     display: flex;
     flex-direction: column;
-    flex: 100%;
-    margin-top: 2rem;
     align-items: center;
     justify-content: center;
+    margin-top: 2rem;
 }
 
 footer>#redes>span {
@@ -1083,11 +1283,9 @@ footer>#redes>span {
 footer>#redes>div {
     display: flex;
     flex-direction: row;
-    flex: 100%;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    margin: 2rem 0 1rem 0;
 }
 
 footer>#redes>div>img {
@@ -1112,62 +1310,10 @@ footer>#disclaimer>span {
     font-size: 12px;
 }
 
-
-/*Footer Escritorio*/
-
 footer#footer-escritorio {
     display: none;
-    flex-direction: column;
-    height: 350px;
 }
 
-
-footer#footer-escritorio>:nth-child(1) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-footer#footer-escritorio>:nth-child(1) img {
-    width: 76px;
-    height: auto;
-    margin: 5rem 2.5rem 2rem 2.5rem;
-}
-
-
-footer#footer-escritorio>#comentarios {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 60%;
-    align-self: center;
-}
-
-footer#footer-escritorio>#comentarios>* {
-    text-decoration: underline;
-    font-family: Inter;
-    font-style: italic;
-    text-decoration-color: white;
-    width: 16.66%;
-    text-align: center;
-    font-size: 16px;
-}
-
-
-footer#footer-escritorio>#desktop-disclaimer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4rem;
-    width: 100%;
-}
-
-footer#footer-escritorio>#desktop-disclaimer>span {
-    text-align: center;
-    color: white;
-    font-size: 1rem;
-}
 
 /*----------------Media queries----------------------------*/
 @media (min-width: 375px) and (max-width: 450px) {
@@ -1175,6 +1321,15 @@ footer#footer-escritorio>#desktop-disclaimer>span {
     .formulario {
         width: 80%;
     }
+}
+
+@media(min-width:400px) {
+
+    /*---------------Pedidos------------------*/
+    main#pedidos>section>.pedido-info {
+        width: 90%;
+    }
+
 }
 
 @media (min-width: 600px) {
@@ -1217,6 +1372,11 @@ footer#footer-escritorio>#desktop-disclaimer>span {
 
     main#pago>.card-body>#miFormulario>#card-type>#cards-images i {
         font-size: 1.5rem;
+    }
+
+    /*---------------Pedidos------------------*/
+    main#pedidos>section>.pedido-info {
+        width: 70%;
     }
 }
 
@@ -1276,6 +1436,11 @@ footer#footer-escritorio>#desktop-disclaimer>span {
     main#pago>.card-header {
         width: 50%;
     }
+
+    /*---------------Pedidos------------------*/
+    main#pedidos>section>.pedido-info {
+        width: 60%;
+    }
 }
 
 
@@ -1332,6 +1497,15 @@ footer#footer-escritorio>#desktop-disclaimer>span {
     header>#menu-escritorio>#secondary-menu>#icons>a {
         position: relative;
     }
+
+    /*---------------Pedidos------------------*/
+    main#pedidos>section>.pedido-info {
+        width: 50%;
+    }
+
+    main#pedidos>section>.pedido-info>.cabecera>div {
+        font-size: medium;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -1377,6 +1551,11 @@ footer#footer-escritorio>#desktop-disclaimer>span {
 
     main#pago>.card-header {
         width: 40%;
+    }
+
+    /*Pedido*/
+    main#pedidos>section>.pedido-info>.cabecera>div {
+        font-size: larger;
     }
 }
 
@@ -1579,6 +1758,12 @@ footer#footer-escritorio>#desktop-disclaimer>span {
         width: 30%;
     }
 
+    /*Pedido*/
+    /*Pedido*/
+    main#pedidos>section>.pedido-info>.cabecera>div {
+        font-size: x-large;
+    }
+
     /*Footer*/
     footer {
         display: none;
@@ -1586,6 +1771,56 @@ footer#footer-escritorio>#desktop-disclaimer>span {
 
     footer#footer-escritorio {
         display: flex;
+        flex-direction: column;
+        height: 380px;
+    }
+
+
+    footer#footer-escritorio>:nth-child(1) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    footer#footer-escritorio>:nth-child(1) img {
+        width: 76px;
+        height: auto;
+        margin: 5rem 2.5rem 2rem 2.5rem;
+    }
+
+
+    footer#footer-escritorio>#comentarios {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 50%;
+        align-self: center;
+    }
+
+    footer#footer-escritorio>#comentarios>a {
+        text-decoration: underline;
+        font-family: Inter;
+        font-style: italic;
+        text-decoration-color: white;
+        width: 20%;
+        text-align: center;
+        font-size: 16px;
+    }
+
+
+    footer#footer-escritorio>#desktop-disclaimer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 4rem;
+        width: 100%;
+    }
+
+    footer#footer-escritorio>#desktop-disclaimer>span {
+        text-align: center;
+        color: white;
+        font-size: 1rem;
     }
 
 

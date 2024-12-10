@@ -98,6 +98,11 @@ public class ProyectService {
         return Constants.OK.toString();
     }
 
+    public Usuario obtenerDatosUsuario(String nombre){
+        
+        return usuarioRepository.findByNombreUsuario(nombre).get();
+    }
+
     public String comprobarUsuarioLogueado(String nombreUsuario, String clave) {
         Optional<Usuario> ul = usuarioRepository.findByNombreUsuarioAndClave(nombreUsuario, clave);
 

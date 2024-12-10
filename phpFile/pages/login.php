@@ -1,5 +1,4 @@
 
-</script>
 <video autoplay loop muted id="video_background" preload="auto">
 <source src="../assets/oleaje.mp4" type="video/mp4"/>
 </video>

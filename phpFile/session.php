@@ -19,8 +19,13 @@ if (isset($_POST["btnLogin"])) {
 
     if ($response == RESPONSE_EXIST) {
 
+        $nombre = urlencode($_POST["userL"]);
+
+        $usuario = json_decode(consumir_servicios_REST(OBTENER_DATOS_USUARIO . "/$nombre", METODO_GET));
+
+        $_SESSION["nombre_usuario"] = $usuario->nombreUsuario;
+        $_SESSION["email"] = $usuario->email;
         $_SESSION["login"] = true;
-        $_SESSION["nombre_usuario"] = $_POST["userL"];
         $page = "home";
     } else {
         $error_logueo = true;
@@ -28,12 +33,12 @@ if (isset($_POST["btnLogin"])) {
 }
 
 if (isset($_POST["btnRegistrarse"])) {
-    $page = "register";
+    $page = "registro";
 }
 
 if (isset($_POST["btnContRegistrarse"])) {
 
-    $page = "register";
+    $page = "registro";
     $datos = [];
 
     $datos["nombre"] = $_POST["user"];
@@ -66,6 +71,6 @@ if (isset($_POST["btnContRegistrarse"])) {
     }
 }
 
-if ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && $page != "contact" && $page != "register") {
+if ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && pageNeedLogin($page)) {
     $page = "login";
 }

@@ -5,8 +5,11 @@
 $categorias = json_decode(consumir_servicios_REST(OBTENER_CATEGORIAS, METODO_GET));
 
 if (isset($_GET["section"]) && $_GET["section"] != "productos") {
-    $slug = $_GET["section"];
+    $slug = $_GET["section"] ?? "arroces-y-paellas";
     $productos = json_decode(consumir_servicios_REST(OBTENER_PRODUCTOS_CATEGORIA . "/" . $slug, METODO_GET));
+    if (isset($productos->status)) {
+        $productos = json_decode(consumir_servicios_REST(OBTENER_PRODUCTOS_CATEGORIA . "/arroces-y-paellas", METODO_GET));
+    }
 }
 
 ?>
@@ -28,9 +31,9 @@ if (isset($_GET["section"]) && $_GET["section"] != "productos") {
         foreach ($list as $item) {
         ?>
 
-           <a href="index.php?page=<?= $page ?>&<?= $param ?>=<?= $item->slug ?>">
+            <a href="index.php?page=<?= $page ?>&<?= $param ?>=<?= $item->slug ?>">
                 <div class="imagen-container">
-                    <div class="image-imagen"><img src='assets/products/<?= $item->imagen ?>' alt='<?= $item->nombre ?>' > </div>
+                    <div class="image-imagen"><img src='assets/products/<?= $item->imagen ?>' alt='<?= $item->nombre ?>'> </div>
                     <div class="image-span"><span><?php echo $item->nombre ?></span></div>
                 </div>
             </a>
@@ -132,7 +135,7 @@ if (isset($_GET["section"]) && $_GET["section"] != "productos") {
                 <a href="index.php?page=<?= $page ?>&<?= $param ?>=<?= $item->slug ?>">
                     <div class="imagen-container">
                         <div class="image-imagen"><img src='assets/products/<?= $item->imagen ?>' alt='Logo'></div>
-                        <div class="image-span"><span><?= $item->nombre ?></span><?= (!$es_categoria)  ? (number_format( $item->precio,2)."€") : "" ?></span></div>
+                        <div class="image-span"><span><?= $item->nombre ?></span><?= (!$es_categoria)  ? (number_format($item->precio, 2) . "€") : "" ?></span></div>
                     </div>
                 </a>
 

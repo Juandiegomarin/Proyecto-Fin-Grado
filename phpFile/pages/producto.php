@@ -1,15 +1,18 @@
 <?php
 
-$slug = $_GET["producto"] ?? "ensalada-dieguichi";
+$slug = $_GET["producto"] ?? "paella-de-marisco";
 $product = json_decode(consumir_servicios_REST(OBTENER_PRODUCTO . "/" . $slug, METODO_GET));
 
+if (isset($product->status)) {
+    $product = json_decode(consumir_servicios_REST(OBTENER_PRODUCTO . "/paella-de-marisco", METODO_GET));
+}
 $alergenos = json_decode(consumir_servicios_REST(OBTENER_ALERGENOS, METODO_GET));
 
 $product_alergenos = array_column($product->alergenos, "idAlergeno");
 
 ?>
 
-<main id="product-container"  class="page-container">
+<main id="product-container">
     <div id="product">
         <div id="product-imagen">
             <img src="assets/products/<?= $product->imagen ?>" alt="<?= $product->nombre ?>">

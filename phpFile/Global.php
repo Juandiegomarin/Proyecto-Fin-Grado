@@ -6,6 +6,10 @@ session_start();
 
 //Constantes------------------------------------------------------------------------
 
+
+define("EMAIL","juandiegomarinmorales@gmail.com");
+define("PASSWORD","kcdodnwfohunjxvn");
+define("DOMAIN","Chiringuito Dieguichi");
 //Metodos
 
 define("METODO_POST", "POST");
@@ -23,6 +27,7 @@ define("OBTENER_PRODUCTOS_CATEGORIA", DIR_SERV . "/obtenerProductos");
 define("OBTENER_PRODUCTO", DIR_SERV . "/obtenerProducto");
 define("OBTENER_ALERGENOS", DIR_SERV . "/obtenerAlergenos");
 define("INSERTAR_PEDIDO", DIR_SERV . "/insertarPedido");
+define("OBTENER_DATOS_USUARIO", DIR_SERV . "/obtenerDatosUsuario");
 define("OBTENER_PEDIDOS_USUARIO", DIR_SERV . "/obtenerPedidosUsuario");
 //Respuestas
 define("RESPONSE_OK", "OK");
@@ -93,4 +98,12 @@ function filtrar_pedido($array)
     }
 
     return json_encode($pedido);
+}
+
+function pageNeedLogin($page){
+
+    if($page != "aboutus" && $page != "contacto" && $page != "terminos" && $page != "cookies" && $page != "privacidad" && $page != "registro"){
+        return true;
+    }
+    return false;
 }

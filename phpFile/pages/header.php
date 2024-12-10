@@ -1,10 +1,23 @@
 <?php
 
-$secciones = [
-    ["title" => "Home", "slug" => "home"],
-    ["title" => "Productos", "slug" => "productos"],
-    ["title" => "Contacto", "slug" => "contacto"]
-];
+
+if(isset($_SESSION["login"]) && $_SESSION["login"]){
+    $secciones = [
+        ["title" => "Home", "slug" => "home"],
+        ["title" => "Productos", "slug" => "productos"],
+        ["title" => "Contacto", "slug" => "contacto"],
+        ["title" => "Terminos & Condiciones", "slug" => "terminos"]
+    ];
+}else{
+    $secciones = [
+        ["title" => "Home", "slug" => "home"],
+        ["title" => "Productos", "slug" => "productos"],
+        ["title" => "Contacto", "slug" => "contacto"],
+        ["title" => "Terminos & Condiciones", "slug" => "terminos"],
+        ["title" => "Login", "slug" => "login"]
+    ];
+}
+
 
 ?>
 
@@ -116,7 +129,7 @@ $secciones = [
     $(document).ready(function() {
 
         $("#close-user-sidebar").on("click", function() {
-            $(this).parents("#user-sidebar").css("transform", " translateX(200px)");
+            $(this).parents("#user-sidebar").css("transform", " translateX(300px)");
         })
 
         $(".login-icon").on("click", function() {
