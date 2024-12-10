@@ -20,7 +20,7 @@ RUN mvn clean package -DskipTests
 FROM amazoncorretto:17-alpine-jdk 
 COPY --from=build /target/Proyecto-Fin-Grado-0.0.1-SNAPSHOT.jar Proyecto-Fin-Grado-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=pro","org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=pro","org.springframework.boot.loader.launch.JarLauncher"]
 
 
 
