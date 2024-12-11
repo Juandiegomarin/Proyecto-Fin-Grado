@@ -29,6 +29,7 @@
 html,
 body {
     height: 100vh;
+    overflow-x: hidden;
     /* O cualquier otro valor que desees */
 }
 
@@ -487,25 +488,48 @@ header>#user-sidebar .user-hover-background:hover {
 #home>#cartas {
     display: flex;
     flex-flow: row wrap;
-    width: 100%;
-    margin-top: 5rem;
+    width: 90%;
+    margin: 5rem 0;
+    justify-content: space-between; /* Distribuye los elementos uniformemente */
 }
+
 
 #home>#cartas>.card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 0 40%;
-    margin: 3rem 5%;
+    justify-content: flex-start;
+    margin: 3rem 2rem 0 2rem;
+    flex: 100%;
+    flex-grow: 1;
+    align-items: stretch; /* Ajusta los elementos verticalmente */
 }
 
-#home>#cartas>.card>h5 {
+
+#home>#cartas>.card>.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: fit-content;
+    font-size: medium;
+}
+
+
+#home>#cartas>.card>.card-content h5 {
     margin: 1rem 0;
+    font-size: medium;
     font-family: 'Luckiest Guy', sans-serif;
 }
 
-#home>#cartas>.card>a {
+#home>#cartas>.card > img {
+    width: 100%;
+    height: 400px;
+}
+
+#home>#cartas>.card>.card-content a {
     align-self: center;
     background-color: #F5AD3F;
     width: 45%;
@@ -513,10 +537,7 @@ header>#user-sidebar .user-hover-background:hover {
     margin: 2rem 0;
 }
 
-#home>#cartas>.card>img {
-    margin: 3rem;
-    width: 70%;
-}
+
 
 /*------------------Single Product Movil-----------------------*/
 
@@ -1001,7 +1022,7 @@ main#pedidos>section>.pedido-info>.list-pedidos {
     display: none;
     flex-direction: column;
     align-items: center;
-    font-size: xx-small;
+    font-size: 12px;
     width: 90%;
     margin-top: 1rem;
 }
@@ -1019,8 +1040,8 @@ main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto {
 }
 
 main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto>.unique-producto-imagen>img {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
 }
 
 /*------------Contact Page-------------------------------*/
@@ -1226,7 +1247,7 @@ footer {
     display: flex;
     flex-direction: column;
     background-color: #0b1733;
-    height: 400px;
+    height: 420px;
     width: 100%;
 }
 
@@ -1321,6 +1342,7 @@ footer#footer-escritorio {
     .formulario {
         width: 80%;
     }
+    
 }
 
 @media(min-width:400px) {
@@ -1329,10 +1351,15 @@ footer#footer-escritorio {
     main#pedidos>section>.pedido-info {
         width: 90%;
     }
+    
 
 }
 
 @media (min-width: 600px) {
+
+    #home>#cartas>.card > img {
+        height: 600px;
+    }
 
     #product-container>#product>#product-imagen>#product-form>#product-units>#product-units-units>button {
         width: 33%;
@@ -1376,8 +1403,9 @@ footer#footer-escritorio {
 
     /*---------------Pedidos------------------*/
     main#pedidos>section>.pedido-info {
-        width: 70%;
+        width: 80%;
     }
+    
 }
 
 @media (min-width: 800px) {
@@ -1439,9 +1467,20 @@ footer#footer-escritorio {
 
     /*---------------Pedidos------------------*/
     main#pedidos>section>.pedido-info {
-        width: 60%;
+        width: 70%;
+    }
+    main#pedidos>section>.pedido-info>.list-pedidos{
+        font-size: 15px;
+    }
+
+    #home>#cartas>.card {
+        flex:0 40%;
+    }
+    #home>#cartas>.card > img {
+        height: 350px;
     }
 }
+
 
 
 @media (min-width: 1000px) {
@@ -1467,16 +1506,19 @@ footer#footer-escritorio {
         width: 100%;
         align-items: stretch;
         justify-content: flex-start;
+        margin-bottom: 0;
     }
 
     header>#menu-escritorio>#lower-menu>ul>a {
-        width: 20%;
+        margin: 0 20px;
         text-decoration: none;
         color: black;
+        
     }
 
     header>#menu-escritorio>#lower-menu>ul li {
         text-align: center;
+        width: max-content;
         font-family: 'Oswald Stencil';
     }
 
@@ -1499,16 +1541,29 @@ footer#footer-escritorio {
     }
 
     /*---------------Pedidos------------------*/
-    main#pedidos>section>.pedido-info {
-        width: 50%;
-    }
 
     main#pedidos>section>.pedido-info>.cabecera>div {
         font-size: medium;
     }
+    main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto>.unique-producto-imagen>img {
+        width: 150px;
+        height: 150px;
+    }
+    #home>#cartas>.card > img {
+        height: 400px;
+    }
 }
 
 @media (min-width: 1200px) {
+
+    #home>#cartas>.card {
+        flex:0 25%;
+    }
+    #home>#cartas>.card > img {
+        height: 300px;
+    }
+    
+
     #product-container>#product>#product-imagen>span {
         font-size: 25px;
     }
@@ -1557,6 +1612,13 @@ footer#footer-escritorio {
     main#pedidos>section>.pedido-info>.cabecera>div {
         font-size: larger;
     }
+    main#pedidos>section>.pedido-info>.list-pedidos{
+        font-size: larger;
+    }
+    main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto>.unique-producto-imagen>img {
+        width:200px;
+        height:200px;
+    }
 }
 
 @media (min-width: 1440px) and (max-width: 1700px) {
@@ -1565,18 +1627,16 @@ footer#footer-escritorio {
         font-size: 13px;
     }
 
-    .sidebar-div-border>:nth-child(1)>img {
-        height: 50px;
-    }
-
-    #sidebar-header .sidebar-div-border img {
-        width: 60px;
+     .sidebar-div-border img {
+        height: 70px;
     }
 }
 
 @media (min-width:1440px) {
 
-
+    #home>#cartas>.card > img {
+        height: 500px;
+    }
     /*Productos escritorio*/
     #productos-movil {
         display: none;
@@ -1592,7 +1652,7 @@ footer#footer-escritorio {
 
     /*Parte izquierda-------------------------------------------*/
     #productos>#sidebar {
-        width: 15%;
+        width: 20%;
         margin-left: 5%;
     }
 
@@ -1643,9 +1703,10 @@ footer#footer-escritorio {
         align-items: center;
         justify-content: space-around;
         text-align: center;
+        padding: 0.5rem 0;
     }
 
-    #productos>#sidebar>#sidebar-list>.sidebar-div-border {
+    .sidebar-div-border {
         cursor: pointer;
     }
 
@@ -1661,6 +1722,7 @@ footer#footer-escritorio {
 
     .sidebar-div-border>:nth-child(2) {
         width: 70%;
+        font-size: larger;
         text-align: left;
     }
 
@@ -1670,7 +1732,7 @@ footer#footer-escritorio {
 
     .sidebar-div-border img {
         width: 80px;
-        height: 80px;
+        height: max-content;
     }
 
     /*izquierda abajo*/

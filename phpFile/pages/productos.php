@@ -48,7 +48,7 @@ if (isset($_GET["section"]) && $_GET["section"] != "productos") {
         <a href="index.php?page=productos&section=productos">
             <div class="<?= (!isset($_GET["section"]) || $_GET["section"] == "productos") ? "seleccionado" : "" ?>">
                 <div>
-                    <img src="../assets/img/logo.png" alt="Logo" style="min-width: 80px; max-width:100%">
+                    <img src="../assets/img/logo.webp" alt="Logo" style="min-width: 80px; max-width:100%">
                 </div>
                 <div>
                     <span>Nuestros productos</span>
@@ -79,7 +79,7 @@ if (isset($_GET["section"]) && $_GET["section"] != "productos") {
             <a href="index.php?page=productos&section=productos">
                 <div class="sidebar-div-border  <?= (!isset($_GET["section"]) || $_GET["section"] == "productos") ? "clicked-both" : "noClicked" ?>">
                     <div>
-                        <img src="../assets/img/logo.png" alt="Logo">
+                        <img src="../assets/img/logo.webp" alt="Logo">
                     </div>
                     <div>
                         <span>Nuestros productos</span>
@@ -130,9 +130,18 @@ if (isset($_GET["section"]) && $_GET["section"] != "productos") {
             $param = $es_categoria ? "section" : "producto";
 
             foreach ($list as $item) {
+                $url =  $page . "&" . $param . "=" . $item->slug;
+
+                if(!$es_categoria && buscarProductoId($item->idProducto,$_SESSION["pedido"]) >= 0){
+                    $url = "pedido";
+                }
+
+                if(isset($item->unidades) && $item->unidades == 0){
+                    continue;
+                }
             ?>
 
-                <a href="index.php?page=<?= $page ?>&<?= $param ?>=<?= $item->slug ?>">
+                <a href="index.php?page=<?= $url ?>">
                     <div class="imagen-container">
                         <div class="image-imagen"><img src='assets/products/<?= $item->imagen ?>' alt='Logo'></div>
                         <div class="image-span"><span><?= $item->nombre ?></span><?= (!$es_categoria)  ? (number_format($item->precio, 2) . "€") : "" ?></span></div>

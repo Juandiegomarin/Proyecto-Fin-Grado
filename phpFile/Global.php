@@ -17,7 +17,7 @@ define("METODO_GET", "GET");
 
 //urls
 define("DIR_SERV", "https://proyecto-fin-grado.onrender.com");
-//define("DIR_SERV", "http://localhost:8081"); //url local
+//define("DIR_SERV", "http://springProyect:8080"); //url local
 
 define('COMPROBAR_REGISTRO', DIR_SERV . "/comprobarRegistro");
 define("INSERTAR", DIR_SERV . "/insertar");

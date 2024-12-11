@@ -13,6 +13,13 @@
 # COPY --from=builder /application/spring-boot-loader/ ./
 # COPY --from=builder /application/snapshot-dependencies/ ./
 # COPY --from=builder /application/application/ ./
+
+# EXPOSE 8080
+
+# ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=pro","org.springframework.boot.loader.JarLauncher"]
+
+
+
 FROM maven:3-amazoncorretto-17-alpine AS build
 COPY ./Proyecto-Fin-Grado .
 RUN mvn clean package -DskipTests

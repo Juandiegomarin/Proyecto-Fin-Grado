@@ -1,14 +1,14 @@
 <?php
 
 
-if(isset($_SESSION["login"]) && $_SESSION["login"]){
+if (isset($_SESSION["login"]) && $_SESSION["login"]) {
     $secciones = [
         ["title" => "Home", "slug" => "home"],
         ["title" => "Productos", "slug" => "productos"],
         ["title" => "Contacto", "slug" => "contacto"],
         ["title" => "Terminos & Condiciones", "slug" => "terminos"]
     ];
-}else{
+} else {
     $secciones = [
         ["title" => "Home", "slug" => "home"],
         ["title" => "Productos", "slug" => "productos"],
@@ -24,23 +24,13 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]){
 <header>
     <a href="index.php?page=home">
         <div>
-            <img src="../assets/img/logo.png" alt="Logo del Chiringuito Dieguichi">
+            <img src="../assets/img/logo.webp" alt="Logo del Chiringuito Dieguichi">
         </div>
     </a>
     <nav id="menu">
         <a href="index.php?page=pedido">
             <img src="assets/icons/shoping-bag.svg" alt="shoping bag" id="shoping-bag-icon">
-
-            <?php
-            if (!empty($_SESSION["pedido"])) {
-            ?>
-
-                <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
-
-            <?php
-            }
-            ?>
-
+            <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
         </a>
         <img src="assets/icons/menu.svg" alt="menu" id="menu-icon">
         <img src="assets/icons/x.svg" alt="close" id="close-icon">
@@ -84,19 +74,9 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]){
             <div id="icons">
                 <a href="index.php?page=pedido">
                     <img src="assets/icons/shoping-bag.svg" alt="shoping bag">
-
-                    <?php
-                    if (!empty($_SESSION["pedido"])) {
-                    ?>
-
-                        <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
-
-                    <?php
-                    }
-                    ?>
-
+                    <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
                 </a>
-                <img src="assets/icons/person.svg" alt="login" class="<?= (isset($_SESSION["login"]) && $_SESSION["login"]) ? "login-icon pointer" : ""?>">
+                <img src="assets/icons/person.svg" alt="login" class="<?= (isset($_SESSION["login"]) && $_SESSION["login"]) ? "login-icon pointer" : "" ?>">
             </div>
         </div>
     </nav>
@@ -114,8 +94,8 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]){
                 <form action="index.php?page=pedidos" method="post" id="pedidos-user" class="user-hover-background">
                     <button type="submit" class="user-hover-color">Mis pedidos</button>
                 </form>
-                <a href="index.php" class="user-hover-color user-hover-background">Términos y Condiciones</a>
-                <a href="index.php" class="user-hover-color user-hover-background">Políticas y Privacidad</a>
+                <a href="index.php?page=terminos" class="user-hover-color user-hover-background">Términos y Condiciones</a>
+                <a href="index.php?page=privacidad" class="user-hover-color user-hover-background">Políticas y Privacidad</a>
                 <form action="index.php" method="post" id="user-logout" class="user-hover-background">
                     <button type="submit" class="user-hover-color" name="btnLogout"><span>Cerrar sesión</span><img src="assets/icons/logout.svg" alt=""></button>
                 </form>

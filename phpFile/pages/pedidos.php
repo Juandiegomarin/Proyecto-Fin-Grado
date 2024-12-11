@@ -17,7 +17,7 @@ $pedidos = json_decode(consumir_servicios_REST(OBTENER_PEDIDOS_USUARIO . "/$nomb
         <section>
             <?php
             foreach ($pedidos as $pedido) {
-                $formatted_date = date("d/m/y H:i", strtotime($pedido->fechaPedido));
+                $formatted_date = date("d/m/Y H:i", strtotime($pedido->fechaPedido));
             ?>
 
                 <article class="pedido-info">
@@ -27,12 +27,12 @@ $pedidos = json_decode(consumir_servicios_REST(OBTENER_PEDIDOS_USUARIO . "/$nomb
                             <p><?= $pedido->idPedido ?></p>
                         </div>
                         <div>
-                            <p><strong>Numero Pedido:</strong></p>
+                            <p><strong>Fecha del Pedido:</strong></p>
                             <p><?= $formatted_date ?></p>
                         </div>
                         <div>
-                            <p><strong>Total:</strong></p>
-                            <p><?= $pedido->total ?> €</p>
+                            <p><strong>Precio Total:</strong></p>
+                            <p><?= number_format($pedido->total,2) ?> €</p>
                         </div>
                         <div class="chevron">
                             <img src="assets/icons/chevron-down.svg" alt="" class="slide-icon pointer">
@@ -47,11 +47,14 @@ $pedidos = json_decode(consumir_servicios_REST(OBTENER_PEDIDOS_USUARIO . "/$nomb
                                 <div class="unique-producto-imagen">
                                     <img src="assets/products/<?= $producto->producto->imagen ?>" alt="">
                                 </div>
+                                <div>
+                                    <span><strong>Nombre:</strong> <?= $producto->producto->nombre ?></span>
+                                </div>
                                 <div class="unique-producto-unidades">
-                                    <span>Unidades: <?= $producto->unidades ?></span>
+                                    <span><strong>Unidades:</strong> <?= $producto->unidades ?></span>
                                 </div>
                                 <div class="unique-producto-precio">
-                                    <span>Precio: <?= $producto->precio ?> €</span>
+                                    <span><strong>Precio:</strong> <?= number_format($producto->precio,2) ?> €</span>
                                 </div>
                             </div>
 

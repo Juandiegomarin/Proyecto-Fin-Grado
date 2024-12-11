@@ -9,7 +9,7 @@ $mail = $_GET["mail"] ?? false;
 <section class="contact-page">
     <h1>Contacto</h1>
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-lg-5 contact-text">
 
                 <h2>Bienvenidos al Chiringuito Dieguichi</h2>
@@ -38,7 +38,7 @@ $mail = $_GET["mail"] ?? false;
                     <br><br>
                     <div class="h-captcha" data-sitekey="ad837be1-2815-41d2-afd5-bff95e563963"></div>
                     <br><br>
-                    <button class="site-btn" name="btnContact">Enviar<img src="assets/img/double-arrow.png" alt="arrows" /></button>
+                    <button class="site-btn" name="btnContact">Enviar<img src="assets/img/double-arrow.webp" alt="arrows" /></button>
 
                 </form>
 

@@ -31,7 +31,7 @@ $carrito = json_decode(json_encode($_SESSION["pedido"]));
                         <form action="index.php" method="post">
 
                             <input type="hidden" name="id" value="<?= $item->id ?>">
-                            <input type="hidden" name="unidades" value="<?= $item->unidades ?>">
+                            <input type="hidden" name="unidades" value="<?= $item->unidades ?>" id="unidades-actuales">
                             <input type="hidden" name="precio" value="<?= $item->precio ?>">
                             <input type="hidden" name="imagen" value="<?= $item->imagen ?>">
                             <input type="hidden" name="stock" value="<?= $item->stock ?>">
@@ -86,6 +86,7 @@ $carrito = json_decode(json_encode($_SESSION["pedido"]));
 <script>
     $(document).ready(function() {
 
+        
         $(".btn-modificar").on("click", function(e) {
             let id = $(this).closest('form').find('input[name="id"]').val();
             let unidades = $(this).closest('form').find('input[name="unidades"]').val();
@@ -119,7 +120,7 @@ $carrito = json_decode(json_encode($_SESSION["pedido"]));
             $(this).parents("#modal-modificar").css("display", "none");
         })
 
-
+        var unidadesActuales = document.getElementById("unidades-actuales")
         var units = document.getElementById("units")
         var unidadesInput = $('#unidades')
 
@@ -127,7 +128,8 @@ $carrito = json_decode(json_encode($_SESSION["pedido"]));
         $("#add-product").on("click", function() {
             let productStock = $("#stock").val()
             let unidades = Number(units.innerHTML);
-            if (unidades < productStock) {
+            let unidadesAct = Number(unidadesActuales.value);
+            if (unidades < (productStock)) {
                 units.innerHTML = unidades + 1;
                 unidadesInput.val(unidades + 1)
             }

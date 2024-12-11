@@ -163,6 +163,9 @@ public class ProyectService {
                 p.setUnidades(productoDTO.getUnidades());
 
                 pedidoProductoRepository.save(p);
+
+                paux.setUnidades(paux.getUnidades()-productoDTO.getUnidades());
+                productoRepository.save(paux);
             }
 
             return Constants.OK.toString();
