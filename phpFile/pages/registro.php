@@ -4,7 +4,7 @@
 <div class="formulario">
     <h1>Register</h1>
     <form action="index.php" method="post" id="registro">
-        <input type="text" name="user" id="user" aria-label="user" placeholder="Nombre de Usuario" minlength="5" required value="<?= (isset($_POST["btnContRegistrarse"])) ? $_POST["user"] : "" ?>">
+        <input type="text" name="user" id="user" aria-label="user" placeholder="Nombre de Usuario" pattern="[a-zA-Z]{5,}" required value="<?= (isset($_POST["btnContRegistrarse"])) ? $_POST["user"] : "" ?>">
         <small>Para continuar con el registro debes rellenar este campo</small>
         <?php
         if (isset($_POST["btnContRegistrarse"]) && isset($error_user)) {
@@ -12,7 +12,7 @@
         }
         ?>
         <div class="containerPassword">
-            <input type="password" name="password" id="password" aria-label="password" placeholder="Contraseña" minlength="8" required>
+            <input type="password" name="password" id="password" aria-label="password" placeholder="Contraseña" pattern="^[^ ]+$" minlength="8" required>
             <img src="../assets/icons/show.svg" alt="Show">
             <img src="../assets/icons/no-show.svg" alt="No show">
         </div>

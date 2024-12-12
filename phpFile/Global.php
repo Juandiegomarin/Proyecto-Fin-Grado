@@ -6,18 +6,22 @@ session_start();
 
 //Constantes------------------------------------------------------------------------
 
-
+//Credenciales Mailer
 define("EMAIL","juandiegomarinmorales@gmail.com");
 define("PASSWORD","kcdodnwfohunjxvn");
 define("DOMAIN","Chiringuito Dieguichi");
-//Metodos
 
+//Metodos
 define("METODO_POST", "POST");
 define("METODO_GET", "GET");
 
-//urls
+//URLS-------------------------------------------------------------------------------
+
+//Direccion Produccion
 define("DIR_SERV", "https://proyecto-fin-grado.onrender.com");
-//define("DIR_SERV", "http://springProyect:8080"); //url local
+
+//Direccion Local
+//define("DIR_SERV", "http://springProyect:8080");
 
 define('COMPROBAR_REGISTRO', DIR_SERV . "/comprobarRegistro");
 define("INSERTAR", DIR_SERV . "/insertar");

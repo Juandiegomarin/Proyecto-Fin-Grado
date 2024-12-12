@@ -1,5 +1,6 @@
 package com.example.ProyectoFinGrado.controller;
 
+import com.example.ProyectoFinGrado.dto.PedidoProductoDTO;
 import com.example.ProyectoFinGrado.entities.Alergeno;
 import com.example.ProyectoFinGrado.entities.Categoria;
 import com.example.ProyectoFinGrado.entities.Pedido;
@@ -7,7 +8,6 @@ import com.example.ProyectoFinGrado.entities.Producto;
 import com.example.ProyectoFinGrado.entities.Usuario;
 import com.example.ProyectoFinGrado.services.ProyectService;
 
-import dto.PedidoProductoDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

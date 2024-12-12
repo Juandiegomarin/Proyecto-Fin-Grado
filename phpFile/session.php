@@ -12,14 +12,14 @@ if (isset($_POST["btnLogout"])) {
 
 if (isset($_POST["btnLogin"])) {
 
-    $datos["nombre"] = $_POST["userL"];
-    $datos["clave"] = $_POST["password"];
+    $datos["nombre"] = trim($_POST["userL"]);
+    $datos["clave"] = trim($_POST["password"]);
 
     $response = consumir_servicios_REST(COMPROBAR_USUARIO_LOGUEADO, METODO_POST, $datos);
 
     if ($response == RESPONSE_EXIST) {
 
-        $nombre = urlencode($_POST["userL"]);
+        $nombre = urlencode(trim($_POST["userL"]));
 
         $usuario = json_decode(consumir_servicios_REST(OBTENER_DATOS_USUARIO . "/$nombre", METODO_GET));
 
@@ -40,11 +40,11 @@ if (isset($_POST["btnContRegistrarse"])) {
 
     $page = "registro";
     $datos = [];
-
-    $datos["nombre"] = $_POST["user"];
-    $datos["email"] = $_POST["email"];
-    $datos["clave"] = $_POST["password"];
-    $datos["clave_verificada"] = $_POST["password2"];
+    
+    $datos["nombre"] = trim($_POST["user"]);
+    $datos["email"] = trim($_POST["email"]);
+    $datos["clave"] = trim($_POST["password"]);
+    $datos["clave_verificada"] = trim($_POST["password2"]);
 
     $obj = consumir_servicios_REST(COMPROBAR_REGISTRO, METODO_POST, $datos);
 
@@ -73,4 +73,9 @@ if (isset($_POST["btnContRegistrarse"])) {
 
 if ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && pageNeedLogin($page)) {
     $page = "login";
+}
+
+if ($page == "pago" && empty($_SESSION["pedido"])) {
+    header("Location:index.php?page=home");
+    exit;
 }

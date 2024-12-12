@@ -97,7 +97,11 @@ $response = $_GET["response"] ?? false;
                 <p><strong>Success!</strong> Pedido realizado con exito.</p>
                 <p>En unos instantes tu pedido estará listo</p>
             </div>
-
+            <script>
+                setTimeout(function() {
+                    window.location.href = "index.php?page=home";
+                }, 2500);
+            </script>
         <?php
         } elseif (isset($response) && $response == RESPONSE_ERROR) {
         ?>

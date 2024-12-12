@@ -21,8 +21,8 @@ if (isset($_POST["addProduct"])) {
     if ($pos < 0) {
         $_SESSION["pedido"][] = $producto_pedido;
     } else {
-        $_SESSION["pedido"][$pos]["unidades"] += $unidades;
-        $_SESSION["pedido"][$pos]["precio"] += $precio;
+        $_SESSION["pedido"][$pos]["unidades"] = $unidades;
+        $_SESSION["pedido"][$pos]["precio"] = $precio;
     }
 
     header("Location:index.php?page=productos");

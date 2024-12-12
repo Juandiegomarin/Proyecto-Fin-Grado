@@ -17,6 +17,15 @@
     cursor: pointer;
 }
 
+.no-pointer{
+    cursor: default !important;
+}
+
+.no-stock {
+    color: red;
+    font-size: xx-small;
+}
+
 .active-alergen {
     background-color: #f9f9f9;
 }
@@ -490,7 +499,8 @@ header>#user-sidebar .user-hover-background:hover {
     flex-flow: row wrap;
     width: 90%;
     margin: 5rem 0;
-    justify-content: space-between; /* Distribuye los elementos uniformemente */
+    justify-content: space-between;
+    /* Distribuye los elementos uniformemente */
 }
 
 
@@ -503,7 +513,8 @@ header>#user-sidebar .user-hover-background:hover {
     margin: 3rem 2rem 0 2rem;
     flex: 100%;
     flex-grow: 1;
-    align-items: stretch; /* Ajusta los elementos verticalmente */
+    align-items: stretch;
+    /* Ajusta los elementos verticalmente */
 }
 
 
@@ -524,7 +535,7 @@ header>#user-sidebar .user-hover-background:hover {
     font-family: 'Luckiest Guy', sans-serif;
 }
 
-#home>#cartas>.card > img {
+#home>#cartas>.card>img {
     width: 100%;
     height: 400px;
 }
@@ -857,7 +868,7 @@ main#pago {
     align-items: center;
     width: 100%;
     margin-top: 3rem;
-    min-height: 50vh;
+    min-height: 60vh;
 }
 
 main#pago>.card-header {
@@ -1234,7 +1245,7 @@ main.static-content>.container>.row>.div-content h4 {
     margin-bottom: 20px;
 }
 
-main.static-content>.container>.row>.div-content p{
+main.static-content>.container>.row>.div-content p {
     font-size: 16px;
     font-weight: 500;
     color: white;
@@ -1342,7 +1353,7 @@ footer#footer-escritorio {
     .formulario {
         width: 80%;
     }
-    
+
 }
 
 @media(min-width:400px) {
@@ -1351,13 +1362,17 @@ footer#footer-escritorio {
     main#pedidos>section>.pedido-info {
         width: 90%;
     }
-    
+
 
 }
 
 @media (min-width: 600px) {
 
-    #home>#cartas>.card > img {
+    .no-stock {
+        font-size: x-small;
+    }
+
+    #home>#cartas>.card>img {
         height: 600px;
     }
 
@@ -1405,11 +1420,14 @@ footer#footer-escritorio {
     main#pedidos>section>.pedido-info {
         width: 80%;
     }
-    
+
 }
 
 @media (min-width: 800px) {
 
+    .no-stock {
+        font-size: small;
+    }
 
     #product-container>#product {
         width: 70%;
@@ -1469,14 +1487,16 @@ footer#footer-escritorio {
     main#pedidos>section>.pedido-info {
         width: 70%;
     }
-    main#pedidos>section>.pedido-info>.list-pedidos{
+
+    main#pedidos>section>.pedido-info>.list-pedidos {
         font-size: 15px;
     }
 
     #home>#cartas>.card {
-        flex:0 40%;
+        flex: 0 40%;
     }
-    #home>#cartas>.card > img {
+
+    #home>#cartas>.card>img {
         height: 350px;
     }
 }
@@ -1484,6 +1504,10 @@ footer#footer-escritorio {
 
 
 @media (min-width: 1000px) {
+
+    .no-stock {
+        font-size: medium;
+    }
     header>#menu {
         display: none;
     }
@@ -1513,7 +1537,7 @@ footer#footer-escritorio {
         margin: 0 20px;
         text-decoration: none;
         color: black;
-        
+
     }
 
     header>#menu-escritorio>#lower-menu>ul li {
@@ -1545,24 +1569,31 @@ footer#footer-escritorio {
     main#pedidos>section>.pedido-info>.cabecera>div {
         font-size: medium;
     }
+
     main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto>.unique-producto-imagen>img {
         width: 150px;
         height: 150px;
     }
-    #home>#cartas>.card > img {
+
+    #home>#cartas>.card>img {
         height: 400px;
     }
 }
 
 @media (min-width: 1200px) {
 
-    #home>#cartas>.card {
-        flex:0 25%;
+    .no-stock {
+        font-size: large;
     }
-    #home>#cartas>.card > img {
+
+    #home>#cartas>.card {
+        flex: 0 25%;
+    }
+
+    #home>#cartas>.card>img {
         height: 300px;
     }
-    
+
 
     #product-container>#product>#product-imagen>span {
         font-size: 25px;
@@ -1612,12 +1643,14 @@ footer#footer-escritorio {
     main#pedidos>section>.pedido-info>.cabecera>div {
         font-size: larger;
     }
-    main#pedidos>section>.pedido-info>.list-pedidos{
+
+    main#pedidos>section>.pedido-info>.list-pedidos {
         font-size: larger;
     }
+
     main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto>.unique-producto-imagen>img {
-        width:200px;
-        height:200px;
+        width: 200px;
+        height: 200px;
     }
 }
 
@@ -1627,16 +1660,21 @@ footer#footer-escritorio {
         font-size: 13px;
     }
 
-     .sidebar-div-border img {
+    .sidebar-div-border img {
         height: 70px;
     }
 }
 
 @media (min-width:1440px) {
 
-    #home>#cartas>.card > img {
+    .no-stock {
+        font-size: x-large;
+    }
+
+    #home>#cartas>.card>img {
         height: 500px;
     }
+
     /*Productos escritorio*/
     #productos-movil {
         display: none;

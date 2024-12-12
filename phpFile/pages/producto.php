@@ -6,11 +6,25 @@ $product = json_decode(consumir_servicios_REST(OBTENER_PRODUCTO . "/" . $slug, M
 if (isset($product->status)) {
     $product = json_decode(consumir_servicios_REST(OBTENER_PRODUCTO . "/paella-de-marisco", METODO_GET));
 }
+$has_stock = true;
+if ($product->unidades == 0) {
+    $has_stock = false;
+}
 $alergenos = json_decode(consumir_servicios_REST(OBTENER_ALERGENOS, METODO_GET));
 
 $product_alergenos = array_column($product->alergenos, "idAlergeno");
 
+if (!$has_stock) {
 ?>
+    <script>
+        setTimeout(function() {
+            window.location.href = "index.php?page=productos";
+        }, 0);
+    </script>
+<?php
+}
+?>
+
 
 <main id="product-container">
     <div id="product">
@@ -29,7 +43,26 @@ $product_alergenos = array_column($product->alergenos, "idAlergeno");
                     <div id="product-units-units">
                         <input type="hidden" name="stock" value="<?= $product->unidades ?>" id="stock">
                         <button type="button" class="btn btn-success" id="add-product">+ 1</button>
-                        <span id="units">1</span>
+
+                        <?php
+                        if (buscarProductoId($product->idProducto, $_SESSION["pedido"]) >= 0) {
+
+                            $pos = buscarProductoId($product->idProducto, $_SESSION["pedido"]);
+                            $prod = $_SESSION["pedido"][$pos];
+                        ?>
+
+                            <span id="units"><?= $prod["unidades"] ?></span>
+
+                        <?php
+                        } else {
+                        ?>
+
+                            <span id="units">1</span>
+
+                        <?php
+                        }
+                        ?>
+
                         <button type="button" class="btn btn-danger" id="remove-product">- 1</button>
                     </div>
                 </div>
@@ -48,6 +81,7 @@ $product_alergenos = array_column($product->alergenos, "idAlergeno");
     <div id="alergenos">
 
         <h5>Este producto contiene:</h5>
+        <p><strong>*Los alérgenos contenidos o que puede contener este producto aparecen marcados en color.</strong></p>
         <ul>
 
             <?php

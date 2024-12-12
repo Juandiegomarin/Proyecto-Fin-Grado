@@ -1,4 +1,6 @@
-package dto;
+package com.example.ProyectoFinGrado.dto;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,8 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductoDTO {
-    private Integer id;
-    private Integer unidades;
-    private double precio;
+public class PedidoProductoDTO {
+    private String user;
+    private List<ProductoDTO> productos;
 }

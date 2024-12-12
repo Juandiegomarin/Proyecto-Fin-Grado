@@ -30,7 +30,17 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]) {
     <nav id="menu">
         <a href="index.php?page=pedido">
             <img src="assets/icons/shoping-bag.svg" alt="shoping bag" id="shoping-bag-icon">
-            <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
+
+            <?php
+            if (isset($_SESSION["login"]) && $_SESSION["login"]) {
+            ?>
+
+                <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
+
+            <?php
+            }
+            ?>
+
         </a>
         <img src="assets/icons/menu.svg" alt="menu" id="menu-icon">
         <img src="assets/icons/x.svg" alt="close" id="close-icon">
@@ -74,7 +84,17 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]) {
             <div id="icons">
                 <a href="index.php?page=pedido">
                     <img src="assets/icons/shoping-bag.svg" alt="shoping bag">
-                    <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
+
+                    <?php
+                    if (isset($_SESSION["login"]) && $_SESSION["login"]) {
+                    ?>
+
+                        <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle"><?= count($_SESSION["pedido"]) ?></span>
+
+                    <?php
+                    }
+                    ?>
+
                 </a>
                 <img src="assets/icons/person.svg" alt="login" class="<?= (isset($_SESSION["login"]) && $_SESSION["login"]) ? "login-icon pointer" : "" ?>">
             </div>

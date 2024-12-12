@@ -1,3 +1,5 @@
+# Dockerfile Local
+
 # FROM maven:3-amazoncorretto-17 as builder
 # WORKDIR /application 
 # COPY . .
@@ -19,6 +21,7 @@
 # ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=pro","org.springframework.boot.loader.JarLauncher"]
 
 
+# Dockerfile Producción
 
 FROM maven:3-amazoncorretto-17-alpine AS build
 COPY ./Proyecto-Fin-Grado .

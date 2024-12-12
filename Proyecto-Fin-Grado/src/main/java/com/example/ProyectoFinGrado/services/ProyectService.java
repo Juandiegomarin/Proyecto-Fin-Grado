@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.ProyectoFinGrado.constants.Constants;
+import com.example.ProyectoFinGrado.dto.PedidoProductoDTO;
+import com.example.ProyectoFinGrado.dto.ProductoDTO;
 import com.example.ProyectoFinGrado.entities.Alergeno;
 import com.example.ProyectoFinGrado.entities.Categoria;
 import com.example.ProyectoFinGrado.entities.Pedido;
@@ -26,8 +28,6 @@ import com.example.ProyectoFinGrado.repository.ProductoRepository;
 import com.example.ProyectoFinGrado.repository.UsuarioRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dto.PedidoProductoDTO;
-import dto.ProductoDTO;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
