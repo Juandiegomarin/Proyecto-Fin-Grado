@@ -1089,6 +1089,7 @@ main#pedidos>section>.pedido-info>.list-pedidos>.unique-producto>.unique-product
     font-weight: bolder;
     color: white;
     margin-right: 2rem;
+    margin-left: 40px;
 }
 
 .contact-text>h2 {
