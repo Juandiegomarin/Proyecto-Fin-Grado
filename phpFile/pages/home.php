@@ -19,7 +19,7 @@
                     <img src="assets/img/calita.webp" class="d-block w-100" alt="Foto">
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/img/Fachada.webp" class="d-block w-100" alt="Foto">
+                    <img src="assets/img/fachada.webp" class="d-block w-100" alt="Foto">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

@@ -17,7 +17,7 @@ $response = $_GET["response"] ?? false;
 
                     <?php
                     if (isset($error_card) && $error_card) {
-                        echo "<span class='error'>Numero de tarjeta incorrecto</span>";
+                        echo "<span class='error'>Número de tarjeta incorrecto</span>";
                     }
                     ?>
 
@@ -39,7 +39,7 @@ $response = $_GET["response"] ?? false;
 
                 <?php
                 if (isset($error_cvv) && $error_cvv) {
-                    echo "<span class='error'>Numero de cvv incorrecto</span>";
+                    echo "<span class='error'>Número de cvv incorrecto</span>";
                 }
                 if (isset($error_month) && $error_month) {
                     echo "<span class='error'>Fecha de caducidad incorrecta</span>";
@@ -94,7 +94,7 @@ $response = $_GET["response"] ?? false;
         ?>
 
             <div class="alert alert-success">
-                <p><strong>Success!</strong> Pedido realizado con exito.</p>
+                <p><strong>Success!</strong> Pedido realizado con éxito.</p>
                 <p>En unos instantes tu pedido estará listo</p>
             </div>
             <script>
